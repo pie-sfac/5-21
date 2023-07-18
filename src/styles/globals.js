@@ -9,13 +9,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 400;
     margin: 0;
     padding: 0;
     width: 100%;
     min-height: 100vh;
-    font-size: 12px;
+    font-size: 14px;
 
     > div, > div > div {
       height: 100%;
@@ -33,16 +31,14 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
     padding: 0;
   }
-<<<<<<< HEAD
-=======
-  
-  @media (min-width: 1920px) {
-    html {
-      max-width: 1920px;
-      margin: 0 auto;
-    }
+
+  h2{
+    font-size: 14px;
+
   }
->>>>>>> sun
+
+ 
+  
 `;
 
 export default GlobalStyle;
