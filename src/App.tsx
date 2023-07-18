@@ -1,13 +1,17 @@
 import { useState } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+
 import './App.css';
-import './components/Button';
-import Button from './components/Button';
+import UiErrorFallback from './components/common/UiErrorFallback';
+import MyRouter from './MyRoutes';
+import GlobalStyle from './styles/globals';
 
 function App() {
     return (
-        <>
-            <Button />
-        </>
+        <ErrorBoundary FallbackComponent={UiErrorFallback}>
+            <MyRouter />
+            <GlobalStyle />
+        </ErrorBoundary>
     );
 }
 

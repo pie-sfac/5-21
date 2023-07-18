@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
 
   ${normalize}
   
@@ -33,4 +33,16 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
     padding: 0;
   }
+<<<<<<< HEAD
+=======
+  
+  @media (min-width: 1920px) {
+    html {
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+  }
+>>>>>>> sun
 `;
+
+export default GlobalStyle;
