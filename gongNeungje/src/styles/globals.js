@@ -8,16 +8,14 @@ export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-
-  html {
-    height: 100%;
-  }
   body {
-    height: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    font-size: 14px;
+    width: 100%;
+    min-height: 100vh;
+    font-size: 12px;
 
     > div, > div > div {
       height: 100%;
@@ -34,12 +32,5 @@ export const GlobalStyle = createGlobalStyle`
   ul{
     list-style: none;
     padding: 0;
-  }
-  
-  @media (min-width: 375px) {
-    html {
-      max-width: 375px;
-      margin: 0 auto;
-    }
   }
 `;
