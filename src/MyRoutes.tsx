@@ -4,16 +4,25 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
+import NavBar from './components/nav/NavBar';
+
 // 스피너 넣기!
 
-const LinkClipsPage = lazy(() => import('./pages/LinkClipsPage'));
+const LinkPage = lazy(() => import('./pages/Link'));
 
 const MyRouter = () => {
   return (
     <Suspense fallback={<div>...loading</div>}>
       <BrowserRouter>
+        <NavBar />
         <Routes>
-          <Route path="/link/clips" element={<LinkClipsPage />} />
+          <Route path="/media" element={<LinkPage />} />
+          <Route path="/employee" element={<div>직원 관리</div>} />
+          <Route path="/ticket" element={<div>ticket</div>} />
+          <Route path="/record" element={<div>record</div>} />
+          <Route path="/media" element={<div>media</div>} />
+          <Route path="/manage" element={<div>manage</div>} />
+          <Route path="/alert" element={<div>alert</div>} />
         </Routes>
       </BrowserRouter>
     </Suspense>
