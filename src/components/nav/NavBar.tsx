@@ -27,7 +27,7 @@ const LogoImg = styled.img`
   height: 25px;
 `;
 
-const MenuImg = styled.img`
+const MenuImgInput = styled.input`
   width: 30px;
   @media only screen and (min-width: 1130px) {
     display: none;
@@ -125,12 +125,11 @@ const NavBar = () => {
   () => {
     setMenuLeft(!menuLeft);
   };
-  const onClickActiveEvent = (
-    e: React.MouseEventHandler<HTMLAnchorElement>
-  ) => {
-    e.preventDefault();
+  const onClickActiveEvent = (e: any) => {
+    // const target = e.target as HTMLButtonElement;
+
     menu.map((item) => {
-      if (item.id == e.target.value) {
+      if (item.name == e.target.value) {
         setNavActive(item.id);
       }
     });
@@ -145,21 +144,18 @@ const NavBar = () => {
           <Link to="/">
             <LogoImg src={Logo} alt="logo" />
           </Link>
-          <MenuImg type="submit" src={Menu} alt="menu" />
+          <MenuImgInput type="image" src={Menu} alt="menu" />
           <GNBUl>
             {menu.map((li) => {
               return (
-                <NavbarLink
-                  type="button"
-                  to={li.path}
-                  key={li.id}
-                  onClick={onClickActiveEvent}
-                >
-                  <GNBLi
-                    value={li.id}
-                    className={li.id == navActive ? ' active' : ''}
-                  >
-                    {li.name}
+                <NavbarLink type="button" to={li.path} key={li.id}>
+                  <GNBLi>
+                    <input
+                      type="submit"
+                      value={li.name}
+                      onClick={onClickActiveEvent}
+                      className={li.id == navActive ? ' active' : ''}
+                    />
                   </GNBLi>
                 </NavbarLink>
               );

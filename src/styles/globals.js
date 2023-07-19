@@ -39,7 +39,12 @@ const GlobalStyle = createGlobalStyle`
 
   }
 
- 
+ input {
+  outline-style: none;
+  border: none;
+  background-color:transparent;
+  
+ }
   
 `;
 
