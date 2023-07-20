@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import Logo from '../../assets/logo.svg';
 import Notification from '../../assets/notifications.svg';
 import Profile from '../../assets/Profile.svg';
 import { Link } from 'react-router-dom';
-import Menu from '../../assets/menu.svg';
 // import GNBLeft from './GNBLeft';
 import { menu } from '../commonConst/NavConst.ts';
-
-// active class 적용하기
-type Props = {};
 
 const HeaderBackDiv = styled.div`
   width: 100%;
@@ -25,13 +21,6 @@ const HeaderBackDiv = styled.div`
 
 const LogoImg = styled.img`
   height: 25px;
-`;
-
-const MenuImgInput = styled.input`
-  width: 30px;
-  @media only screen and (min-width: 1130px) {
-    display: none;
-  }
 `;
 
 const MenuBarNav = styled.nav`
@@ -116,6 +105,8 @@ const LoginStatusSpan = styled.span`
 
 const NotificationImg = styled.img`
   width: 35px;
+  margin-left: 20px;
+  margin-right: 0px;
 `;
 
 const NavBar = () => {
@@ -126,16 +117,12 @@ const NavBar = () => {
     setMenuLeft(!menuLeft);
   };
   const onClickActiveEvent = (e: any) => {
-    // const target = e.target as HTMLButtonElement;
-
     menu.map((item) => {
       if (item.name == e.target.value) {
         setNavActive(item.id);
       }
     });
   };
-
-  useEffect(() => {}, []);
 
   return (
     <>
@@ -144,7 +131,7 @@ const NavBar = () => {
           <Link to="/">
             <LogoImg src={Logo} alt="logo" />
           </Link>
-          <MenuImgInput type="image" src={Menu} alt="menu" />
+
           <GNBUl>
             {menu.map((li) => {
               return (
@@ -173,7 +160,6 @@ const NavBar = () => {
         </HeaderUserInfoDiv>
         <NotificationImg src={Notification} alt="notification" />
       </HeaderBackDiv>
-      {/* {menuLeft ? <GNBLeft /> : null} */}
     </>
   );
 };
