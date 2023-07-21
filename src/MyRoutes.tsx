@@ -5,6 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import NavBar from './components/nav/NavBar';
+import Loading from './components/common/Loading';
 
 // 스피너 넣기!
 
@@ -12,7 +13,7 @@ const LinkPage = lazy(() => import('./pages/Link'));
 
 const MyRouter = () => {
   return (
-    <Suspense fallback={<div>...loading</div>}>
+    <Suspense fallback={<Loading />}>
       <BrowserRouter>
         <NavBar />
         <Routes>

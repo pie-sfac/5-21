@@ -26,6 +26,8 @@ const GlobalStyle = createGlobalStyle`
   }
   button{
     cursor: pointer;
+    border: 0;
+    background-color:transparent;
   }
 
   ul,li{

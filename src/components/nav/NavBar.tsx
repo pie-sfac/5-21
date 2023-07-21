@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { styled } from 'styled-components';
 import Logo from '../../assets/logo.svg';
 import Notification from '../../assets/notifications.svg';
