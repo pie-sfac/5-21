@@ -7,7 +7,6 @@ import Apps from '../assets/apps.svg';
 import List from '../assets/list.svg';
 import RecordImg from '../assets/recordImg.jpeg';
 import axios from 'axios';
-import Loading from '../components/common/Loading';
 
 const Link = () => {
   return (
