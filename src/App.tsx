@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
+import Login from './pages/Login'
 
 import './App.css';
 import UiErrorFallback from './components/common/UiErrorFallback';
@@ -8,10 +9,15 @@ import GlobalStyle from './styles/globals';
 
 function App() {
     return (
+        
         <ErrorBoundary FallbackComponent={UiErrorFallback}>
             <MyRouter />
+            <div>
+            <Login/>
+            </div>
             <GlobalStyle />
         </ErrorBoundary>
+        
     );
 }
 

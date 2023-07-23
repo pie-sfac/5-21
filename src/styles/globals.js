@@ -33,8 +33,6 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
     padding: 0;
   }
-<<<<<<< HEAD
-=======
   
   @media (min-width: 1920px) {
     html {
@@ -42,7 +40,6 @@ const GlobalStyle = createGlobalStyle`
       margin: 0 auto;
     }
   }
->>>>>>> sun
 `;
 
 export default GlobalStyle;
