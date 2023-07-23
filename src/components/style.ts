@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 // ============= Link =============
@@ -39,6 +39,9 @@ export const Gnb = styled.ul`
 `;
 export const GnbItem = styled.li`
     margin-right: 32px;
+    &:hover a {
+        color: #2d62ea;
+    }
 `;
 export const UserBar = styled.div`
     display: flex;
@@ -100,6 +103,102 @@ export const StyledButton = styled.button`
     &.delete {
         background-color: #fc4957;
         color: #fff;
+    }
+`;
+
+// ============= Modal =============
+export const ModalWrapper = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: rgba(40, 40, 40, 0.6);
+`;
+const ModalFade = keyframes`
+    0% {
+    transform: translate(-50%, -45%);
+  }
+    100% {
+  }
+`;
+export const Modal = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 110;
+
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.4);
+
+    animation: ${ModalFade} 0.2s linear;
+`;
+// Header
+export const ModalHeader = styled.div`
+    width: 100%;
+    padding: 14px 16px;
+    border-bottom: 1px solid #f1f3f6;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+`;
+export const ModalHeaderTitle = styled.span`
+    font-size: 16px;
+    font-weight: 600;
+`;
+export const CloseBtn = styled.button`
+    width: 24px;
+    height: 24px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+`;
+export const CloseImg = styled.img``;
+// Content
+export const ModalContent = styled.div`
+    padding: 20px;
+    text-align: center;
+`;
+export const ModalContentTitle = styled.h4`
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: inherit;
+
+    &.confirm {
+        color: inherit;
+    }
+    &.complete {
+        color: #2d62ea;
+    }
+    &.delete {
+        color: #fc4957;
+    }
+`;
+export const ModalDesc = styled.p`
+    font-size: 14px;
+    font-weight: 400;
+    word-break: keep-all;
+    line-height: 22px;
+`;
+// Footer
+export const ModalFooter = styled.div`
+    width: 100%;
+    padding: 14px 0px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #f1f3f6;
+
+    &.double > button:first-child {
+        margin-right: 8px;
     }
 `;
 
@@ -326,6 +425,7 @@ export const NextBtnIcon = styled.img`
 `;
 
 export const Pager = styled.li`
+    cursor: pointer;
     width: 32px;
     height: 32px;
     text-align: center;

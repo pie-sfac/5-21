@@ -3,7 +3,8 @@ import * as S from './Record.modules';
 // Components
 import TitleSection from '../components/TitleSection';
 import TabSection from '../components/TabSection';
-import Modal from '../components/record/CreateModal';
+import CreateModal from '../components/record/CreateModal';
+import Modal from '../components/Modal';
 
 const RecordManagement = () => {
     const [modal, setModal] = useState(false);
@@ -15,7 +16,7 @@ const RecordManagement = () => {
                 <TabSection setModal={setModal} />
             </S.RecordContent>
 
-            {modal && <Modal setModal={setModal} />}
+            {modal && <CreateModal setModal={setModal} />}
         </S.RecordWrapper>
     );
 };

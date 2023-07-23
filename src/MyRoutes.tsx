@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom';
 // Components
 import Nav from './components/Header';
+import Common from './pages/Common';
 
 const LinkClipsPage = lazy(() => import('./pages/LinkClipsPage'));
 const Record = lazy(() => import('./pages/Record'));
@@ -12,6 +13,9 @@ const MyRouter = () => {
             <BrowserRouter>
                 <Nav />
                 <Routes>
+                    {/* ✨ 공통 컴포넌트 페이지입니다. */}
+                    <Route path='/common' element={<Common />} />
+
                     <Route path='/link/clips' element={<LinkClipsPage />} />
                     <Route path='/record' element={<Record />} />
                     <Route path='/record/create' element={<div>생성 페이지입니다.</div>} />

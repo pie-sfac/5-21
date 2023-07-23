@@ -1,15 +1,15 @@
 import { StyledButton } from './style';
 interface Button {
-    type: string;
+    type?: string;
     text: string;
     onClick: () => void;
 }
 
 const Button = ({ text, type, onClick }: Button) => {
-    const btnType = ['secondary', 'delete'].includes(type) ? type : '';
+    // const btnType = ['secondary', 'delete'].includes(type) ? type : '';
 
     return (
-        <StyledButton className={btnType} onClick={onClick}>
+        <StyledButton className={type} onClick={onClick}>
             {text}
         </StyledButton>
     );
