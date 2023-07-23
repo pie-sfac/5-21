@@ -121,13 +121,20 @@ export const breadcrumb = styled.ul`
 `;
 export const breadcrumbItem = styled.li`
     margin-right: 4px;
+
     & > a {
         color: #999;
         font-size: 12px;
         font-weight: 400;
     }
 `;
-export const breadcrumbArrow = styled.img``;
+export const breadcrumbArrow = styled.img`
+    opacity: 0;
+    vertical-align: middle;
+    &.show {
+        opacity: 1;
+    }
+`;
 export const TitleWrapper = styled.div`
     display: flex;
 `;
@@ -275,9 +282,49 @@ export const ListViewIcon = styled.img`
 
 // ============= Pagination =============
 export const Pagination = styled.ul`
+    position: relative;
     display: flex;
     flex-direction: row;
 `;
+export const BackBtn = styled.button`
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: #eaedf9;
+    margin-right: 8px;
+    outline: none;
+    border: none;
+    &:focus,
+    &:hover {
+        background-color: #d0dbff;
+    }
+    &.disabled {
+        background: #d1d6e4;
+    }
+`;
+export const BackBtnIcon = styled.img`
+    vertical-align: middle;
+`;
+export const NextBtn = styled.button`
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: #eaedf9;
+    margin-right: 8px;
+    outline: none;
+    border: none;
+    &:focus,
+    &:hover {
+        background-color: #d0dbff;
+    }
+    &.disabled {
+        background: #d1d6e4;
+    }
+`;
+export const NextBtnIcon = styled.img`
+    vertical-align: middle;
+`;
+
 export const Pager = styled.li`
     width: 32px;
     height: 32px;
@@ -287,4 +334,8 @@ export const Pager = styled.li`
     outline: none;
     background-color: #eaedf9;
     margin-right: 8px;
+    &.active {
+        background-color: #2d62ea;
+        color: #fff;
+    }
 `;

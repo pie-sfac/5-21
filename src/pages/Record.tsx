@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import * as S from './Record.modules';
 // Components
-import Header from '../components/Header';
 import TitleSection from '../components/TitleSection';
 import TabSection from '../components/TabSection';
 import Modal from '../components/record/CreateModal';
@@ -11,9 +10,8 @@ const RecordManagement = () => {
 
     return (
         <S.RecordWrapper>
-            <Header />
             <S.RecordContent>
-                <TitleSection />
+                <TitleSection depth01={'기록 관리'} depth02={''} depth03={''} />
                 <TabSection setModal={setModal} />
             </S.RecordContent>
 

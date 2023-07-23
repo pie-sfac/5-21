@@ -174,7 +174,7 @@ export const Category = styled.li`
 
     &:hover {
         border: 1px solid #275cf5;
-        background: #f9faff;
+        background: #edf2ff;
         box-shadow: 0px 4px 10px 0px #e7e9f2;
     }
     &:hover > div:first-child {
