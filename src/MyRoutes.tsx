@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom';
-import NavBar from './components/nav/NavBar';
+import Nav from './components/header';
 import Loading from './components/common/Loading';
 
 // 스피너 넣기!
@@ -12,7 +12,7 @@ const MyRouter = () => {
     return (
         <Suspense fallback={<Loading />}>
             <BrowserRouter>
-                <NavBar />
+                <Nav />
                 <Routes>
                     <Route path='/media' element={<LinkPage />} />
                     <Route path='/employee' element={<div>직원 관리</div>} />

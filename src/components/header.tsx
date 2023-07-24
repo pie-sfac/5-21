@@ -1,6 +1,7 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import * as S from './style';
 import { Link } from 'react-router-dom';
+import { menu } from '../components/commonConst/NavConst';
 // img
 import logo from '../assets/Logo.svg';
 import profile from '../assets/Profile.svg';
@@ -8,33 +9,27 @@ import alarm from '../assets/notifications.svg';
 
 type Props = {};
 
-const header = (props: Props) => {
+const Header = (props: Props) => {
+    const [isActive, setIsActive] = useState(0);
+
     return (
         <S.Header>
             <S.NavBar>
                 <S.LogoImg src={logo} alt='logo-img' />
                 <S.Gnb>
-                    <S.GnbItem>
-                        <S.StyleLink to='/'>직원 관리</S.StyleLink>
-                    </S.GnbItem>
-                    <S.GnbItem>
-                        <S.StyleLink to='/'>수강권 관리</S.StyleLink>
-                    </S.GnbItem>
-                    <S.GnbItem>
-                        <S.StyleLink to='/record'>기록 관리</S.StyleLink>
-                    </S.GnbItem>
-                    <S.GnbItem>
-                        <S.StyleLink to='/link/clips'>미디어 관리</S.StyleLink>
-                    </S.GnbItem>
-                    <S.GnbItem>
-                        <S.StyleLink to='/'>운영 데이터</S.StyleLink>
-                    </S.GnbItem>
-                    <S.GnbItem>
-                        <S.StyleLink to='/'>알림메시지</S.StyleLink>
-                    </S.GnbItem>
-                    <S.GnbItem>
-                        <S.StyleLink to='/'>센터 정보</S.StyleLink>
-                    </S.GnbItem>
+                    {menu.map((item) => (
+                        <S.GnbItem key={item.id}>
+                            <S.StyleLink
+                                className={item.id === isActive ? 'active' : ''}
+                                onClick={() => {
+                                    setIsActive(item.id);
+                                }}
+                                to={item.path}
+                            >
+                                {item.name}
+                            </S.StyleLink>
+                        </S.GnbItem>
+                    ))}
                 </S.Gnb>
             </S.NavBar>
             <S.UserBar>
@@ -53,4 +48,4 @@ const header = (props: Props) => {
     );
 };
 
-export default header;
+export default Header;
