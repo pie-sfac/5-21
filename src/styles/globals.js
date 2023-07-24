@@ -7,6 +7,8 @@ const GlobalStyle = createGlobalStyle`
   ${normalize}
   
   * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
   }
   body {
@@ -15,6 +17,8 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     min-height: 100vh;
     font-size: 14px;
+    font-size: 14px;
+    color: #1d1d1d;
 
     > div, > div > div {
       height: 100%;
