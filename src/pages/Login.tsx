@@ -1,5 +1,63 @@
 import React from 'react';
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+
+
+export default function Login(){
+
+    
+    const goFind = () => {
+        return console.log(1);
+    }
+    
+    return(
+        <>
+        <Container>
+
+            <Head>Poin T</Head>
+            <Middle>
+                <Tab>
+                    <Tab1>
+                        <AdminText>
+                        관리자 로그인
+                        </AdminText>
+                    </Tab1>
+                    <Tab2>
+                        <EmpText>
+                        직원 로그인
+                        </EmpText>
+                    </Tab2>
+                </Tab>
+            <Id>
+                <IdText>아이디</IdText>
+                <IdInput></IdInput>
+
+            </Id>
+            <Password>
+                <PasswordText>비밀번호</PasswordText>
+                <PasswordInput></PasswordInput>
+            </Password>
+           
+        </Middle>
+
+        <Find onClick = {goFind}>
+        아이디 찾기 / 비밀번호 찾기
+        </Find>
+        <End>
+            <EndFront>
+            <Text>포인티 계정이 없으세요?</Text>
+            <Rec></Rec>
+            <Sign>회원가입</Sign>
+            </EndFront>
+            <LoginButton>
+                <LoginText>로그인</LoginText>
+            </LoginButton>
+        </End>
+        </Container>
+        </>
+    )
+    
+}
 
 
 
@@ -113,6 +171,12 @@ font-weight: 400;
 line-height: 270%; /* 20.16px */
 
 margin-right : 400px;
+
+&:hover{  
+    color: var(--primary-primary-300, #6691FF);
+  }
+
+
 
 `
 
@@ -241,56 +305,3 @@ font-style: normal;
 font-weight: 400;
 line-height: 270%; /* 20.16px */
 `
-
-
-
-export default function Login(){
-    
-    return(
-        <>
-        <Container>
-
-            <Head>Poin T</Head>
-            <Middle>
-                <Tab>
-                    <Tab1>
-                        <AdminText>
-                        관리자 로그인
-                        </AdminText>
-                    </Tab1>
-                    <Tab2>
-                        <EmpText>
-                        직원 로그인
-                        </EmpText>
-                    </Tab2>
-                </Tab>
-            <Id>
-                <IdText>아이디</IdText>
-                <IdInput></IdInput>
-
-            </Id>
-            <Password>
-                <PasswordText>비밀번호</PasswordText>
-                <PasswordInput></PasswordInput>
-            </Password>
-           
-        </Middle>
-
-        <Find>
-        아이디 찾기 / 비밀번호 찾기
-        </Find>
-        <End>
-            <EndFront>
-            <Text>포인티 계정이 없으세요?</Text>
-            <Rec></Rec>
-            <Sign>회원가입</Sign>
-            </EndFront>
-            <LoginButton>
-                <LoginText>로그인</LoginText>
-            </LoginButton>
-        </End>
-        </Container>
-        </>
-    )
-    
-}
