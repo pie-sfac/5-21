@@ -21,7 +21,7 @@ const header = (props: Props) => {
                         <S.StyleLink to='/'>수강권 관리</S.StyleLink>
                     </S.GnbItem>
                     <S.GnbItem>
-                        <S.StyleLink to='/record/templates'>기록 관리</S.StyleLink>
+                        <S.StyleLink to='/record'>기록 관리</S.StyleLink>
                     </S.GnbItem>
                     <S.GnbItem>
                         <S.StyleLink to='/link/clips'>미디어 관리</S.StyleLink>

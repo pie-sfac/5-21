@@ -3,13 +3,13 @@ import * as S from './style';
 import arrowIcon from '../assets/icon-breadcrumb-arrow.svg';
 import settingIcon from '../assets/icon-setting.svg';
 
-interface Title {
-    depth01?: string | boolean;
-    depth02?: string | boolean;
-    depth03?: string | boolean;
+interface TitleProps {
+    depth01?: string | undefined;
+    depth02?: string | undefined;
+    depth03?: string | undefined;
 }
 
-const TitleSection = ({ depth01, depth02, depth03 }: Title) => {
+const TitleSection = ({ depth01, depth02, depth03 }: TitleProps) => {
     const lastDepth = depth03 || depth02 || depth01;
 
     return (

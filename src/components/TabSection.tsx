@@ -6,7 +6,7 @@ import Pagination from './Pagination';
 import CategoryItem from './record/CategoryItem';
 import ViewOption from './ViewOption';
 
-interface TabItem {
+interface TabItemProps {
     id: number;
     title: string;
     content: string;
@@ -19,7 +19,7 @@ interface CreateModalProps {
 const Tab = ({ setModal }: CreateModalProps) => {
     const [isActiveTab, setIsActiveTab] = useState<number>(0);
 
-    const TabArr: TabItem[] = [
+    const TabArr: TabItemProps[] = [
         { id: 0, title: '전체 보기', content: 'Tab menu 0' },
         { id: 1, title: '문진', content: 'Tab menu 1' },
         { id: 2, title: '처치', content: 'Tab menu 2' },
