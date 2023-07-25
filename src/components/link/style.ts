@@ -38,7 +38,7 @@ export const TabButton = styled.button`
     height: 2px;
     background-color: #2d62ea;
     position: absolute;
-    top: 19%;
+    top: 17.5%;
     /* left: 50%; */
     /* transform: translateX(-50%); */
   }

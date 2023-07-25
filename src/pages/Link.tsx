@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { styled } from 'styled-components';
+import { useState } from 'react';
 import TitleSection from '../components/TitleSection';
 import { menu } from '../components/commonConst/NavConst';
 import * as S from './Link.modules';
@@ -10,7 +9,6 @@ import Button from '../components/Button';
 import { LinkTab } from '../components/link/LinkTab';
 
 const Link = () => {
-  // const [modal, setModal] = useState(false);
   const content = [<LinkItem />, '내용1', '내용2'];
   const [isActiveTab, setIsActiveTab] = useState<number>(0);
 
