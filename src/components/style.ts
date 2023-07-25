@@ -260,8 +260,8 @@ export const TabWrapper = styled.ul`
     padding: 0 56px;
     display: flex;
 `;
-export const Tab = styled.li`
-    cursor: pointer;
+export const Tab = styled.li``;
+export const TabItem = styled.button`
     width: 80px;
     height: 40px;
     text-align: center;
@@ -284,6 +284,7 @@ export const Tab = styled.li`
 `;
 
 // ============= TabContent =============
+export const TabContentWrapper = styled.div``;
 export const TabContent = styled.div`
     width: 100%;
     height: calc(100vh - 186px);
@@ -319,7 +320,7 @@ export const CategoryContent = styled.div`
     &.grid {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        /* grid-template-rows: repeat(2, 1fr); */
         grid-gap: 20px;
     }
 `;

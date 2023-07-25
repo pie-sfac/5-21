@@ -11,7 +11,7 @@ export const CategoryItem = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 48px 40px;
+    padding: 40px 40px;
 
     border-radius: 10px;
     background: #fff;
@@ -87,6 +87,11 @@ export const ItemDesc = styled.p`
     overflow: hidden;
     word-break: keep-all;
     text-overflow: ellipsis;
+`;
+export const ItemDate = styled.p`
+    color: #9999;
+    font-size: 12px;
+    margin-top: 10px;
 `;
 
 // ============= CreateModal =============
