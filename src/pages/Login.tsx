@@ -8,6 +8,7 @@ export default function Login(){
     const [id,setId] = useState<string>('');
     const [password,setPassword] = useState<string>('');
 
+
     
     const onChangeId = (e) => {
         setId(e.target.value)
@@ -21,9 +22,9 @@ export default function Login(){
     
     const validCheck = () => {
         if(id === 'leg1770@naver.com' && password === '123456ab'){
-            return console.log('로그인 성공')
+            console.log('로그인 성공')
         }
-        else return console.log('로그인 실패')
+        
     }
 
     return(

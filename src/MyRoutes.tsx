@@ -1,15 +1,27 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense,useState } from 'react';
 import { BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/header';
 import Loading from './components/common/Loading';
+import Login from './pages/Login'
 
 // 스피너 넣기!
 
 const LinkPage = lazy(() => import('./pages/Link'));
 const Record = lazy(() => import('./pages/Record'));
 
+
+
 const MyRouter = () => {
+
+  const [check,setCheck] = useState<boolean>(true);
+
+
     return (
+        
+        check? (
+        <Login ></Login>)
+        :
+        (
         <Suspense fallback={<Loading />}>
             <BrowserRouter>
                 <Nav />
@@ -27,6 +39,7 @@ const MyRouter = () => {
                 </Routes>
             </BrowserRouter>
         </Suspense>
+        )
     );
 };
 
