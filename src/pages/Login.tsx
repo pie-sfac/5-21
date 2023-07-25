@@ -1,15 +1,31 @@
-import React from 'react';
+import { useState } from 'react';
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+
 
 
 export default function Login(){
 
+    const [id,setId] = useState<string>('');
+    const [password,setPassword] = useState<string>('');
+
     
-    const goFind = () => {
-        return console.log(1);
+    const onChangeId = (e) => {
+        setId(e.target.value)
+        console.log(id);
+    }
+
+    const onChangePassword = (e) => {
+        setPassword(e.target.value)
+        
     }
     
+    const validCheck = () => {
+        if(id === 'leg1770@naver.com' && password === '123456ab'){
+            return console.log('로그인 성공')
+        }
+        else return console.log('로그인 실패')
+    }
+
     return(
         <>
         <Container>
@@ -30,17 +46,17 @@ export default function Login(){
                 </Tab>
             <Id>
                 <IdText>아이디</IdText>
-                <IdInput></IdInput>
+                <IdInput onChange = {onChangeId}></IdInput>
 
             </Id>
             <Password>
                 <PasswordText>비밀번호</PasswordText>
-                <PasswordInput></PasswordInput>
+                <PasswordInput onChange = {onChangePassword} ></PasswordInput>
             </Password>
            
         </Middle>
 
-        <Find onClick = {goFind}>
+        <Find>
         아이디 찾기 / 비밀번호 찾기
         </Find>
         <End>
@@ -49,7 +65,7 @@ export default function Login(){
             <Rec></Rec>
             <Sign>회원가입</Sign>
             </EndFront>
-            <LoginButton>
+            <LoginButton onClick = {validCheck}>
                 <LoginText>로그인</LoginText>
             </LoginButton>
         </End>
@@ -144,7 +160,9 @@ font-style: normal;
 font-weight: 400;
 line-height: 270%; /* 20.16px */
 `
-export const PasswordInput = styled.input`
+export const PasswordInput = styled.input.attrs({
+    type : 'password'
+})`
 display: flex;
 padding: 15px 30.048px;
 justify-content: center;
@@ -285,6 +303,11 @@ gap: 18.75px;
 border-radius: 7.5px;
 background: var(--bg-bg-100, #F4F4F4);
 
+&:hover{ 
+    background-color : var(--primary-primary-300, #6691FF)
+    
+  }
+
 `
 
 export const LoginText = styled.span`
@@ -294,6 +317,7 @@ font-size: 30px;
 font-style: normal;
 font-weight: 400;
 line-height: 270%; /* 23.04px */
+
 `
 
 export const Sign = styled.span`
@@ -304,4 +328,7 @@ font-size: 26.25px;
 font-style: normal;
 font-weight: 400;
 line-height: 270%; /* 20.16px */
+&:hover{  
+    color: var(--primary-primary-300, #6691FF);
+  }
 `

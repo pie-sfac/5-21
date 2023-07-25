@@ -15,7 +15,7 @@ function App() {
         <ErrorBoundary FallbackComponent={UiErrorFallback}>
             <MyRouter />
             <div>
-            <Find/>
+            <Login/>
             </div>
             <GlobalStyle />
         </ErrorBoundary>
