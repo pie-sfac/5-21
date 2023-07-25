@@ -6,7 +6,7 @@ class Storage {
   static setTokenItem(token: string) {
     sessionStorage.setItem(USER_TOKEN, token);
   }
-  static setRefreshTokenImte(refreshToken: string) {
+  static setRefreshTokenItem(refreshToken: string) {
     sessionStorage.setItem(REFRESG_TOKEN, refreshToken);
   }
   static getTokenItem() {

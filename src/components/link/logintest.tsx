@@ -4,6 +4,7 @@ import { UserName } from '../style';
 import Storage from '../../storage/storage';
 import { axiosInstance } from '../../utils/axiosInstance';
 import axios from 'axios';
+import * as Api from '../../api.ts';
 
 type UserData = {
   username: string;
@@ -12,25 +13,16 @@ type UserData = {
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
+type UserToken = {
+  accessToken: string;
+  refreshToken: string;
+  message: string;
+};
+
 const Logintest = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  // const fetchUsers = async () => {
-  //   try {
-  //     const response = await axios
-  //       .post(BASE_URL + '/api/v1/admins/login', {
-  //         username,
-  //         password,
-  //       })
-  //       .then((res) => {
-  //         console.log(res);
-  //       });
-  //     return response;
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
+  const [userToken, setUserToken] = useState<UserToken>();
 
   return (
     <div>
@@ -55,9 +47,21 @@ const Logintest = () => {
           onClick={async (e: any) => {
             e.preventDefault();
 
-            // fetchUsers();
-            authLoginRequest(username, password);
-            Storage.setTokenItem('token');
+            const data = { username, password };
+            const base64Credentials = btoa(`${data.username}:${data.password}`);
+            axios
+              .post(`${BASE_URL}/api/v1/admins/login`, data, {
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: `Basic ${base64Credentials}`,
+                },
+              })
+              .then((res) => setUserToken(res.data));
+            console.log(userToken);
+            const AccessToken = userToken?.accessToken;
+            const RefreshToken = userToken?.refreshToken;
+            AccessToken && Storage.setTokenItem(AccessToken);
+            RefreshToken && Storage.setRefreshTokenItem(RefreshToken);
           }}
           type="submit"
         >
