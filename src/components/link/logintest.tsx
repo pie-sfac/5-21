@@ -6,11 +6,6 @@ import { axiosInstance } from '../../utils/axiosInstance';
 import axios from 'axios';
 import * as Api from '../../api.ts';
 
-type UserData = {
-  username: string;
-  password: string;
-};
-
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 type UserToken = {
@@ -57,7 +52,7 @@ const Logintest = () => {
                 },
               })
               .then((res) => setUserToken(res.data));
-            console.log(userToken);
+
             const AccessToken = userToken?.accessToken;
             const RefreshToken = userToken?.refreshToken;
             AccessToken && Storage.setTokenItem(AccessToken);

@@ -3,11 +3,10 @@
     "target": "ES6",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "CommonJS",
+    "module": "es2020",
     "skipLibCheck": true,
 
     /* Bundler mode */
-    // "module": "es2020",
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
