@@ -221,3 +221,73 @@ export const ModalFooter = styled.div`
     justify-content: center;
     border-top: 1px solid #f1f3f6;
 `;
+
+// ============= FixedMenuItem =============
+export const FixedMenuItem = styled.div`
+    cursor: pointer;
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0px 2px 10px 0px rgba(231, 233, 242, 0.7);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    transition: all ease-in-out 0.2s;
+
+    &:hover {
+        border-radius: 10px;
+        border: 1px solid #275cf5;
+        background: #f3f7ff;
+        box-shadow: 0px 4px 10px 0px #e7e9f2;
+    }
+    &:hover > div:first-child,
+    &:hover > div:last-child {
+        background-color: #d6e2ff;
+    }
+    &.professional > div:last-child {
+        background: #e6f9ea;
+        color: #1fb881;
+    }
+    &.professional:hover > div:last-child {
+        background: #d1f4d8;
+    }
+`;
+export const FixedItemImgBox = styled.div`
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ebf1ff;
+    transition: all ease-in-out 0.2s;
+`;
+export const FixedItemImg = styled.img``;
+export const ItemTitleWrapper = styled.div`
+    padding-left: 12px;
+`;
+export const FixedItemTitle = styled.div`
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+`;
+export const FixedItemDesc = styled.div`
+    font-weight: 400;
+    color: #505050;
+`;
+export const FixedItemLabel = styled.div`
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 8px;
+    border-radius: 100px;
+    background: #ebf1ff;
+    font-size: 12px;
+    font-weight: 400;
+    color: #6691ff;
+    transition: all ease-in-out 0.2s;
+`;

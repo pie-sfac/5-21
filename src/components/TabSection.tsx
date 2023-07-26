@@ -6,19 +6,13 @@ import Button from './Button';
 import Pagination from './Pagination';
 import CategoryItem from './record/CategoryItem';
 import ViewOption from './ViewOption';
-
-interface TabItemProps {
-    id: number;
-    value: string;
-    content: any;
-}
+import TabMenu from './TabMenu';
 
 interface CreateModalProps {
     setModal: (value: boolean) => void;
 }
 
-// 🔥🔥🔥🔥🔥🔥🔥 Tab, TabContent 🔥🔥🔥🔥🔥🔥🔥
-const Tab = ({ setModal }: CreateModalProps) => {
+const TabSection = ({ setModal }: CreateModalProps) => {
     const RecordList = useContext(RecordStateContext);
 
     const [isActiveTab, setIsActiveTab] = useState<number>(0);
@@ -29,7 +23,7 @@ const Tab = ({ setModal }: CreateModalProps) => {
         { value: 'oldest', name: '오래된순' },
     ];
 
-    const TabArr: TabItemProps[] = [
+    const TabArr = [
         { id: 0, value: '전체 보기', content: 'Tab menu 0' },
         { id: 1, value: '문진', content: 'Tab menu 1' },
         { id: 2, value: '처치', content: 'Tab menu 2' },
@@ -69,21 +63,8 @@ const Tab = ({ setModal }: CreateModalProps) => {
     return (
         <S.TabSection>
             <S.TabWrapper>
-                <S.Tab>
-                    {TabArr.map((item) => (
-                        <S.TabItem
-                            key={item.id}
-                            className={item.id === isActiveTab ? 'active' : ''}
-                            onClick={() => {
-                                handleTab(item.id);
-                            }}
-                        >
-                            {item.value}
-                        </S.TabItem>
-                    ))}
-                </S.Tab>
+                <TabMenu TabArr={TabArr} isActiveTab={isActiveTab} onClick={handleTab} />
             </S.TabWrapper>
-
             <S.TabContent>
                 <S.CategoryHeader>
                     <S.CategoryTitleWrapper>
@@ -105,4 +86,4 @@ const Tab = ({ setModal }: CreateModalProps) => {
     );
 };
 
-export default Tab;
+export default TabSection;

@@ -207,6 +207,7 @@ export const TitleSection = styled.div`
     width: 100%;
     height: 96px;
     padding: 24px 72px;
+    background-color: #fff;
 `;
 export const breadcrumb = styled.ul`
     display: flex;
