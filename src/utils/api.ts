@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Storage from './storage/storage';
+import Storage from '../storage/storage';
 // import jwt from 'jsonwebtoken';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;

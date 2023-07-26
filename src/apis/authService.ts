@@ -1,4 +1,4 @@
-import * as Api from '../api.ts';
+import * as Api from '../utils/api.ts';
 
 type LoginData = {
   username: string;
