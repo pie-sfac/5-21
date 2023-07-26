@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { authLoginRequest } from '../../apis/authService';
-import { UserName } from '../style';
+// import { UserName } from '../style';
 import Storage from '../../storage/storage';
-import { axiosInstance } from '../../utils/axiosInstance';
-import axios from 'axios';
-import * as Api from '../../api.ts';
+
+import { loginApi } from '../../apis/authService';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -39,19 +37,14 @@ const Logintest = () => {
           }}
         />
         <button
-          onClick={async (e: any) => {
+          onClick={(e: any) => {
             e.preventDefault();
 
             const data = { username, password };
-            const base64Credentials = btoa(`${data.username}:${data.password}`);
-            axios
-              .post(`${BASE_URL}/api/v1/admins/login`, data, {
-                headers: {
-                  'Content-Type': 'application/json',
-                  Authorization: `Basic ${base64Credentials}`,
-                },
-              })
-              .then((res) => setUserToken(res.data));
+            loginApi(data).then((res) => {
+              console.log(res);
+              return setUserToken(res.data);
+            });
 
             const AccessToken = userToken?.accessToken;
             const RefreshToken = userToken?.refreshToken;

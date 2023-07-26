@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as S from './style';
 import RecordImg from '../../assets/recordImg.jpeg';
+import { getArchiveLinks } from '../../apis/authService';
 
 const LinkItem = () => {
+  useEffect(() => {
+    getArchiveLinks();
+  }, []);
   return (
     <S.LinkItemWrapper>
       <S.LinkImg src={RecordImg} alt="" />
