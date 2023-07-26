@@ -41,15 +41,7 @@ const Logintest = () => {
             e.preventDefault();
 
             const data = { username, password };
-            loginApi(data).then((res) => {
-              console.log(res);
-              return setUserToken(res.data);
-            });
-
-            const AccessToken = userToken?.accessToken;
-            const RefreshToken = userToken?.refreshToken;
-            AccessToken && Storage.setTokenItem(AccessToken);
-            RefreshToken && Storage.setRefreshTokenItem(RefreshToken);
+            loginApi(data);
           }}
           type="submit"
         >

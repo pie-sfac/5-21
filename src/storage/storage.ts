@@ -1,5 +1,5 @@
 const USER_TOKEN = 'userToken';
-const REFRESG_TOKEN = 'refreshToken';
+const REFRESH_TOKEN = 'refreshToken';
 // const USERNAME 'username',
 
 class Storage {
@@ -7,13 +7,13 @@ class Storage {
     sessionStorage.setItem(USER_TOKEN, token);
   }
   static setRefreshTokenItem(refreshToken: string) {
-    sessionStorage.setItem(REFRESG_TOKEN, refreshToken);
+    sessionStorage.setItem(REFRESH_TOKEN, refreshToken);
   }
   static getTokenItem() {
     return sessionStorage.getItem(USER_TOKEN);
   }
   static getRefreshTokenItem() {
-    return sessionStorage.getItem(REFRESG_TOKEN);
+    return sessionStorage.getItem(REFRESH_TOKEN);
   }
   static clearItemAll() {
     sessionStorage.clear();

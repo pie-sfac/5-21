@@ -1,11 +1,32 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import * as S from './style';
 import RecordImg from '../../assets/recordImg.jpeg';
-import { getArchiveLinks } from '../../apis/authService';
+import { getArchiveLinks } from '../../apis/LinkService';
+
+// {
+//     "archiveLinks": [
+//       {
+//         "id": 0,
+//         "centerId": 0,
+//         "category": {
+//           "id": 0,
+//           "title": "string",
+//           "description": "string"
+//         },
+//         "site": "UNKNOWN",
+//         "url": "string",
+//         "title": "string",
+//         "description": "string",
+//         "createdAt": "2023-07-26T02:52:50.272Z",
+//         "updatedAt": "2023-07-26T02:52:50.272Z"
+//       }
+//     ],
+//     "message": "string"
+//   }
 
 const LinkItem = () => {
   useEffect(() => {
-    getArchiveLinks();
+    getArchiveLinks().then((res) => console.log(res.data));
   }, []);
   return (
     <S.LinkItemWrapper>
