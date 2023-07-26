@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import Login from './pages/Login'
 import Find from './pages/Find'
@@ -10,6 +9,7 @@ import GlobalStyle from './styles/globals';
 
 
 function App() {
+<<<<<<< HEAD
     return (
         
         <ErrorBoundary FallbackComponent={UiErrorFallback}>
@@ -18,6 +18,16 @@ function App() {
         </ErrorBoundary>
         
     );
+=======
+  //   useEffect(() => {
+
+  return (
+    <ErrorBoundary FallbackComponent={UiErrorFallback}>
+      <MyRouter />
+      <GlobalStyle />
+    </ErrorBoundary>
+  );
+>>>>>>> sun
 }
 
 export default App;
