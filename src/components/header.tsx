@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import * as S from './style';
-import { Link } from 'react-router-dom';
 import { menu } from '../components/commonConst/NavConst';
 // img
 import logo from '../assets/Logo.svg';
 import profile from '../assets/Profile.svg';
 import alarm from '../assets/notifications.svg';
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
     const [isActive, setIsActive] = useState(0);
 
     return (

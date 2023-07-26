@@ -2,6 +2,7 @@ import React, { useState, useReducer, useRef } from 'react';
 import * as S from './Record.modules';
 // data(✨ API 연결 전 가상 데이터)
 import { dummyArr } from '../components/commonConst/dummyItem';
+import { getRecordTemplates } from '../apis/RecordService';
 // Components
 import TitleSection from '../components/TitleSection';
 import TabSection from '../components/TabSection';
