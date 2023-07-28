@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import Loading from './components/common/Loading';
 // import Logintest from './components/link/logintest';
-import Login from './pages/Login';
 
 // 스피너 넣기!
 const Login = lazy(() => import('./pages/Login'));

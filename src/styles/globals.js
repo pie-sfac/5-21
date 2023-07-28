@@ -42,6 +42,7 @@ const GlobalStyle = createGlobalStyle`
 
  input {
   outline-style: none;
+  outline: none;
  }
 `;
 

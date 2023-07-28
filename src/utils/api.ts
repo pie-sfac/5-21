@@ -1,14 +1,14 @@
 import axios from 'axios';
 import Storage from '../storage/Session';
-import LocalStorage from '../storage/local';
+import LocalStorage from '../storage/Local';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const serverUrl = BASE_URL + '/api/v1' + '/';
 
 type LoginData = {
-    username: string;
-    password: string;
+  username: string;
+  password: string;
 };
 
 // 토큰 검증, 401 에러 발생하면 토큰 재발행 요청
@@ -20,35 +20,35 @@ const token = async () => {
   // const result = JSON.parse(payload.toString());
   // console.log(result);
 
-    await axios
-        .post(serverUrl + 'tokens', refresh, {
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: 'Bearer' + ' ' + refresh,
-            },
-        })
-        .then((res) => {
-            Storage.clearItemAll();
-            Storage.setRefreshTokenItem(res.data.refreshToken);
-            Storage.setTokenItem(res.data.accessToken);
-        });
+  await axios
+    .post(serverUrl + 'tokens', refresh, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer' + ' ' + refresh,
+      },
+    })
+    .then((res) => {
+      Storage.clearItemAll();
+      Storage.setRefreshTokenItem(res.data.refreshToken);
+      Storage.setTokenItem(res.data.accessToken);
+    });
 };
 
 const get = async (endpoint: string) => {
-    try {
-        console.log(`%cGET 요청 ${serverUrl + endpoint}`, 'color: #a25cd1;');
-        // console.log('Bearer' + ' ' + Storage.getTokenItem());
-        return await axios.get(serverUrl + endpoint, {
-            // JWT 토큰을 헤더에 담아 백엔드 서버에 보냄.
-            headers: {
-                Authorization: 'Bearer' + ' ' + Storage.getTokenItem(),
-            },
-        });
-    } catch (error: any) {
-        if (error.response.status == 401) {
-            token();
-        }
+  try {
+    console.log(`%cGET 요청 ${serverUrl + endpoint}`, 'color: #a25cd1;');
+    // console.log('Bearer' + ' ' + Storage.getTokenItem());
+    return await axios.get(serverUrl + endpoint, {
+      // JWT 토큰을 헤더에 담아 백엔드 서버에 보냄.
+      headers: {
+        Authorization: 'Bearer' + ' ' + Storage.getTokenItem(),
+      },
+    });
+  } catch (error: any) {
+    if (error.response.status == 401) {
+      token();
     }
+  }
 };
 // 로그인 및 토큰 저장하기
 const login = async (endpoint: string, data: LoginData) => {
@@ -98,11 +98,11 @@ const logout = async (endpoint: string) => {
 };
 
 const post = async (endpoint: string, data: {}) => {
-    // JSON.stringify 함수: Javascript 객체를 JSON 형태로 변환함.
-    const bodyData = JSON.stringify(data);
+  // JSON.stringify 함수: Javascript 객체를 JSON 형태로 변환함.
+  const bodyData = JSON.stringify(data);
 
-    console.log(`%cPOST 요청: ${serverUrl + endpoint}`, 'color: #296aba;');
-    console.log(`%cPOST 요청 데이터: ${bodyData}`, 'color: #296aba;');
+  console.log(`%cPOST 요청: ${serverUrl + endpoint}`, 'color: #296aba;');
+  console.log(`%cPOST 요청 데이터: ${bodyData}`, 'color: #296aba;');
 
   return await axios.post(serverUrl + endpoint, bodyData, {
     headers: {
@@ -113,11 +113,11 @@ const post = async (endpoint: string, data: {}) => {
 };
 
 const put = async (endpoint: string, data: {}) => {
-    try {
-        // JSON.stringify 함수: Javascript 객체를 JSON 형태로 변환함.
-        const bodyData = JSON.stringify(data);
-        console.log(`%cPUT 요청: ${serverUrl + endpoint}`, 'color: #059c4b;');
-        console.log(`%cPUT 요청 데이터: ${bodyData}`, 'color: #059c4b;');
+  try {
+    // JSON.stringify 함수: Javascript 객체를 JSON 형태로 변환함.
+    const bodyData = JSON.stringify(data);
+    console.log(`%cPUT 요청: ${serverUrl + endpoint}`, 'color: #059c4b;');
+    console.log(`%cPUT 요청 데이터: ${bodyData}`, 'color: #059c4b;');
 
     return await axios.put(serverUrl + endpoint, bodyData, {
       headers: {
@@ -129,6 +129,7 @@ const put = async (endpoint: string, data: {}) => {
     if (error.response.status == 401) {
       token();
     }
+  }
 };
 
 const del = async (endpoint: string, params = '') => {
@@ -143,6 +144,7 @@ const del = async (endpoint: string, params = '') => {
     if (error.response.status == 401) {
       token();
     }
+  }
 };
 
 // 아래처럼 export한 후, import * as Api 방식으로 가져오면,

@@ -48,6 +48,7 @@ export const idInput = styled.input`
   width: 100%;
   height: 100%;
   background-color: transparent;
+  border: none;
   padding-left: 8px;
   &::placeholder {
     color: #bdccd8;
@@ -90,6 +91,7 @@ export const PasswordInput = styled.input`
   width: 100%;
   height: 100%;
   background-color: transparent;
+  border: none;
   padding-left: 8px;
   &::placeholder {
     color: #bdccd8;
@@ -167,6 +169,7 @@ export const codeInput = styled.input`
   width: 100%;
   height: 100%;
   background-color: transparent;
+  border: none;
   padding-left: 8px;
   &::placeholder {
     color: #bdccd8;

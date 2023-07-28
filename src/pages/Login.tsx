@@ -40,7 +40,7 @@ const Login: React.FC = () => {
               </S.TabItem>
             ))}
           </S.Tab>
-          {isActiveTab ? <LoginEmployeeForm /> : <LoginAdminForm />}
+          {isActiveTab ? <LoginAdminForm /> : <LoginEmployeeForm />}
         </S.ContentInner>
       </S.LoginContent>
     </S.LoginWrapper>
