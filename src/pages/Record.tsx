@@ -7,8 +7,8 @@ import { getRecordTemplates } from '../apis/RecordService';
 import TitleSection from '../components/TitleSection';
 import TabSection from '../components/TabSection';
 import CreateModal from '../components/record/CreateModal';
-import Nav from '../components/Navigation';
-import Header from '../components/Header';
+import Nav from '../components/Nav/Navigation';
+import Header from '../components/Nav/header';
 import TabMenu from '../components/TabMenu';
 
 interface RecordItem {
