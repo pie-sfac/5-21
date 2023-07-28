@@ -1,5 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 
+// ============= RecordContent =============
+export const RecordContent = styled.main``;
+export const TitleSection = styled.section``;
+
 // ============= CategoryItem =============
 export const CategoryItem = styled.div`
     cursor: pointer;
