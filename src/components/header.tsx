@@ -1,51 +1,73 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import * as S from './style';
-import { Link } from 'react-router-dom';
-import { menu } from '../components/commonConst/NavConst';
+import { menu } from './commonConst/NavConst';
 // img
-import logo from '../assets/Logo.svg';
-import profile from '../assets/Profile.svg';
-import alarm from '../assets/notifications.svg';
+import widthToggleIcon from '../assets/icon-menuWidth-toggle.svg';
+import arrowIcon from '../assets/icon-breadcrumb-arrow.svg';
+import breadcrumbHomeIcon from '../assets/icon-breadcrumb-home.svg';
+import HomeBtnIcon from '../assets/icon-functionBtn-home.svg';
+import AlarmBtnIcon from '../assets/icon-functionBtn-alarm.svg';
+import ProfileImg from '../assets/img-profile.svg';
 
-type Props = {};
+interface breadcrumbProps {
+    depth01?: string | undefined;
+    depth02?: string | undefined;
+    depth03?: string | undefined;
+}
 
-const Header = (props: Props) => {
-  const [isActive, setIsActive] = useState(0);
-
-  return (
-    <S.Header>
-      <S.NavBar>
-        <S.LogoImg src={logo} alt="logo-img" />
-        <S.Gnb>
-          {menu.map((item) => (
-            <S.GnbItem key={item.id}>
-              <S.StyleLink
-                className={item.id === isActive ? 'active' : ''}
-                onClick={() => {
-                  setIsActive(item.id);
-                }}
-                to={item.path}
-              >
-                {item.name}
-              </S.StyleLink>
-            </S.GnbItem>
-          ))}
-        </S.Gnb>
-      </S.NavBar>
-      <S.UserBar>
-        <S.UserInfo>
-          <S.UserProfile>
-            <S.UserImg src={profile} alt="profile-img" />
-            <S.UserName>박관리자01</S.UserName>
-            <S.PlanLabel>플랜 이용중</S.PlanLabel>
-          </S.UserProfile>
-        </S.UserInfo>
-        <S.UserAlarm>
-          <S.AlarmImg src={alarm} alt="alarm-button-img" />
-        </S.UserAlarm>
-      </S.UserBar>
-    </S.Header>
-  );
+const Header = ({ depth01, depth02, depth03 }: breadcrumbProps) => {
+    return (
+        <S.Header>
+            <S.HeaderLeft>
+                <S.WidthToggleBtn>
+                    <S.ToggleBtnIcon src={widthToggleIcon} alt='icon-toggle' />
+                </S.WidthToggleBtn>
+                <S.breadcrumb>
+                    <S.breadcrumbItem>
+                        <S.breadcrumbIcon src={breadcrumbHomeIcon} />
+                        <S.StyleLink to='/'>Home</S.StyleLink>
+                    </S.breadcrumbItem>
+                    <S.breadcrumbItem>
+                        <S.breadcrumbArrow className={depth01 !== '' ? 'show' : ''} src={arrowIcon} alt='icon-breadcrumbArrow' />
+                    </S.breadcrumbItem>
+                    <S.breadcrumbItem>
+                        <S.StyleLink to='/record'>{depth01}</S.StyleLink>
+                    </S.breadcrumbItem>
+                    <S.breadcrumbItem>
+                        <S.breadcrumbArrow className={depth02 !== '' ? 'show' : ''} src={arrowIcon} alt='icon-breadcrumbArrow' />
+                    </S.breadcrumbItem>
+                    <S.breadcrumbItem>
+                        <S.StyleLink to='/record'>{depth02}</S.StyleLink>
+                    </S.breadcrumbItem>
+                    <S.breadcrumbItem>
+                        <S.breadcrumbArrow className={depth03 !== '' ? 'show' : ''} src={arrowIcon} alt='icon-breadcrumbArrow' />
+                    </S.breadcrumbItem>
+                    <S.breadcrumbItem>
+                        <S.StyleLink to='/record'>{depth03}</S.StyleLink>
+                    </S.breadcrumbItem>
+                </S.breadcrumb>
+            </S.HeaderLeft>
+            <S.HeaderRight>
+                <S.FuncBtnWrapper>
+                    <S.FuncBtn>
+                        <S.FuncHomeIcon src={HomeBtnIcon} />
+                    </S.FuncBtn>
+                    <S.FuncBtn>
+                        <S.FuncAlarmIcon src={AlarmBtnIcon} />
+                    </S.FuncBtn>
+                </S.FuncBtnWrapper>
+                <S.UserInfoWrapper>
+                    <S.UserProfile>
+                        <S.ProfileImgBox>
+                            <S.ProfileImg src={ProfileImg} />
+                        </S.ProfileImgBox>
+                        <S.UserName>admin</S.UserName>
+                    </S.UserProfile>
+                    <S.PlanLabel>플랜 이용중</S.PlanLabel>
+                </S.UserInfoWrapper>
+            </S.HeaderRight>
+        </S.Header>
+    );
 };
 
 export default Header;

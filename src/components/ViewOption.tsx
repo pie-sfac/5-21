@@ -3,12 +3,15 @@ import * as S from './style';
 import cardViewIcon from '../assets/icon-card-view.svg';
 import listViewIcon from '../assets/icon-list-view.svg';
 
-const ViewOption = () => {
+const ViewOption = ({ value, onChange, optionList }: any) => {
     return (
         <S.ViewOptionWrapper>
-            <S.Selete>
-                <S.SeleteOption>최신순</S.SeleteOption>
-                <S.SeleteOption>오래된순</S.SeleteOption>
+            <S.Selete value={value} onChange={(e: any) => onChange(e.target.value)}>
+                {optionList.map((item: any, index: number) => (
+                    <S.SeleteOption key={index} value={item.value}>
+                        {item.name}
+                    </S.SeleteOption>
+                ))}
             </S.Selete>
             <S.ViewBtnWrapper>
                 <S.ViewBtnType>

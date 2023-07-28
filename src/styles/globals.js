@@ -39,29 +39,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     color: black;
   }
-<<<<<<< HEAD
-  
-  @media (min-width: 1920px) {
-    html {
-      max-width: 1920px;
-      margin: 0 auto;
-    }
-  }
-=======
-
-  h2{
-    font-size: 14px;
-
-  }
 
  input {
   outline-style: none;
-  border: none;
-  background-color:transparent;
-  
  }
-  
->>>>>>> 121ac208ce0c0e51ec50f0784436b7d86744ed3e
 `;
 
 export default GlobalStyle;

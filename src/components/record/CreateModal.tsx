@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as S from './style';
 // Components
 import Button from '../Button';
@@ -12,12 +13,21 @@ interface CreateModalProps {
 }
 
 const CreateModal = ({ setModal }: CreateModalProps) => {
+    const navigate = useNavigate();
     const categoryArr = [
         { id: 0, img: diagnosisIcon, title: '문진 템플릿', desc: '첫 방문 또는 회원 현재 상태를 체크 합니다.' },
         { id: 1, img: prescriptionIcon, title: '처치 템플릿', desc: '수업 시, 작성합니다.' },
     ];
     const handleCloseModal = () => {
         setModal(false);
+    };
+
+    const handleCategoryNav = (id: number) => {
+        if (id === 0) {
+            navigate('/record/interview/new');
+        } else if (id === 1) {
+            navigate('/record/treatment/new');
+        }
     };
 
     useEffect(() => {
@@ -48,7 +58,7 @@ const CreateModal = ({ setModal }: CreateModalProps) => {
                     <S.ModalDesc>문진과 처치를 선택해주세요.</S.ModalDesc>
                     <S.CategoryWrapper>
                         {categoryArr.map((item) => (
-                            <S.Category key={item.id}>
+                            <S.Category key={item.id} onClick={() => handleCategoryNav(item.id)}>
                                 <S.CategoryIconBox>
                                     <S.CategoryIcon src={item.img} />
                                 </S.CategoryIconBox>
