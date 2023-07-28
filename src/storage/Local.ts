@@ -28,7 +28,7 @@ class LocalStorage {
     }
   }
 
-  static getTokenItem(data: TokenInfo) {
+  static getTokenItem() {
     return localStorage.getItem(TOKEN);
   }
 
