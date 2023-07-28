@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import * as S from './style';
 //data
-import { menu } from '../components/commonConst/NavConst';
+import { menu } from './commonConst/NavConst';
 //img
 import NavLogo from '../assets/Nav-Logo.svg';
 import NavLoigoutIcon from '../assets/icon-logout.svg';

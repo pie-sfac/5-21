@@ -35,12 +35,13 @@ const Login: React.FC = () => {
               <S.TabItem
                 key={item.id}
                 className={item.id === isActiveTab ? 'active' : ''}
+                onClick={() => handleTab(item.id)}
               >
                 {item.value}
               </S.TabItem>
             ))}
           </S.Tab>
-          {isActiveTab ? <LoginAdminForm /> : <LoginEmployeeForm />}
+          {isActiveTab ? <LoginEmployeeForm /> : <LoginAdminForm />}
         </S.ContentInner>
       </S.LoginContent>
     </S.LoginWrapper>
