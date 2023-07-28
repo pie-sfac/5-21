@@ -7,7 +7,6 @@ import ViewOption from '../components/ViewOption';
 import LinkItem from '../components/link/LinkItem';
 import Button from '../components/Button';
 import { LinkTab } from '../components/link/LinkTab';
-import * as Api from '../../api';
 
 const Link = () => {
   const content = [<LinkItem />, '내용1', '내용2'];
