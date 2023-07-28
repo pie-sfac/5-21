@@ -28,12 +28,12 @@ const CategoryItem: React.FC<CategoryItemProps> = ({ sortedList }) => {
     return (
         <>
             {sortedList().map((item: any) => (
-                <S.CategoryItem key={item.id}>
+                <S.CategoryItem key={item.id} className={item.type}>
                     <S.CategoryItemInner>
-                        <S.CategoryLabel className={item.type}>{item.category}</S.CategoryLabel>
                         <S.ItemImgBox className={item.type}>
-                            <S.ItemImg src={item.img} />
+                            <S.ItemImg className={item.type}></S.ItemImg>
                         </S.ItemImgBox>
+                        <S.ItemCategory>{item.type}</S.ItemCategory>
                         <S.ItemTitle>{item.title}</S.ItemTitle>
                         <S.ItemDesc>{item.desc}</S.ItemDesc>
                         <S.ItemDate>등록일: {formatDate(item.date)}</S.ItemDate>

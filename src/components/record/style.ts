@@ -1,8 +1,127 @@
 import styled, { keyframes } from 'styled-components';
+// img
+import interview from '../../assets/icon-item-interview.svg';
+import interviewHover from '../../assets/icon-item-interview-hover.svg';
+import treatment from '../../assets/icon-item-treatment.svg';
+import treatmentHover from '../../assets/icon-item-treatment-hover.svg';
 
 // ============= RecordContent =============
-export const RecordContent = styled.main``;
-export const TitleSection = styled.section``;
+export const RecordContent = styled.main`
+    width: 100%;
+    height: calc(100% - 50px);
+    background: #fafbff;
+`;
+export const TitleSection = styled.section`
+    width: 100%;
+    height: 66px;
+    padding: 0px 40px;
+    background-color: #fafbff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+`;
+export const RecordTitle = styled.h2`
+    font-size: 18px;
+    font-weight: 500;
+`;
+export const CreateTemplateBtn = styled.button`
+    height: 36px;
+    padding: 0px 16px;
+    color: #fff;
+    border-radius: 6px;
+    background: #2d62ea;
+    transition: all ease-in-out 0.2s;
+    &:hover {
+        background-color: #1850de;
+        box-shadow: 0px 6px 10px 0px rgba(45, 98, 234, 0.2);
+    }
+`;
+export const AddIcon = styled.img`
+    margin-right: 4px;
+    vertical-align: middle;
+`;
+
+// ============= Tab =============
+export const TabSection = styled.section`
+    width: 100%;
+    height: calc(100% - 66px);
+`;
+export const TabWrapper = styled.ul`
+    width: 100%;
+    height: 40px;
+    padding: 0 24px;
+    display: flex;
+`;
+
+// ============= Tab-content =============
+export const TabContent = styled.div`
+    width: 100%;
+    height: calc(100% - 40px);
+    padding: 24px;
+    background-color: #f2f5ff;
+`;
+export const TabContentHeader = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 0px 20px 16px;
+`;
+export const TitleWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+export const TabContentTitle = styled.h3`
+    font-size: 15px;
+    font-weight: 500;
+`;
+export const CountLabel = styled.div`
+    color: #fff;
+    height: 22px;
+    padding: 0px 12px;
+    line-height: 24px;
+    border-radius: 6px;
+    background: #2d62ea;
+    margin-left: 8px;
+`;
+export const SortSelect = styled.select`
+    width: 116;
+    height: 34px;
+    padding: 0px 10px;
+    border-radius: 6px;
+    border: 1px solid #e7e7e7;
+    background: #fff;
+    margin-right: 8px;
+`;
+export const SeleteOption = styled.option``;
+
+export const CategoryContent = styled.div`
+    width: 100%;
+    height: auto;
+    &.grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        /* grid-template-rows: repeat(2, 1fr); */
+        grid-gap: 20px;
+    }
+`;
+export const TabContentFooter = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    position: relative;
+`;
+export const FooterItemCount = styled.p`
+    position: absolute;
+    left: 0px;
+    top: 0;
+    color: #999999;
+`;
 
 // ============= CategoryItem =============
 export const CategoryItem = styled.div`
@@ -15,18 +134,45 @@ export const CategoryItem = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 40px 40px;
+    padding: 20px;
 
     border-radius: 10px;
     background: #fff;
-    border: 1px solid #fff;
     box-shadow: 0px 10px 30px 0px #e7e9f2;
-    transition: all ease-in-out 0.2s;
+    transition: all ease-in-out 0.3s;
 
-    &:hover {
-        border: 1px solid #275cf5;
-        background: #f9faff;
-        box-shadow: 0px 10px 30px 0px #c6cbe3;
+    &:hover p {
+        color: #fff;
+    }
+    &:hover div > div:first-of-type {
+        background: rgba(232, 238, 255, 0.29);
+    }
+
+    &.interview:hover span {
+        background-image: url(${interviewHover});
+    }
+    &.treatment:hover span {
+        background-image: url(${treatmentHover});
+    }
+
+    &.interview:hover {
+        z-index: 1;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #3f9ceb 0%, #3e9cec 0.01%, #6457fb 100%);
+        box-shadow: 20px 20px 30px 0px rgba(0, 0, 0, 0.24);
+    }
+    &.treatment:hover {
+        z-index: 1;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #c496ff 0%, #652bec 100%);
+        box-shadow: 20px 20px 30px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    &.treatment p:first-of-type {
+        color: #ac5bf7;
+    }
+    &.treatment:hover p:first-of-type {
+        color: #fff;
     }
 `;
 export const CategoryItemInner = styled.div`
@@ -34,66 +180,61 @@ export const CategoryItemInner = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-`;
-export const CategoryLabel = styled.div`
-    position: absolute;
-    top: 16px;
-    right: 16px;
-
-    width: 60px;
-    height: 24px;
-    border-radius: 12px;
-    text-align: center;
-    line-height: 24px;
-
-    &.diagnosis {
-        background: #dcf9f9;
-        color: #48caca;
-    }
-    &.prescription {
-        background: #ecefff;
-        color: #97aeea;
-    }
 `;
 export const ItemImgBox = styled.div`
-    width: 80px;
-    height: 80px;
-    border-radius: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-    &.diagnosis {
-        background: #dcf9f9;
+    margin-bottom: 32px;
+    &.interview {
+        background-color: #e8eeff;
     }
-    &.prescription {
-        background: #ecefff;
+    &.treatment {
+        background: #f3e8ff;
     }
 `;
-export const ItemImg = styled.img``;
+export const ItemImg = styled.span`
+    display: block;
+    width: 40px;
+    height: 40px;
+    &.interview {
+        background-image: url(${interview});
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    &.treatment {
+        background-image: url(${treatment});
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+`;
+
+export const ItemCategory = styled.p`
+    font-size: 18px;
+    font-weight: 500;
+    color: #6691ff;
+    margin-bottom: 8px;
+`;
 export const ItemTitle = styled.p`
     font-size: 18px;
-    font-weight: 700;
-    line-height: 22px;
-    text-align: center;
-    margin: 26px 0px;
-    width: 110px;
-    white-space: wrap;
-    word-break: keep-all;
+    font-weight: 600;
 `;
 export const ItemDesc = styled.p`
     color: #888;
-    width: 196px;
-    white-space: nowrap;
+    width: 260px;
+    line-height: 22px;
+    margin: 24px 0px;
+    /* white-space: nowrap;
     overflow: hidden;
     word-break: keep-all;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; */
 `;
 export const ItemDate = styled.p`
-    color: #9999;
+    color: #aaa;
     font-size: 12px;
     margin-top: 10px;
 `;
