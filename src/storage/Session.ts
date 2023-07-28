@@ -18,6 +18,9 @@ class Storage {
   static clearItemAll() {
     sessionStorage.clear();
   }
+  // localStorage
+  // static set
+  // localStorage.getItem();
 }
 
 Object.freeze(Storage);

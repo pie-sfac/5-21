@@ -4,9 +4,9 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import Nav from './components/header';
 import Loading from './components/common/Loading';
 import Logintest from './components/link/logintest';
+import Login from './pages/Login';
 
 const LinkPage = lazy(() => import('./pages/Link'));
 const Record = lazy(() => import('./pages/Record'));
@@ -17,6 +17,7 @@ const MyRouter = () => {
       <BrowserRouter>
         <Nav />
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/media" element={<LinkPage />} />
           <Route path="/employee" element={<Logintest />} />
           <Route path="/ticket" element={<div>ticket</div>} />
