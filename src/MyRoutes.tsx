@@ -1,9 +1,9 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom';
-import Nav from './components/header';
 import Loading from './components/common/Loading';
 
 // 스피너 넣기!
+const Login = lazy(() => import('./pages/Login'));
 const LinkPage = lazy(() => import('./pages/Link'));
 const Record = lazy(() => import('./pages/Record'));
 const RecordInterviewNew = lazy(() => import('./pages/RecordInterviewNew'));
@@ -15,8 +15,8 @@ const MyRouter = () => {
     return (
         <Suspense fallback={<Loading />}>
             <BrowserRouter>
-                <Nav />
                 <Routes>
+                    <Route path='/login' element={<Login />} />
                     <Route path='/media' element={<LinkPage />} />
                     <Route path='/employee' element={<div>직원 관리</div>} />
                     <Route path='/ticket' element={<div>ticket</div>} />

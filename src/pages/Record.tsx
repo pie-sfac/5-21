@@ -7,6 +7,9 @@ import { getRecordTemplates } from '../apis/RecordService';
 import TitleSection from '../components/TitleSection';
 import TabSection from '../components/TabSection';
 import CreateModal from '../components/record/CreateModal';
+import Nav from '../components/Navigation';
+import Header from '../components/Header';
+import TabMenu from '../components/TabMenu';
 
 interface RecordItem {
     id: number;
@@ -104,14 +107,17 @@ const RecordManagement = () => {
     return (
         <RecordStateContext.Provider value={data}>
             <RecordDispatchContext.Provider value={{ onCreate, onRemove, onEdit }}>
-                <S.RecordWrapper>
-                    <S.RecordContent>
-                        <TitleSection depth01={'기록 관리'} depth02={''} depth03={''} />
-                        <TabSection setModal={setModal} />
-                    </S.RecordContent>
+                <S.Wrapper>
+                    <Nav />
+                    <S.RecordWrapper>
+                        <Header depth01={'기록 관리'} depth02={''} depth03={''} />
+                        <S.RecordContent>
+                            <TabSection setModal={setModal} />
+                        </S.RecordContent>
 
-                    {modal && <CreateModal setModal={setModal} />}
-                </S.RecordWrapper>
+                        {modal && <CreateModal setModal={setModal} />}
+                    </S.RecordWrapper>
+                </S.Wrapper>
             </RecordDispatchContext.Provider>
         </RecordStateContext.Provider>
     );

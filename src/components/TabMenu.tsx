@@ -9,7 +9,7 @@ interface TabProps {
 interface TabItemProps {
     id: number;
     value: string;
-    content: any;
+    content?: any;
 }
 
 const TabMenu: React.FC<TabProps> = ({ TabArr, isActiveTab, onClick }) => {

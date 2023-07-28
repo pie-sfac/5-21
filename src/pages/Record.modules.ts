@@ -1,11 +1,20 @@
 import styled from 'styled-components';
 
-export const RecordWrapper = styled.div`
+export const Wrapper = styled.div`
     width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`;
+export const RecordWrapper = styled.div`
+    width: calc(100% - 260px);
 `;
 export const RecordContent = styled.main`
     width: 100%;
     height: 100%;
+    background-color: #fafbff;
 `;
 
 // ============= RecordInterviewNew =============

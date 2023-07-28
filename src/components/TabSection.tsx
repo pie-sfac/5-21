@@ -24,9 +24,9 @@ const TabSection = ({ setModal }: CreateModalProps) => {
     ];
 
     const TabArr = [
-        { id: 0, value: '전체 보기', content: 'Tab menu 0' },
-        { id: 1, value: '문진', content: 'Tab menu 1' },
-        { id: 2, value: '처치', content: 'Tab menu 2' },
+        { id: 0, value: '전체 보기' },
+        { id: 1, value: '문진' },
+        { id: 2, value: '처치' },
     ];
 
     const getPeocessRecordList = () => {
