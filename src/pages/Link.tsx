@@ -3,7 +3,6 @@ import TitleSection from '../components/TitleSection';
 import { menu } from '../components/commonConst/NavConst';
 import * as S from './Link.modules';
 import { TabSection } from '../components/style';
-import ViewOption from '../components/ViewOption';
 import LinkItem from '../components/link/LinkItem';
 import Button from '../components/Button';
 import { LinkTab } from '../components/link/LinkTab';
@@ -23,7 +22,6 @@ const Link = () => {
             <S.SubTitle>기록 전체보기</S.SubTitle>
             <S.Count>50</S.Count>
           </S.CategoryTitleWrapper>
-          <ViewOption />
         </S.CategoryHeader>
         <S.CategoryContent className={'grid'}>
           {content[isActiveTab]}

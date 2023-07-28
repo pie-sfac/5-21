@@ -144,6 +144,43 @@ export const TitleSection = styled.div`
   background-color: #fff;
 `;
 
+export const breadcrumb = styled.ul`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 8px;
+
+  & > li:first-of-type > a {
+    color: #2d62ea;
+    font-weight: 700;
+  }
+  & > li:first-of-type {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+`;
+export const breadcrumbItem = styled.li`
+  margin-right: 4px;
+
+  & > a {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: #444;
+  }
+`;
+export const breadcrumbIcon = styled.img`
+  margin-right: 2px;
+`;
+export const breadcrumbArrow = styled.img`
+  opacity: 0;
+  vertical-align: middle;
+  &.show {
+    opacity: 1;
+  }
+`;
+
 export const TitleWrapper = styled.div`
   display: flex;
 `;
