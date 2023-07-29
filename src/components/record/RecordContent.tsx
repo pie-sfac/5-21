@@ -62,7 +62,7 @@ const RecordContent = () => {
         <S.RecordContent>
             <S.TitleSection>
                 <S.RecordTitle>기록 관리</S.RecordTitle>
-                <S.CreateTemplateBtn>
+                <S.CreateTemplateBtn onClick={handleCreateModal}>
                     <S.AddIcon src={addIcon} alt='icon-create' />
                     Create Template
                 </S.CreateTemplateBtn>

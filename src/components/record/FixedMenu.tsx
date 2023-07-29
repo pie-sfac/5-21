@@ -8,7 +8,7 @@ interface FixedMenuProps {
     type: string;
 }
 
-const FixedMenu: React.FC<FixedMenuProps> = ({ title, desc, img, label, type }) => {
+const FixedMenu = ({ title, desc, img, label, type }: FixedMenuProps) => {
     return (
         <S.FixedMenuItem className={type}>
             <S.FixedItemImgBox>

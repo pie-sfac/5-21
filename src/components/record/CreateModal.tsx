@@ -24,9 +24,9 @@ const CreateModal = ({ setModal }: CreateModalProps) => {
 
     const handleCategoryNav = (id: number) => {
         if (id === 0) {
-            navigate('/record/interview/new');
+            navigate('/record/interview');
         } else if (id === 1) {
-            navigate('/record/treatment/new');
+            navigate('/record/treatment');
         }
     };
 

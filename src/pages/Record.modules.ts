@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+// ============= Common =============
 export const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
@@ -8,38 +9,56 @@ export const Wrapper = styled.div`
     flex-direction: row;
     justify-content: space-between;
 `;
+
 export const RecordWrapper = styled.div`
     width: calc(100% - 260px);
 `;
-export const RecordContent = styled.main`
+
+// ============= Record Interview New =============
+export const interviewNewContent = styled.main`
+    width: 100%;
+    height: calc(100% - 50px);
+    background: #fafbff;
+`;
+export const TitleSection = styled.section`
+    width: 100%;
+    height: 66px;
+    padding: 0px 40px;
+    display: flex;
+    background-color: #fafbff;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+`;
+export const RecordTitle = styled.section`
+    font-size: 18px;
+    font-weight: 500;
+`;
+export const ContentSection = styled.section`
     width: 100%;
     height: 100%;
-    background-color: #fafbff;
-`;
-
-// ============= RecordInterviewNew =============
-export const NewWrapper = styled.main`
-    width: 100%;
-    background-color: #f8f9fe;
+    background-color: #f2f5ff;
     display: flex;
     flex-direction: row;
+    overflow-y: scroll;
 `;
-export const NewContent = styled.section`
-    width: calc(100% - 450px);
-`;
-export const Content = styled.div`
-    width: 100%;
-    padding: 24px 0px;
+
+// 1. CreateTemplateSection
+export const CreateTemplateSection = styled.div`
+    width: calc(100% - 468px);
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 24px;
+    padding-bottom: 100px;
 `;
-export const FormTemplate = styled.div`
+export const TemplateForm = styled.div`
     width: 1000px;
-    height: 100%;
     border-radius: 10px;
     background: #fff;
     box-shadow: 0px 4px 20px 0px rgba(231, 233, 242, 0.5);
+    margin-bottom: 24px;
 `;
 // form - header
 export const TemplateHeader = styled.div`
@@ -97,23 +116,22 @@ export const InputWrapper = styled.div`
 `;
 export const TemplateTitleLabel = styled.label`
     color: #888;
-    font-family: Pretendard;
     font-weight: 500;
 `;
 export const TemplateTitleInput = styled.input`
     width: 100%;
     height: 40px;
-    border-radius: 4px;
+    border-radius: 6px;
     background: #f8f9fe;
     padding-left: 10px;
     margin-top: 12px;
+    border: none;
     &::placeholder {
-        color: #ccc;
+        color: #aaa;
     }
 `;
 export const TemplateDescLabel = styled.label`
     color: #888;
-    font-family: Pretendard;
     font-weight: 500;
 `;
 export const TemplateDescInput = styled.input`
@@ -124,38 +142,60 @@ export const TemplateDescInput = styled.input`
     padding-left: 10px;
     margin-top: 12px;
     &::placeholder {
-        color: #ccc;
+        color: #aaa;
     }
 `;
 
-// Fiexd Menu
-export const FixedMenu = styled.aside`
-    width: 450px;
+// 2. Fixed-menu
+export const FixedMenuSection = styled.div`
+    width: 468px;
     height: 100vh;
-    border-left: 1px solid #f3f5f9;
+    padding: 24px;
+`;
+export const FixedMenu = styled.aside`
+    position: fixed;
+    width: 420px;
     background: #fff;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 10px 30px 0px rgba(225, 227, 237, 0.8);
 `;
 export const FixedMenuHeader = styled.header`
     width: 100%;
-    height: 56px;
-    padding-left: 16px;
-    padding-top: 24px;
+    padding: 16px;
 `;
 export const HeaderTitle = styled.h3`
     font-size: 16px;
     font-weight: 600;
-    /* line-height: 56px; */
+`;
+export const TabWrapper = styled.div`
+    width: 100%;
+    padding: 0 8px;
+    display: flex;
 `;
 export const TabContent = styled.div`
     width: 100%;
-    height: 100vh;
-    padding: 20px;
+    padding: 16px;
     border-top: 1px solid #f3f5f9;
 `;
 export const FixedMenuUl = styled.ul`
     width: 100%;
     height: 100%;
+    & > li:last-child {
+        margin-bottom: 0px;
+    }
 `;
 export const FixedMenuLi = styled.li`
     margin-bottom: 16px;
+`;
+export const FixedMenuFooter = styled.div`
+    padding: 16px;
+    border-top: 1px solid #f1f3f6;
+`;
+export const SaveBtn = styled.button`
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #2d62ea;
 `;

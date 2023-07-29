@@ -239,7 +239,7 @@ export const ItemDate = styled.p`
     margin-top: 10px;
 `;
 
-// ============= CreateModal =============
+// ============= Create Modal =============
 export const ModalWrapper = styled.div`
     position: fixed;
     top: 0;
@@ -367,7 +367,7 @@ export const ModalFooter = styled.div`
     border-top: 1px solid #f1f3f6;
 `;
 
-// ============= FixedMenuItem =============
+// ============= Fixed Menu Item =============
 export const FixedMenuItem = styled.div`
     cursor: pointer;
     width: 100%;
@@ -402,8 +402,9 @@ export const FixedMenuItem = styled.div`
     }
 `;
 export const FixedItemImgBox = styled.div`
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
     border-radius: 6px;
     display: flex;
     justify-content: center;
@@ -413,7 +414,7 @@ export const FixedItemImgBox = styled.div`
 `;
 export const FixedItemImg = styled.img``;
 export const ItemTitleWrapper = styled.div`
-    padding-left: 12px;
+    padding-left: 16px;
 `;
 export const FixedItemTitle = styled.div`
     font-size: 16px;
@@ -421,8 +422,9 @@ export const FixedItemTitle = styled.div`
     margin-bottom: 12px;
 `;
 export const FixedItemDesc = styled.div`
+    font-size: 13px;
     font-weight: 400;
-    color: #505050;
+    color: #666;
 `;
 export const FixedItemLabel = styled.div`
     position: absolute;
@@ -435,4 +437,156 @@ export const FixedItemLabel = styled.div`
     font-weight: 400;
     color: #6691ff;
     transition: all ease-in-out 0.2s;
+`;
+
+// ============= Template - text =============
+// header
+export const TemplateWrapper = styled.div`
+    width: 1000px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 4px 20px 0px rgba(231, 233, 242, 0.5);
+`;
+export const TemplateHeader = styled.div`
+    width: 100%;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f1f3f6;
+`;
+export const TemplateHeaderTitle = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+export const Title = styled.div`
+    font-size: 16px;
+    font-weight: 600;
+`;
+export const CategoryLabel = styled.div`
+    height: 24px;
+    line-height: 24px;
+    padding: 0px 8px;
+    border-radius: 100px;
+    background: #ebf1ff;
+    color: #6691ff;
+    margin: 0px 4px 0px 8px;
+`;
+export const infoTooltip = styled.img`
+    cursor: pointer;
+`;
+export const ToggleArrowBtn = styled.button``;
+export const ToggleArrowIcon = styled.img`
+    vertical-align: middle;
+`;
+
+// option
+export const TemplateOption = styled.div`
+    width: 100%;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f1f3f6;
+`;
+export const OptionWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+export const InputWrapper = styled.div`
+    margin-right: 12px;
+`;
+export const RadioInput = styled.input``;
+export const RadioLabel = styled.label`
+    margin-left: 4px;
+`;
+export const RequiredToggle = styled.div``;
+export const ToggleLabel = styled.label``;
+export const Toggle = styled.input`
+    margin-left: 8px;
+`;
+
+// content
+export const TemplateContent = styled.div`
+    width: 100%;
+    padding: 20px;
+    & > div:first-child {
+        margin-bottom: 16px;
+    }
+`;
+export const TemplateTitleLabel = styled.label`
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 10px;
+`;
+export const TemplateTitleInput = styled.input`
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 6px;
+    background: #f8f9fe;
+    border: 1px solid transparent;
+    &:focus {
+        border: 1px solid #2d62ea;
+    }
+    &::placeholder {
+        color: #aaaaaa;
+    }
+`;
+export const TemplateDescInput = styled.textarea`
+    width: 100%;
+    height: 90px;
+    padding: 10px;
+    border-radius: 6px;
+    background: #f8f9fe;
+    border: 1px solid transparent;
+    resize: none;
+    word-break: keep-all;
+
+    &:focus {
+        border: 1px solid #2d62ea;
+    }
+
+    &::placeholder {
+        color: #aaaaaa;
+    }
+`;
+
+//footer
+export const TemplateFooter = styled.div`
+    width: 100%;
+    padding: 8px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f3f6;
+`;
+export const OrderBtnWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+export const OrderBtn = styled.button`
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #f1f3f6;
+    margin-right: 8px;
+`;
+export const UpIcon = styled.img`
+    vertical-align: middle;
+`;
+export const DownIcon = styled.img`
+    vertical-align: middle;
+`;
+export const deleteBtn = styled.button`
+    height: 32px;
+    padding: 0px 16px;
+    color: #fc4957;
 `;

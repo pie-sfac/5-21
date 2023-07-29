@@ -1,18 +1,17 @@
-import React, { useState, useReducer, useRef } from 'react';
+import React, { useReducer, useRef, useEffect } from 'react';
 import * as S from './Record.modules';
-// data(✨ API 연결 전 가상 데이터)
-import { dummyArr } from '../components/commonConst/dummyItem';
-import { getRecordTemplates } from '../apis/RecordService';
 // Components
 import Nav from '../components/Nav/Navigation';
 import Header from '../components/Nav/header';
 import RecordContent from '../components/record/RecordContent';
+// data
+import { dummyArr } from '../components/commonConst/dummyItem';
+import { getRecordTemplates } from '../apis/RecordService';
 
 interface RecordItem {
     id: number;
     category: string;
     type: string;
-    img: string;
     title: string;
     desc: string;
     date: number;
@@ -20,7 +19,7 @@ interface RecordItem {
 
 type ActionType = { type: 'INIT'; data: RecordItem[] } | { type: 'CREATE'; data: RecordItem } | { type: 'REMOVE'; targetId: number } | { type: 'EDIT'; data: RecordItem };
 
-// 🔥🔥🔥🔥🔥🔥🔥 Reducer 🔥🔥🔥🔥🔥🔥🔥
+// 🔥 reducer 🔥
 const reducer = (state: RecordItem[], action: ActionType): RecordItem[] => {
     let newState: RecordItem[] = [];
     switch (action.type) {
@@ -45,7 +44,7 @@ const reducer = (state: RecordItem[], action: ActionType): RecordItem[] => {
     return newState;
 };
 
-// 🔥🔥🔥🔥🔥🔥🔥 Context 🔥🔥🔥🔥🔥🔥🔥
+// 🔥 Context 🔥
 export const RecordStateContext = React.createContext<RecordItem[]>([]);
 export const RecordDispatchContext = React.createContext<{
     onCreate: (category: string, type: string, img: string, title: string, desc: string, date: string) => void;
@@ -57,21 +56,24 @@ export const RecordDispatchContext = React.createContext<{
     onEdit: () => {},
 });
 
-// 🔥🔥🔥🔥🔥🔥🔥 APP 🔥🔥🔥🔥🔥🔥🔥
+// 🔥 APP 🔥
 const RecordManagement = () => {
+    useEffect(() => {
+        getRecordTemplates().then((res) => console.log(res.data));
+    }, []);
+
     const [data, dispatch] = useReducer(reducer, dummyArr);
 
     const dataId = useRef<number>(0);
 
     //CREATE
-    const onCreate = (category: string, type: string, img: string, title: string, desc: string, date: string) => {
+    const onCreate = (category: string, type: string, title: string, desc: string, date: string) => {
         dispatch({
             type: 'CREATE',
             data: {
                 id: dataId.current,
                 category,
                 type,
-                img,
                 title,
                 desc,
                 date: new Date(date).getTime(),
@@ -84,14 +86,13 @@ const RecordManagement = () => {
         dispatch({ type: 'REMOVE', targetId });
     };
     //Edit
-    const onEdit = (targetId: number, category: string, type: string, img: string, title: string, desc: string, date: string) => {
+    const onEdit = (targetId: number, category: string, type: string, title: string, desc: string, date: string) => {
         dispatch({
             type: 'EDIT',
             data: {
                 id: targetId,
                 category,
                 type,
-                img,
                 title,
                 desc,
                 date: new Date(date).getTime(),
