@@ -5,9 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import Loading from './components/common/Loading';
-// import Logintest from './components/link/logintest';
 
-// 스피너 넣기!
 const Login = lazy(() => import('./pages/Login'));
 const LinkPage = lazy(() => import('./pages/Link'));
 const Record = lazy(() => import('./pages/Record'));
