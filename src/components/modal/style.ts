@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 
+// =============  AddLinkModal============
 export const AddLinkWrapper = styled.div`
   height: 540px;
   width: 584px;
@@ -9,8 +10,8 @@ export const AddLinkWrapper = styled.div`
   border-radius: 10px;
   border: 1px solid #e7e7e7;
 `;
-// =============  AddLinkHeader ============
-export const AddLinkHeaderSection = styled.section`
+//  AddLinkHeader
+export const AddLinkHeader = styled.section`
   width: 100%;
   border-bottom: 1px solid #f1f3f6;
   display: flex;
@@ -20,7 +21,7 @@ export const AddLinkHeaderSection = styled.section`
   padding-top: 26px;
 `;
 
-export const AddLinkH2 = styled.h2`
+export const LinkModalH2 = styled.h2`
   margin-bottom: 8px;
   width: 200px;
   color: #1d1d1d;
@@ -40,7 +41,7 @@ export const CloseBtn = styled.button`
 `;
 export const CloseImg = styled.img``;
 
-// =============  AddLinkContent ============
+//  AddLinkContent
 export const ModalContent = styled.div`
   padding: 20px;
   text-align: center;
@@ -56,7 +57,7 @@ export const AddLinkContent = styled.div`
   gap: 8px;
 `;
 
-/// ============= 링크 제목 ============
+///  링크 제목
 export const AddLinkTitleSection = styled.section`
   width: 536px;
   display: flex;
@@ -67,7 +68,7 @@ export const AddLinkTitle = styled.div`
   height: 62px;
 `;
 
-//=============링크 카테고리 ================
+//링크 카테고리
 export const AddLinkCartegoryDiv = styled.div`
   height: 62px;
 `;
@@ -114,7 +115,7 @@ export const AddLinkCartegoryOption = styled.option`
   line-height: 100%; /* 14px */
 `;
 
-export const AddLinkH3 = styled.h3`
+export const LinkModalH3 = styled.h3`
   width: 100%;
   margin-left: 4px;
   display: flex;
@@ -160,7 +161,7 @@ export const AddLinkTitleInput = styled.input`
   }
 `;
 
-// =============  AddLinkURL ============
+// AddLinkURL
 export const AddLinkUrlSection = styled.section`
   margin-bottom: 8px;
 `;
@@ -187,7 +188,7 @@ export const AddLinUrlInput = styled.input`
     line-height: 100%; /* 14px */
   }
 `;
-// =============  AddLinMemo ============
+// AddLinMemo
 export const AddLinkMemoSection = styled.section`
   margin-bottom: 24px;
 `;
@@ -221,8 +222,8 @@ export const AddLinMemoInput = styled.input`
     line-height: 100%; /* 14px */
   }
 `;
-// =============  AddLinkButton ============
-export const AddLinkBtnSection = styled.section`
+//  AddLinkButton
+export const AddLinkBtn = styled.section`
   display: flex;
   width: 582px;
   padding: 14px 0px;
@@ -253,4 +254,164 @@ export const CompleteButton = styled.button`
   border-radius: 6px;
   background: #2d62ea;
   color: #ffffff;
+`;
+
+// =============  CenterLinkModal ============
+
+export const CenterLinkWrapper = styled.div`
+  width: 698px;
+  display: grid;
+  grid-template-rows: 48px 426px 64px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e7e7e7;
+`;
+// header
+export const CenterLinkHeader = styled.div`
+  width: 100%;
+  border-bottom: 1px solid #f1f3f6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  padding-top: 26px;
+`;
+// content
+export const CenterLinkContent = styled.div`
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+`;
+
+export const CenterLinkTitleSection = styled.section``;
+export const CenterLinkTitle = styled.div``;
+export const CenterLinkCartegoryH3 = styled.h3`
+  width: 98px;
+  padding-bottom: 8px;
+  color: #6691ff;
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 14px */
+`;
+export const CenterLinkTitleH2 = styled.h2`
+  width: 179px;
+  padding-bottom: 16px;
+  color: #1d1d1d;
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 16px */
+`;
+export const CenterLinkSection = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
+export const LinkAnchor = styled.a`
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 16px */
+  text-decoration-line: underline;
+  margin-bottom: 10px;
+`;
+export const LinkBox = styled.div`
+  display: flex;
+  height: 70px;
+  width: 650px;
+  align-items: center;
+  gap: 19px;
+  border-radius: 6px;
+  border: 1px solid #e7e7e7;
+  margin-bottom: 16px;
+`;
+export const LinkImg = styled.img`
+  width: 116px;
+  height: 68px;
+  border-radius: 6px 0px 0px 6px;
+  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+`;
+export const LinkExplainP = styled.p`
+  display: flex;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 6px;
+  border: none;
+  color: #888;
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+`;
+export const CenterMemoSection = styled.section``;
+export const CenterLinkMemoP = styled.p`
+  display: flex;
+  width: 650px;
+  height: 173px;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 6px;
+  border: 1px solid #e7e7e7;
+  color: #888;
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 157.143% */
+`;
+
+//  CenterLinkButton
+export const CenterLinkBtn = styled.div`
+  display: flex;
+  width: 697px;
+  padding: 14px 0px;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #f1f3f6;
+  background: #fff;
+  gap: 10px;
+  border-radius: 10px;
+`;
+export const DeleteButton = styled.button`
+  display: flex;
+  height: 36px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  background-color: #888888;
+  color: #fff;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 14px */
+`;
+export const EditButton = styled.button`
+  display: flex;
+  height: 36px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  background-color: #2d62ea;
+  color: #fff;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 14px */
 `;
