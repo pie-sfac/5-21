@@ -52,6 +52,9 @@ export const LinkItemWrapper = styled.div`
   border: 1px solid #fff;
   box-shadow: 0px 10px 30px 0px #e7e9f2;
   transition: all ease-in-out 0.2s;
+  padding: 12px;
+  background-size: cover;
+  position: relative;
 
   &:hover {
     border: 1px solid #275cf5;
@@ -59,22 +62,77 @@ export const LinkItemWrapper = styled.div`
     box-shadow: 0px 10px 30px 0px #c6cbe3;
   }
 `;
+
+export const LinkItemImgContent = styled.div`
+  height: 214px;
+  width: auto;
+  position: relative;
+`;
+export const PlayBtnDiv = styled.div`
+  display: flex;
+  width: 72px;
+  height: 72px;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  background: #fff;
+  position: relative;
+  top: 138px;
+  left: 272px;
+`;
+export const PlayIcon = styled.img``;
 export const LinkImg = styled.img`
-  height: 190px;
-  width: 427px;
+  height: 178px;
+  width: 100%;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
+  position: absolute;
 `;
 export const LinklTitle = styled.h3`
-  padding: 10px 0;
+  padding-top: 5px;
   font-size: 18px;
 `;
 export const LinkContentDiv = styled.div`
   height: 80px;
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
   font-size: 16px;
+  position: absolute;
+  padding-top: 16px;
+  padding-left: 20px;
+  left: 0px;
+  top: 190px;
 `;
 
-export const LinklSpan = styled.span``;
+export const LinkCartegoryH2 = styled.h2`
+  color: #6691ff;
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-style: normal;
+`;
+
+export const LinkExplain = styled.div`
+  width: 388px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+`;
+
+export const LinkExplainP = styled.p`
+  color: #888;
+  width: 350px;
+  font-size: 14px;
+  font-style: normal;
+  overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+`;
+
+export const LinkUploadDateSpan = styled.span`
+  color: #aaa;
+  font-size: 12px;
+  font-style: normal;
+`;

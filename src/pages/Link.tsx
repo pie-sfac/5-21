@@ -2,7 +2,7 @@ import { useState } from 'react';
 import TitleSection from '../components/TitleSection';
 import { menu } from '../components/commonConst/NavConst';
 import * as S from './Link.modules';
-import { TabSection } from '../components/style';
+import TabSection from '../components/TabSection';
 import LinkItem from '../components/link/LinkItem';
 import Button from '../components/Button';
 import { LinkTab } from '../components/link/LinkTab';
@@ -32,7 +32,6 @@ const Link = () => {
           <Button text={'등록'} type={'primary'} onClick="" />
         </S.CategoryFooter>
       </S.TabContent>
-      <TabSection />
     </S.LinkWrapper>
   );
 };
