@@ -5,7 +5,6 @@ import {
   Route,
 } from 'react-router-dom';
 import Loading from './components/common/Loading';
-import CenterLinkModal from './components/modal/CenterLinkModal';
 
 const Login = lazy(() => import('./pages/Login'));
 const LinkPage = lazy(() => import('./pages/Link'));
@@ -21,7 +20,7 @@ const MyRouter = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/media" element={<CenterLinkModal />} />
+          <Route path="/media" element={<LinkPage />} />
           <Route path="/employee" element={<div>직원 관리</div>} />
           <Route path="/ticket" element={<div>ticket</div>} />
           <Route path="/record" element={<Record />} />
