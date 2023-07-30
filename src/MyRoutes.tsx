@@ -34,7 +34,6 @@ const MyRouter = () => {
           />
           <Route path="/record/edit" element={<RecordEdit />} />
           <Route path="/record/detail/:id" element={<RecordDetail />} />
-          <Route path="/media" element={<div>media</div>} />
           <Route path="/manage" element={<div>manage</div>} />
           <Route path="/alert" element={<div>alert</div>} />
         </Routes>

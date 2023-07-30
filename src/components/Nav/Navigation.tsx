@@ -6,6 +6,7 @@ import { menu } from '../commonConst/NavConst';
 //img
 import NavLogo from '../../assets/Nav-Logo.svg';
 import NavLoigoutIcon from '../../assets/icon-logout.svg';
+import { logoutApi } from '../../apis/authService';
 
 const Navigation = () => {
   const navigation = useNavigate();
@@ -23,6 +24,10 @@ const Navigation = () => {
 
   const linkNavigation = (path: any) => {
     navigation(path);
+  };
+
+  const handleLogout = () => {
+    logoutApi();
   };
 
   useEffect(() => {
@@ -69,7 +74,7 @@ const Navigation = () => {
         <S.NavLogoutBtn>
           <S.NavLogoutIcon src={NavLoigoutIcon} />
         </S.NavLogoutBtn>
-        <S.NavLogout>Logout</S.NavLogout>
+        <S.NavLogout onClick={() => handleLogout()}>Logout</S.NavLogout>
       </S.NavFooter>
     </S.Nav>
   );
