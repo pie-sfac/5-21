@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import * as S from './style';
 import RecordImg from '../../assets/recordImg.jpeg';
 import { getArchiveLinks } from '../../apis/LinkService';
-
+import PlayArrow from '../../assets/icon-play_arrow.svg';
 // {
 //     "archiveLinks": [
 //       {
@@ -30,10 +30,22 @@ const LinkItem = () => {
   }, []);
   return (
     <S.LinkItemWrapper>
-      <S.LinkImg src={RecordImg} alt="" />
+      <S.LinkItemImgContent>
+        <S.LinkImg src={RecordImg} alt="" />
+        <S.PlayBtnDiv>
+          <S.PlayIcon src={PlayArrow} alt="playArrow" />
+        </S.PlayBtnDiv>
+      </S.LinkItemImgContent>
       <S.LinkContentDiv>
-        <S.LinklTitle>상체운동입니다.</S.LinklTitle>
-        <S.LinklSpan>매일 아침 30분 따라해보세요</S.LinklSpan>
+        <S.LinkCartegoryH2>특수 운동</S.LinkCartegoryH2>
+        <S.LinklTitle>영상 제목입니다.</S.LinklTitle>
+        <S.LinkExplain>
+          <S.LinkExplainP>
+            설명입니다. 두 줄까지 작성
+            가능합니다.ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+          </S.LinkExplainP>
+        </S.LinkExplain>
+        <S.LinkUploadDateSpan>등록일 : 2023년 07월 24일</S.LinkUploadDateSpan>
       </S.LinkContentDiv>
     </S.LinkItemWrapper>
   );

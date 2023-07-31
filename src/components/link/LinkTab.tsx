@@ -1,27 +1,28 @@
 // @flow
 import React from 'react';
 import * as S from './style';
+import { LinkTabPropsType } from '../../types/link/linkType';
 
-interface Props {
-  setIsActiveTab: (num: number) => void;
-  isActiveTab: number;
-}
-
-export const LinkTab = (props: Props) => {
+export const LinkTab = (props: LinkTabPropsType) => {
   return (
     <S.TabWrapperDiv>
       <S.TabSectionDiv>
-        <S.TabButton
-          onClick={() => {
-            // setTab(0);
-            props.setIsActiveTab(0);
-          }}
-          className={props.isActiveTab === 0 ? 'active' : ''}
-        >
-          전체 보기
-        </S.TabButton>
-
-        <S.TabButton
+        {props.linkCategories
+          ? props.linkCategories.map((category) => {
+              return (
+                <S.TabButton
+                  key={category.id}
+                  onClick={() => {
+                    props.setIsActiveTab(category.id);
+                  }}
+                  className={props.isActiveTab === category.id ? 'active' : ''}
+                >
+                  {category.title}
+                </S.TabButton>
+              );
+            })
+          : ''}
+        {/* <S.TabButton
           onClick={() => {
             // setTab(1);
             props.setIsActiveTab(1);
@@ -39,7 +40,7 @@ export const LinkTab = (props: Props) => {
           className={props.isActiveTab === 2 ? 'active' : ''}
         >
           단순 관절 운동
-        </S.TabButton>
+        </S.TabButton> */}
       </S.TabSectionDiv>
     </S.TabWrapperDiv>
   );

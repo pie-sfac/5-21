@@ -13,7 +13,7 @@ export const LinkWrapper = styled.div`
 // ============= TabContent =============
 export const TabContent = styled.div`
   width: 100%;
-  height: 719px;
+  height: 848px;
   /* height: calc(100vh - 186px); */
   padding: 0 72px;
   background-color: #f6f8ff;
@@ -42,8 +42,8 @@ export const Count = styled.span`
   color: #2d62ea;
 `;
 export const CategoryContent = styled.div`
-  width: 100%;
-  height: auto;
+  width: 1660px;
+  height: 692px;
   &.grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

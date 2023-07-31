@@ -86,13 +86,14 @@ const login = async (endpoint: string, data: LoginData) => {
 
 // 로그아웃 기능
 const logout = async (endpoint: string) => {
+  const refresh = Storage.getRefreshTokenItem();
   console.log(`%cPOST 요청: ${serverUrl + endpoint}`, 'color: #296aba;');
-
-  return await axios.post(serverUrl + endpoint, {
+  Storage.clearItemAll();
+  return await axios.post(serverUrl + endpoint, refresh, {
     headers: {
       'Content-Type': 'application/json',
       // refresh 토큰 담아줌
-      Authorization: `Bearer ${Storage.getRefreshTokenItem()}`,
+      Authorization: 'Bearer' + ' ' + refresh,
     },
   });
 };
