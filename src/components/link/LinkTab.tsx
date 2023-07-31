@@ -9,7 +9,6 @@ export const LinkTab = (props: LinkTabPropsType) => {
     //   ? props.linkCategories.map((category) => {
     <>
       <S.TabButton
-        key={props.category.id}
         onClick={() => {
           props.setIsActiveTab(props.category.id);
         }}
