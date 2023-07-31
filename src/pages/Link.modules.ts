@@ -37,6 +37,24 @@ export const LinkTitle = styled.h2`
   font-weight: 500;
 `;
 
+//button
+export const CreateTemplateBtn = styled.button`
+  height: 36px;
+  padding: 0px 16px;
+  color: #fff;
+  border-radius: 6px;
+  background: #2d62ea;
+  transition: all ease-in-out 0.2s;
+  &:hover {
+    background-color: #1850de;
+    box-shadow: 0px 6px 10px 0px rgba(45, 98, 234, 0.2);
+  }
+`;
+export const AddIcon = styled.img`
+  margin-right: 4px;
+  vertical-align: middle;
+`;
+
 // ============= Tab =============
 
 export const TabWrapperDiv = styled.div`
@@ -51,4 +69,25 @@ export const TabSectionDiv = styled.div`
   display: flex;
   width: 75%;
   padding: 0 24px;
+`;
+export const TabButton = styled.button`
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #999;
+  position: relative;
+  &.active {
+    color: #2d62ea;
+  }
+  &.active::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background-color: #2d62ea;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;

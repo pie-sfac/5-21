@@ -10,12 +10,13 @@ const LinkTabContent = (props: LinkTabContentType) => {
 
   return (
     <>
-      {}
       <S.TabContent>
         <S.TabContentHeader>
           <S.TitleWrapper>
-            <S.TabContentTitle>{category?.title}</S.TabContentTitle>
-            <S.CountLabel>{category?.totalCount}</S.CountLabel>
+            <S.TabContentTitle>
+              {category ? category.title : '제목'}
+            </S.TabContentTitle>
+            <S.CountLabel>{category ? category.totalCount : 0}</S.CountLabel>
           </S.TitleWrapper>
           <S.SortSelect>
             <S.SeleteOption>최신순</S.SeleteOption>

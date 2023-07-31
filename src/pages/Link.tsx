@@ -7,11 +7,14 @@ import { LinkCartegoryType } from '../types/link/linkType';
 import { LinkTab } from '../components/link/LinkTab';
 import Nav from '../components/nav/Navigation';
 import Header from '../components/nav/header';
-import Button from '../components/Button';
+// import Button from '../components/Button';
 import LinkTabContent from '../components/link/LinkTabContent';
 
+// img
+import addIcon from '../assets/icon-create-template.svg';
+
 const Link = () => {
-  const [isActiveTab, setIsActiveTab] = useState<number>(0);
+  const [isActiveTab, setIsActiveTab] = useState<number>(-1);
   const [linkCategories, setLinkCategories] = useState<LinkCartegoryType[]>([]);
 
   // const sortOption = [
@@ -25,7 +28,6 @@ const Link = () => {
         const res = await getArchiveLinkCategories();
         const apiData: LinkCartegoryType[] = res?.data.categories;
         setLinkCategories(apiData);
-        setIsActiveTab(apiData[0].id);
       } catch (error) {
         console.error(error);
       }
@@ -42,13 +44,21 @@ const Link = () => {
         <S.LinkContent>
           <S.TitleSection>
             <S.LinkTitle>미디어 관리</S.LinkTitle>
-            {/* <S.CreateTemplateBtn onClick={handleCreateModal}>
-            <S.AddIcon src={addIcon} alt="icon-create" />
-            Create Template
-            </S.CreateTemplateBtn> */}
+            <S.CreateTemplateBtn>
+              <S.AddIcon src={addIcon} alt="icon-create" />
+              Create Link
+            </S.CreateTemplateBtn>
           </S.TitleSection>
           <S.TabWrapperDiv>
             <S.TabSectionDiv>
+              <S.TabButton
+                onClick={() => {
+                  setIsActiveTab(-1);
+                }}
+                className={isActiveTab === -1 ? 'active' : ''}
+              >
+                전체보기
+              </S.TabButton>
               {linkCategories.map((category) => {
                 return (
                   <LinkTab
