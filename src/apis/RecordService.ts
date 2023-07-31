@@ -1,7 +1,11 @@
 import * as Api from '../utils/api';
 
-export const getRecordTemplates = () => {
-    const res = Api.get('record-templates');
-    console.log(res);
-    return res;
+export const getRecordTemplates = async () => {
+    try {
+        const res = await Api.get('record-templates');
+        return res;
+    } catch (error) {
+        console.error('Error fetching record templates:', error);
+        throw error;
+    }
 };

@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { RecordStateContext } from '../../pages/Record';
 import * as S from './style';
 // Components
@@ -11,6 +11,14 @@ import addIcon from '../../assets/icon-create-template.svg';
 
 const RecordContent = () => {
     const RecordList = useContext(RecordStateContext);
+    console.log(RecordList);
+
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        if (RecordList.length > 0) {
+            setLoading(false);
+        }
+    }, [RecordList]);
 
     const [modal, setModal] = useState<boolean>(false);
     const [isActiveTab, setIsActiveTab] = useState<number>(0);
@@ -37,9 +45,9 @@ const RecordContent = () => {
     const getPeocessRecordList = () => {
         const tabCallBack = (item: any) => {
             if (isActiveTab === 1) {
-                return item.category === '문진';
+                return item.category === 'INTERVIEW';
             } else if (isActiveTab === 2) {
-                return item.category === '처치';
+                return item.category === 'TREATMENT';
             }
         };
 
@@ -50,13 +58,17 @@ const RecordContent = () => {
                 return parseInt(a.date) - parseInt(b.date);
             }
         };
-        const copy = [...RecordList];
 
+        const copy = [...RecordList];
         const tabContentList = isActiveTab === 0 ? copy : copy.filter((item) => tabCallBack(item));
 
         const sortedList = tabContentList.sort(compare);
         return sortedList;
     };
+
+    if (loading) {
+        return <div>Loading....</div>;
+    }
 
     return (
         <S.RecordContent>

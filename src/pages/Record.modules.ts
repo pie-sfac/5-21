@@ -17,7 +17,7 @@ export const RecordWrapper = styled.div`
 // ============= Record Interview New =============
 export const interviewNewContent = styled.main`
     width: 100%;
-    height: calc(100% - 50px);
+    height: 100%;
     background: #fafbff;
 `;
 export const TitleSection = styled.section`
@@ -41,12 +41,23 @@ export const ContentSection = styled.section`
     display: flex;
     flex-direction: row;
     overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #ced9ff;
+        border-radius: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: #e8edff;
+    }
 `;
 
 // 1. CreateTemplateSection
 export const CreateTemplateSection = styled.div`
     width: calc(100% - 468px);
-    height: 100%;
+    height: 200%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,7 +126,7 @@ export const InputWrapper = styled.div`
     padding-bottom: 16px;
 `;
 export const TemplateTitleLabel = styled.label`
-    color: #888;
+    color: #444;
     font-weight: 500;
 `;
 export const TemplateTitleInput = styled.input`
@@ -125,9 +136,14 @@ export const TemplateTitleInput = styled.input`
     background: #f8f9fe;
     padding-left: 10px;
     margin-top: 12px;
-    border: none;
+    border: 1px solid transparent;
+    transition: all ease-in-out 0.2s;
+
     &::placeholder {
         color: #aaa;
+    }
+    &:focus {
+        border: 1px solid #2d62ea;
     }
 `;
 export const TemplateDescLabel = styled.label`
@@ -198,4 +214,9 @@ export const SaveBtn = styled.button`
     border-radius: 6px;
     color: #fff;
     background-color: #2d62ea;
+    transition: all ease-in-out 0.2s;
+
+    &:hover {
+        background-color: #1850de;
+    }
 `;

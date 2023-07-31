@@ -3,12 +3,11 @@ import * as S from './style';
 
 interface Item {
     id: number;
-    type: string;
     category: string;
-    img: string;
     title: string;
-    desc: string;
-    date: number;
+    description: string;
+    createdAt: string;
+    updatedAt: string;
 }
 
 interface CategoryItemProps {
@@ -16,27 +15,19 @@ interface CategoryItemProps {
     sortedList: () => Item[];
 }
 
-const CategoryItem: React.FC<CategoryItemProps> = ({ sortedList }) => {
-    const formatDate = (date: number) => {
-        const dateItem = new Date(date);
-        const year = dateItem.getFullYear();
-        const month = String(dateItem.getMonth() + 1).padStart(2, '0'); // 0부터 시작하므로 +1
-        const day = String(dateItem.getDate()).padStart(2, '0');
-        return `${year}년 ${month}월 ${day}일`;
-    };
-
+const CategoryItem = ({ sortedList }: CategoryItemProps) => {
     return (
         <>
             {sortedList().map((item: any) => (
-                <S.CategoryItem key={item.id} className={item.type}>
+                <S.CategoryItem key={item.id} className={item.category}>
                     <S.CategoryItemInner>
-                        <S.ItemImgBox className={item.type}>
-                            <S.ItemImg className={item.type}></S.ItemImg>
+                        <S.ItemImgBox className={item.category}>
+                            <S.ItemImg className={item.category}></S.ItemImg>
                         </S.ItemImgBox>
-                        <S.ItemCategory>{item.type}</S.ItemCategory>
+                        <S.ItemCategory>{item.category}</S.ItemCategory>
                         <S.ItemTitle>{item.title}</S.ItemTitle>
-                        <S.ItemDesc>{item.desc}</S.ItemDesc>
-                        <S.ItemDate>등록일: {formatDate(item.date)}</S.ItemDate>
+                        <S.ItemDesc>{item.description}</S.ItemDesc>
+                        <S.ItemDate>등록일: {item.createdAt}</S.ItemDate>
                     </S.CategoryItemInner>
                 </S.CategoryItem>
             ))}

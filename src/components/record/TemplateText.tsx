@@ -1,9 +1,9 @@
 import * as S from './style';
 // img
 import infoTooltip from '../../assets/icon-template-info.svg';
-import templateClosedToggleIcon from '../../assets/icon-template-toggle-arrow.svg';
 import upIcon from '../../assets/icon-order-up.svg';
 import downIcon from '../../assets/icon-order-down.svg';
+import closeIcon from '../../assets/icon-close-btn.svg';
 
 const TextTemplate = () => {
     return (
@@ -14,26 +14,26 @@ const TextTemplate = () => {
                     <S.CategoryLabel>기본 문항</S.CategoryLabel>
                     <S.infoTooltip src={infoTooltip} />
                 </S.TemplateHeaderTitle>
-                <S.ToggleArrowBtn>
-                    <S.ToggleArrowIcon src={templateClosedToggleIcon} />
-                </S.ToggleArrowBtn>
+                <S.CloseBtn>
+                    <S.CloseImg src={closeIcon} />
+                </S.CloseBtn>
             </S.TemplateHeader>
 
             <S.TemplateOption>
                 <S.OptionWrapper>
-                    <S.InputWrapper>
-                        <S.RadioInput type='radio' />
-                        <S.RadioLabel>단답형</S.RadioLabel>
-                    </S.InputWrapper>
-                    <S.InputWrapper>
-                        <S.RadioInput type='radio' />
-                        <S.RadioLabel>장문형</S.RadioLabel>
-                    </S.InputWrapper>
+                    <S.RadioLabel>
+                        <S.RadioInput type='radio' name='optionRadio' />
+                        <S.RadioName>단답형</S.RadioName>
+                    </S.RadioLabel>
+                    <S.RadioLabel>
+                        <S.RadioInput type='radio' name='optionRadio' />
+                        <S.RadioName>장문형</S.RadioName>
+                    </S.RadioLabel>
                 </S.OptionWrapper>
-                <S.RequiredToggle>
-                    <S.ToggleLabel>필수</S.ToggleLabel>
-                    <S.Toggle type='checkbox'></S.Toggle>
-                </S.RequiredToggle>
+                <S.SwitchLabel>
+                    <S.SwitchName>필수</S.SwitchName>
+                    <S.Switch role='switch' type='checkbox'></S.Switch>
+                </S.SwitchLabel>
             </S.TemplateOption>
 
             <S.TemplateContent>
@@ -56,7 +56,6 @@ const TextTemplate = () => {
                         <S.DownIcon src={downIcon} />
                     </S.OrderBtn>
                 </S.OrderBtnWrapper>
-                <S.deleteBtn>삭제</S.deleteBtn>
             </S.TemplateFooter>
         </S.TemplateWrapper>
     );

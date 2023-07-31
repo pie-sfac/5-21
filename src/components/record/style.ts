@@ -148,30 +148,30 @@ export const CategoryItem = styled.div`
         background: rgba(232, 238, 255, 0.29);
     }
 
-    &.interview:hover span {
+    &.INTERVIEW:hover span {
         background-image: url(${interviewHover});
     }
-    &.treatment:hover span {
+    &.TREATMENT:hover span {
         background-image: url(${treatmentHover});
     }
 
-    &.interview:hover {
+    &.INTERVIEW:hover {
         z-index: 1;
         border-radius: 10px;
         background: linear-gradient(135deg, #3f9ceb 0%, #3e9cec 0.01%, #6457fb 100%);
         box-shadow: 20px 20px 30px 0px rgba(0, 0, 0, 0.24);
     }
-    &.treatment:hover {
+    &.TREATMENT:hover {
         z-index: 1;
         border-radius: 10px;
         background: linear-gradient(135deg, #c496ff 0%, #652bec 100%);
         box-shadow: 20px 20px 30px 0px rgba(0, 0, 0, 0.2);
     }
 
-    &.treatment p:first-of-type {
+    &.TREATMENT p:first-of-type {
         color: #ac5bf7;
     }
-    &.treatment:hover p:first-of-type {
+    &.TREATMENT:hover p:first-of-type {
         color: #fff;
     }
 `;
@@ -190,10 +190,10 @@ export const ItemImgBox = styled.div`
     justify-content: center;
     align-items: center;
     margin-bottom: 32px;
-    &.interview {
+    &.INTERVIEW {
         background-color: #e8eeff;
     }
-    &.treatment {
+    &.TREATMENT {
         background: #f3e8ff;
     }
 `;
@@ -201,12 +201,12 @@ export const ItemImg = styled.span`
     display: block;
     width: 40px;
     height: 40px;
-    &.interview {
+    &.INTERVIEW {
         background-image: url(${interview});
         background-position: center;
         background-repeat: no-repeat;
     }
-    &.treatment {
+    &.TREATMENT {
         background-image: url(${treatment});
         background-position: center;
         background-repeat: no-repeat;
@@ -296,7 +296,9 @@ export const CloseBtn = styled.button`
     outline: none;
     background-color: transparent;
 `;
-export const CloseImg = styled.img``;
+export const CloseImg = styled.img`
+    vertical-align: middle;
+`;
 
 // Content
 export const ModalContent = styled.div`
@@ -446,6 +448,7 @@ export const TemplateWrapper = styled.div`
     border-radius: 10px;
     background: #fff;
     box-shadow: 0px 4px 20px 0px rgba(231, 233, 242, 0.5);
+    margin-bottom: 24px;
 `;
 export const TemplateHeader = styled.div`
     width: 100%;
@@ -477,10 +480,6 @@ export const CategoryLabel = styled.div`
 export const infoTooltip = styled.img`
     cursor: pointer;
 `;
-export const ToggleArrowBtn = styled.button``;
-export const ToggleArrowIcon = styled.img`
-    vertical-align: middle;
-`;
 
 // option
 export const TemplateOption = styled.div`
@@ -498,31 +497,83 @@ export const OptionWrapper = styled.div`
     align-items: center;
 `;
 export const InputWrapper = styled.div`
+    margin-bottom: 16px;
+`;
+export const RadioLabel = styled.label`
+    cursor: pointer;
     margin-right: 12px;
 `;
-export const RadioInput = styled.input``;
-export const RadioLabel = styled.label`
-    margin-left: 4px;
+export const RadioInput = styled.input`
+    cursor: pointer;
+    margin-right: 6px;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
 `;
-export const RequiredToggle = styled.div``;
-export const ToggleLabel = styled.label``;
-export const Toggle = styled.input`
+export const RadioName = styled.span`
+    font-size: 12px;
+    font-weight: 400;
+`;
+
+export const SwitchLabel = styled.label`
+    display: inline-flex;
+    align-items: center;
+`;
+export const SwitchName = styled.span``;
+export const Switch = styled.input`
     margin-left: 8px;
+    & {
+        appearance: none;
+        position: relative;
+        border-radius: 1.25em;
+        width: 40px;
+        height: 16px;
+        background-color: #ccc;
+    }
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 1.5px solid #cfcfcf;
+        transition: all linear 0.2s;
+    }
+    &:checked {
+        background-color: #6691ff;
+    }
+    &:checked::before {
+        left: 20px;
+        border-color: #6691ff;
+    }
+    &:disabled {
+        background-color: #ccc;
+        opacity: 0.8;
+        cursor: not-allowed;
+    }
+    &:disabled::before {
+        background-color: #f4f4f4;
+    }
 `;
 
 // content
 export const TemplateContent = styled.div`
     width: 100%;
     padding: 20px;
-    & > div:first-child {
-        margin-bottom: 16px;
+    & > div:last-child {
+        margin-bottom: 0px;
     }
 `;
 export const TemplateTitleLabel = styled.label`
     display: block;
     font-size: 14px;
     font-weight: 500;
-    color: #888;
+    color: #444;
     margin-bottom: 10px;
 `;
 export const TemplateTitleInput = styled.input`
@@ -532,6 +583,8 @@ export const TemplateTitleInput = styled.input`
     border-radius: 6px;
     background: #f8f9fe;
     border: 1px solid transparent;
+    transition: all ease-in-out 0.2s;
+
     &:focus {
         border: 1px solid #2d62ea;
     }
@@ -548,6 +601,8 @@ export const TemplateDescInput = styled.textarea`
     border: 1px solid transparent;
     resize: none;
     word-break: keep-all;
+    transition: all ease-in-out 0.2s;
+    outline: none;
 
     &:focus {
         border: 1px solid #2d62ea;
@@ -557,6 +612,37 @@ export const TemplateDescInput = styled.textarea`
         color: #aaaaaa;
     }
 `;
+export const UploadBox = styled.div`
+    cursor: pointer;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px dashed #6691ff;
+    background: #f8f9fe;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 0px;
+    transition: all ease-in-out 0.2s;
+
+    &:hover {
+        background-color: #eff2ff;
+    }
+    &:hover p {
+        color: #2d62ea;
+    }
+`;
+export const UploadTextBox = styled.div`
+    text-align: center;
+`;
+export const UploadIcon = styled.img``;
+export const UploadDesc = styled.p`
+    transition: all ease-in-out 0.2s;
+`;
+
+export const TemplateTitleWrapper = styled.div``;
+export const AddViewBtn = styled.div``;
+export const AddOtherBtn = styled.div``;
 
 //footer
 export const TemplateFooter = styled.div`
@@ -564,7 +650,7 @@ export const TemplateFooter = styled.div`
     padding: 8px 20px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     border-top: 1px solid #f1f3f6;
 `;

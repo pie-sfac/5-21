@@ -12,7 +12,6 @@ import MediaTemplate from '../components/record/TemplateMedia';
 import OptionalTemplate from '../components/record/TemplateOptional';
 // img
 import templateAddIcon from '../assets/icon-template-add.svg';
-import templateClosedToggleIcon from '../assets/icon-template-toggle-arrow.svg';
 
 const RecordInterviewNew = () => {
     const [isActiveTab, setIsActiveTab] = useState<number>(0);
@@ -44,15 +43,12 @@ const RecordInterviewNew = () => {
                                         <S.TemplateIconBox>
                                             <S.TemplateIcon src={templateAddIcon} />
                                         </S.TemplateIconBox>
-                                        <S.TemplateType>TemplateType</S.TemplateType>
+                                        <S.TemplateType>문진 템플릿</S.TemplateType>
                                     </S.TemplateHeaderTitle>
-                                    <S.ToggleArrowBtn>
-                                        <S.ToggleArrowIcon src={templateClosedToggleIcon} />
-                                    </S.ToggleArrowBtn>
                                 </S.TemplateHeader>
                                 <S.TemplateContent>
                                     <S.InputWrapper>
-                                        <S.TemplateTitleLabel>템플릿 제목 *</S.TemplateTitleLabel>
+                                        <S.TemplateTitleLabel required>템플릿 제목 *</S.TemplateTitleLabel>
                                         <S.TemplateTitleInput type='text' placeholder='템플릿 제목을 적어주세요. (최대 40자)' />
                                     </S.InputWrapper>
                                     <S.InputWrapper>

@@ -1,20 +1,19 @@
-import React, { useReducer, useRef, useEffect } from 'react';
+import React, { useReducer, useRef, useEffect, useState, createContext } from 'react';
 import * as S from './Record.modules';
 // Components
 import Nav from '../components/Nav/Navigation';
 import Header from '../components/Nav/header';
 import RecordContent from '../components/record/RecordContent';
 // data
-import { dummyArr } from '../components/commonConst/dummyItem';
 import { getRecordTemplates } from '../apis/RecordService';
 
 interface RecordItem {
     id: number;
     category: string;
-    type: string;
     title: string;
-    desc: string;
-    date: number;
+    description: string;
+    createdAt: string;
+    updatedAt: string;
 }
 
 type ActionType = { type: 'INIT'; data: RecordItem[] } | { type: 'CREATE'; data: RecordItem } | { type: 'REMOVE'; targetId: number } | { type: 'EDIT'; data: RecordItem };
@@ -45,11 +44,11 @@ const reducer = (state: RecordItem[], action: ActionType): RecordItem[] => {
 };
 
 // 🔥 Context 🔥
-export const RecordStateContext = React.createContext<RecordItem[]>([]);
-export const RecordDispatchContext = React.createContext<{
-    onCreate: (category: string, type: string, img: string, title: string, desc: string, date: string) => void;
+export const RecordStateContext = createContext<RecordItem[]>([]);
+export const RecordDispatchContext = createContext<{
+    onCreate: (category: string, title: string, description: string, createdAt: string, updatedAt: string) => void;
     onRemove: (targetId: number) => void;
-    onEdit: (targetId: number, category: string, type: string, img: string, title: string, desc: string, date: string) => void;
+    onEdit: (targetId: number, category: string, title: string, description: string, createdAt: string, updatedAt: string) => void;
 }>({
     onCreate: () => {},
     onRemove: () => {},
@@ -58,25 +57,38 @@ export const RecordDispatchContext = React.createContext<{
 
 // 🔥 APP 🔥
 const RecordManagement = () => {
+    // API 저장
+    const [apiData, setApiData] = useState<RecordItem[]>([]);
+    console.log(apiData);
     useEffect(() => {
-        getRecordTemplates().then((res) => console.log(res.data));
+        // API 호출
+        const fetchData = async () => {
+            try {
+                const res = await getRecordTemplates();
+                const apiData: RecordItem[] = res.data.templates;
+                setApiData(apiData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
     }, []);
 
-    const [data, dispatch] = useReducer(reducer, dummyArr);
+    const [data, dispatch] = useReducer(reducer, apiData);
 
     const dataId = useRef<number>(0);
 
     //CREATE
-    const onCreate = (category: string, type: string, title: string, desc: string, date: string) => {
+    const onCreate = (category: string, title: string, description: string, createdAt: string, updatedAt: string) => {
         dispatch({
             type: 'CREATE',
             data: {
                 id: dataId.current,
                 category,
-                type,
                 title,
-                desc,
-                date: new Date(date).getTime(),
+                description,
+                createdAt,
+                updatedAt,
             },
         });
         dataId.current += 1;
@@ -86,16 +98,16 @@ const RecordManagement = () => {
         dispatch({ type: 'REMOVE', targetId });
     };
     //Edit
-    const onEdit = (targetId: number, category: string, type: string, title: string, desc: string, date: string) => {
+    const onEdit = (targetId: number, category: string, title: string, description: string, createdAt: string, updatedAt: string) => {
         dispatch({
             type: 'EDIT',
             data: {
                 id: targetId,
                 category,
-                type,
                 title,
-                desc,
-                date: new Date(date).getTime(),
+                description,
+                createdAt,
+                updatedAt,
             },
         });
     };
