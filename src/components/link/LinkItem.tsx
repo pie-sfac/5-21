@@ -36,7 +36,6 @@ const LinkItem = () => {
           <S.PlayIcon src={PlayArrow} alt="playArrow" />
         </S.PlayBtnDiv>
       </S.LinkItemImgContent>
-
       <S.LinkContentDiv>
         <S.LinkCartegoryH2>특수 운동</S.LinkCartegoryH2>
         <S.LinklTitle>영상 제목입니다.</S.LinklTitle>

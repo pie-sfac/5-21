@@ -38,8 +38,8 @@ export const TabButton = styled.button`
     height: 2px;
     background-color: #2d62ea;
     position: absolute;
-    top: 17.5%;
     /* left: 50%; */
+    top: 12.6%;
     /* transform: translateX(-50%); */
   }
 `;
