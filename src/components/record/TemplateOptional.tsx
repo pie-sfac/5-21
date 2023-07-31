@@ -39,8 +39,10 @@ const OptionalTemplate = () => {
                 <S.InputWrapper>
                     <S.TemplateTitleWrapper>
                         <S.TemplateTitleLabel>보기</S.TemplateTitleLabel>
-                        <S.AddViewBtn>보기 추가하기</S.AddViewBtn>
-                        <S.AddOtherBtn>기타 추가하기</S.AddOtherBtn>
+                        <S.AddBtnWrapper>
+                            <S.AddViewBtn>보기 추가하기</S.AddViewBtn>
+                            <S.AddOtherBtn>기타 추가하기</S.AddOtherBtn>
+                        </S.AddBtnWrapper>
                     </S.TemplateTitleWrapper>
                     <S.TemplateTitleInput type='text' placeholder='옵션명을 적어주세요' />
                 </S.InputWrapper>

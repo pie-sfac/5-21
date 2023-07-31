@@ -214,7 +214,7 @@ export const ItemImg = styled.span`
 `;
 
 export const ItemCategory = styled.p`
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     color: #6691ff;
     margin-bottom: 8px;
@@ -226,12 +226,10 @@ export const ItemTitle = styled.p`
 export const ItemDesc = styled.p`
     color: #888;
     width: 260px;
+    height: 44px;
     line-height: 22px;
     margin: 24px 0px;
-    /* white-space: nowrap;
-    overflow: hidden;
-    word-break: keep-all;
-    text-overflow: ellipsis; */
+    /* word-break: keep-all; */
 `;
 export const ItemDate = styled.p`
     color: #aaa;
@@ -640,9 +638,25 @@ export const UploadDesc = styled.p`
     transition: all ease-in-out 0.2s;
 `;
 
-export const TemplateTitleWrapper = styled.div``;
-export const AddViewBtn = styled.div``;
-export const AddOtherBtn = styled.div``;
+export const TemplateTitleWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+`;
+export const AddBtnWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    & > button {
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: 1px solid #e7e7e7;
+        margin-left: 8px;
+    }
+`;
+export const AddViewBtn = styled.button``;
+export const AddOtherBtn = styled.button``;
 
 //footer
 export const TemplateFooter = styled.div`

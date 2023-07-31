@@ -1,8 +1,8 @@
-import React, { useReducer, useRef, useEffect, useState, createContext } from 'react';
+import { useReducer, useRef, useEffect, useState, createContext } from 'react';
 import * as S from './Record.modules';
 // Components
-import Nav from '../components/Nav/Navigation';
-import Header from '../components/Nav/header';
+import Nav from '../components/Nav/navigation';
+import Header from '../components/nav/header';
 import RecordContent from '../components/record/RecordContent';
 // data
 import { getRecordTemplates } from '../apis/RecordService';
@@ -59,22 +59,21 @@ export const RecordDispatchContext = createContext<{
 const RecordManagement = () => {
     // API 저장
     const [apiData, setApiData] = useState<RecordItem[]>([]);
-    console.log(apiData);
+    const [data, dispatch] = useReducer(reducer, []);
+
     useEffect(() => {
         // API 호출
         const fetchData = async () => {
-            try {
-                const res = await getRecordTemplates();
-                const apiData: RecordItem[] = res.data.templates;
-                setApiData(apiData);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
+            const res = await getRecordTemplates();
+            const apiData: RecordItem[] = res.data.templates;
+            setApiData(apiData);
         };
         fetchData();
     }, []);
 
-    const [data, dispatch] = useReducer(reducer, apiData);
+    useEffect(() => {
+        dispatch({ type: 'INIT', data: apiData });
+    }, [apiData]);
 
     const dataId = useRef<number>(0);
 

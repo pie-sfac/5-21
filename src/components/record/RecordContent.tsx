@@ -11,7 +11,6 @@ import addIcon from '../../assets/icon-create-template.svg';
 
 const RecordContent = () => {
     const RecordList = useContext(RecordStateContext);
-    console.log(RecordList);
 
     const [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -66,10 +65,6 @@ const RecordContent = () => {
         return sortedList;
     };
 
-    if (loading) {
-        return <div>Loading....</div>;
-    }
-
     return (
         <S.RecordContent>
             <S.TitleSection>
@@ -86,8 +81,8 @@ const RecordContent = () => {
                 <S.TabContent>
                     <S.TabContentHeader>
                         <S.TitleWrapper>
-                            <S.TabContentTitle>템플릿 전체보기</S.TabContentTitle>
-                            <S.CountLabel>{RecordList.length}</S.CountLabel>
+                            <S.TabContentTitle>{TabArr[isActiveTab].value}</S.TabContentTitle>
+                            <S.CountLabel>{getPeocessRecordList().length}</S.CountLabel>
                         </S.TitleWrapper>
                         <S.SortSelect value={sortType} onChange={(e: any) => setSortType(e.target.value)}>
                             {sortOption.map((item: any, index: number) => (
@@ -98,10 +93,10 @@ const RecordContent = () => {
                         </S.SortSelect>
                     </S.TabContentHeader>
                     <S.CategoryContent className={'grid'}>
-                        <CategoryItem RecordList={RecordList} sortedList={getPeocessRecordList} />
+                        <CategoryItem sortedList={getPeocessRecordList} />
                     </S.CategoryContent>
                     <S.TabContentFooter>
-                        <S.FooterItemCount>총 {RecordList.length}개</S.FooterItemCount>
+                        <S.FooterItemCount>총 {getPeocessRecordList().length}개</S.FooterItemCount>
                         <Pagination />
                     </S.TabContentFooter>
                 </S.TabContent>
