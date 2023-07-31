@@ -5,24 +5,18 @@ import { LinkTabPropsType } from '../../types/link/linkType';
 
 export const LinkTab = (props: LinkTabPropsType) => {
   return (
-    <S.TabWrapperDiv>
-      <S.TabSectionDiv>
-        {props.linkCategories
-          ? props.linkCategories.map((category) => {
-              return (
-                <S.TabButton
-                  key={category.id}
-                  onClick={() => {
-                    props.setIsActiveTab(category.id);
-                  }}
-                  className={props.isActiveTab === category.id ? 'active' : ''}
-                >
-                  {category.title}
-                </S.TabButton>
-              );
-            })
-          : ''}
-      </S.TabSectionDiv>
-    </S.TabWrapperDiv>
+    // {props.linkCategories
+    //   ? props.linkCategories.map((category) => {
+    <>
+      <S.TabButton
+        key={props.category.id}
+        onClick={() => {
+          props.setIsActiveTab(props.category.id);
+        }}
+        className={props.isActiveTab === props.category.id ? 'active' : ''}
+      >
+        {props.category.title}
+      </S.TabButton>
+    </>
   );
 };

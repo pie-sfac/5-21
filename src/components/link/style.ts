@@ -2,19 +2,6 @@ import { styled } from 'styled-components';
 
 // ============= LinkTab =============
 
-export const TabWrapperDiv = styled.div`
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-export const TabSectionDiv = styled.div`
-  display: flex;
-  width: 75%;
-  padding: 0 24px;
-`;
 export const TabButton = styled.button`
   width: 80px;
   height: 40px;
@@ -28,7 +15,7 @@ export const TabButton = styled.button`
   &.active::after {
     content: '';
     display: block;
-    width: 56px;
+    width: 80px;
     height: 2px;
     background-color: #2d62ea;
     position: absolute;
@@ -85,7 +72,6 @@ export const LinkImg = styled.img`
   position: absolute;
 `;
 export const LinklTitle = styled.h3`
-  width: 400px;
   padding-top: 5px;
   font-size: 18px;
 `;
@@ -102,7 +88,6 @@ export const LinkContentDiv = styled.div`
 `;
 
 export const LinkCartegoryH2 = styled.h2`
-  width: 410px;
   color: #6691ff;
   font-family: Noto Sans KR;
   font-size: 16px;
@@ -110,14 +95,13 @@ export const LinkCartegoryH2 = styled.h2`
 `;
 
 export const LinkExplain = styled.div`
-  width: 388px;
+  width: 386px;
   margin-top: 12px;
   margin-bottom: 12px;
 `;
 
 export const LinkExplainP = styled.p`
   color: #888;
-  width: 420px;
   font-size: 14px;
   font-style: normal;
   overflow: hidden;
@@ -132,4 +116,73 @@ export const LinkUploadDateSpan = styled.span`
   color: #aaa;
   font-size: 12px;
   font-style: normal;
+`;
+
+// ============= Tab-content =============
+export const TabContent = styled.div`
+  width: 100%;
+  height: calc(100% - 40px);
+  padding: 24px;
+  background-color: #f2f5ff;
+`;
+export const TabContentHeader = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 0px 20px 16px;
+`;
+export const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+export const TabContentTitle = styled.h3`
+  font-size: 15px;
+  font-weight: 500;
+`;
+export const CountLabel = styled.div`
+  color: #fff;
+  height: 22px;
+  padding: 0px 12px;
+  line-height: 24px;
+  border-radius: 6px;
+  background: #2d62ea;
+  margin-left: 8px;
+`;
+export const SortSelect = styled.select`
+  width: 116;
+  height: 34px;
+  padding: 0px 10px;
+  border-radius: 6px;
+  border: 1px solid #e7e7e7;
+  background: #fff;
+  margin-right: 8px;
+`;
+export const SeleteOption = styled.option``;
+
+export const CategoryContent = styled.div`
+  width: 100%;
+  height: auto;
+  &.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-rows: repeat(2, 1fr); */
+    grid-gap: 20px;
+  }
+`;
+export const TabContentFooter = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  position: relative;
+`;
+export const FooterItemCount = styled.p`
+  position: absolute;
+  left: 0px;
+  top: 0;
+  color: #999999;
 `;

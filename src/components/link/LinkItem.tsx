@@ -26,7 +26,7 @@ import PlayArrow from '../../assets/icon-play_arrow.svg';
 
 const LinkItem = () => {
   useEffect(() => {
-    getArchiveLinks().then((res) => console.log(res.data));
+    getArchiveLinks().then((res) => res?.data);
   }, []);
   return (
     <S.LinkItemWrapper>

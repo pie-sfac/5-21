@@ -10,5 +10,9 @@ export interface LinkCartegoryType {
 export interface LinkTabPropsType {
   setIsActiveTab: (num: number) => void;
   isActiveTab: number;
-  linkCategories?: LinkCartegoryType[];
+  category: LinkCartegoryType;
+}
+export interface LinkTabContentType {
+  isActiveTab: number;
+  linkCategories: LinkCartegoryType[];
 }

@@ -10,6 +10,7 @@ import { LinkCartegoryType } from '../types/link/linkType';
 import Nav from '../components/nav/Navigation';
 import Header from '../components/nav/header';
 import Button from '../components/Button';
+import LinkTabContent from '../components/link/LinkTabContent';
 
 const Link = () => {
   const content = [<LinkItem />, '내용1', '내용2'];
@@ -47,34 +48,23 @@ const Link = () => {
             {/* Create Template */}
             {/* </S.CreateTemplateBtn> */}
           </S.TitleSection>
-          {linkCategories ? (
-            <LinkTab
-              isActiveTab={isActiveTab}
-              setIsActiveTab={setIsActiveTab}
-              linkCategories={linkCategories}
-            />
-          ) : (
-            ''
-          )}
-          <S.TabContent>
-            <S.TabContentHeader>
-              <S.TitleWrapper>
-                <S.TabContentTitle>전체보기</S.TabContentTitle>
-                <S.CountLabel>50</S.CountLabel>
-              </S.TitleWrapper>
-              <S.SortSelect>
-                <S.SeleteOption>최신순</S.SeleteOption>
-              </S.SortSelect>
-            </S.TabContentHeader>
-            <S.CategoryContent className={'grid'}>
-              <LinkItem />
-              {/* <CategoryItem /> */}
-            </S.CategoryContent>
-            <S.TabContentFooter>
-              <S.FooterItemCount>총 50개</S.FooterItemCount>
-              {/* <Pagination /> */}
-            </S.TabContentFooter>
-          </S.TabContent>
+          <S.TabWrapperDiv>
+            <S.TabSectionDiv>
+              {linkCategories.map((category) => {
+                return (
+                  <LinkTab
+                    isActiveTab={isActiveTab}
+                    category={category}
+                    setIsActiveTab={setIsActiveTab}
+                  />
+                );
+              })}
+            </S.TabSectionDiv>
+          </S.TabWrapperDiv>
+          <LinkTabContent
+            isActiveTab={isActiveTab}
+            linkCategories={linkCategories}
+          />
         </S.LinkContent>
       </S.LinkWrapper>
     </S.Wrapper>
