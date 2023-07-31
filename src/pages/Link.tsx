@@ -16,14 +16,16 @@ const Link = () => {
   const [linkCategories, setLinkCategories] = useState<LinkCartegoryType[]>([]);
 
   useEffect(() => {
-    // const res = getArchiveLinkCategories()
-
-    // .then((res) =>
-    //   setLinkCategories(res.data)
-    // );
-    getArchiveLinkCategories('archive-link-categories').then((res) =>
-      setLinkCategories(res.data)
-    );
+    const fetchData = async () => {
+      try {
+        const res = await getArchiveLinkCategories();
+        const apiData: LinkCartegoryType[] = res?.data.categories;
+        setLinkCategories(apiData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
   }, []);
 
   return (
@@ -51,7 +53,7 @@ const Link = () => {
         <S.CategoryFooter>
           <S.FooterItemCount>[1 to 5] 총 50개</S.FooterItemCount>
           {/* <Pagination /> */}
-          <Button text={'등록'} type={'primary'} onClick="" />
+          <Button text={'등록'} type={'primary'} onClick={() => {}} />
         </S.CategoryFooter>
       </S.TabContent>
     </S.LinkWrapper>
