@@ -13,39 +13,34 @@ export const TabWrapperDiv = styled.div`
 export const TabSectionDiv = styled.div`
   display: flex;
   width: 75%;
-  padding: 0 52px;
+  padding: 0 24px;
 `;
 export const TabButton = styled.button`
-  display: flex;
-  width: 90px;
+  width: 80px;
   height: 40px;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  color: #999999;
   text-align: center;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 100%; //14px
+  line-height: 40px;
+  color: #999;
+  position: relative;
   &.active {
     color: #2d62ea;
   }
   &.active::after {
     content: '';
     display: block;
-    width: 79px;
+    width: 56px;
     height: 2px;
     background-color: #2d62ea;
     position: absolute;
-    /* left: 50%; */
-    top: 12.6%;
-    /* transform: translateX(-50%); */
+    left: 50%;
+    transform: translateX(-50%);
   }
 `;
 
 // ============= LinkItem =============
 export const LinkItemWrapper = styled.div`
+  width: 459px;
+  height: 336px;
   cursor: pointer;
   border-radius: 10px;
   background: #fff;
@@ -78,18 +73,19 @@ export const PlayBtnDiv = styled.div`
   border-radius: 100px;
   background: #fff;
   position: relative;
-  top: 138px;
-  left: 272px;
+  top: 145px;
+  left: 310px;
 `;
 export const PlayIcon = styled.img``;
 export const LinkImg = styled.img`
   height: 178px;
   width: 100%;
   object-fit: cover;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px;
   position: absolute;
 `;
 export const LinklTitle = styled.h3`
+  width: 400px;
   padding-top: 5px;
   font-size: 18px;
 `;
@@ -106,6 +102,7 @@ export const LinkContentDiv = styled.div`
 `;
 
 export const LinkCartegoryH2 = styled.h2`
+  width: 410px;
   color: #6691ff;
   font-family: Noto Sans KR;
   font-size: 16px;
@@ -120,7 +117,7 @@ export const LinkExplain = styled.div`
 
 export const LinkExplainP = styled.p`
   color: #888;
-  width: 350px;
+  width: 420px;
   font-size: 14px;
   font-style: normal;
   overflow: hidden;
