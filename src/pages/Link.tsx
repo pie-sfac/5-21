@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import TitleSection from '../components/TitleSection';
 // import { menu } from '../components/commonConst/NavConst';
 import * as S from './Link.modules';
 // import TabSection from '../components/TabSection';
@@ -30,7 +29,6 @@ const Link = () => {
 
   return (
     <S.LinkWrapper>
-      <TitleSection depth01={'이거'} depth02={'저거'} depth03={'미디어 관리'} />
       {linkCategories ? (
         <LinkTab
           isActiveTab={isActiveTab}
