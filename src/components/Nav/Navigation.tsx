@@ -31,14 +31,14 @@ const Navigation = ({ isNavOpen }: NavigationProps) => {
         navigation(path);
     };
 
-    useEffect(() => {
-        const currentMenu = menu.filter((item) => {
-            return item.path == location.pathname;
-        });
-        const menuActiveStatus = [0, 0, 0, 0, 0, 0, 0];
-        menuActiveStatus[currentMenu[0].id] = 1;
-        setHover(menuActiveStatus);
-    }, [location]);
+    // useEffect(() => {
+    //     const currentMenu = menu.filter((item) => {
+    //         return item.path == location.pathname;
+    //     });
+    //     const menuActiveStatus = [0, 0, 0, 0, 0, 0, 0];
+    //     menuActiveStatus[currentMenu[0].id] = 1;
+    //     setHover(menuActiveStatus);
+    // }, [location]);
 
     return (
         <S.Nav className={isNavOpen ? '' : 'closed'}>

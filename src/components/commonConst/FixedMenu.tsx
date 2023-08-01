@@ -22,7 +22,7 @@ export const FixedMenuCommonList: FixedMenuProps[] = [
         desc: '텍스트 형식의 답변을 입력하는 문항',
         label: '기본 문항',
         img: MenuTextIcon,
-        type: 'common',
+        type: 'TEXT',
     },
     {
         id: 1,
@@ -30,7 +30,7 @@ export const FixedMenuCommonList: FixedMenuProps[] = [
         desc: '이미지 혹은 영상을 답변으로 첨부하는 문항',
         label: '기본 문항',
         img: MenuMediaIcon,
-        type: 'common',
+        type: 'MEDIA',
     },
     {
         id: 2,
@@ -38,7 +38,7 @@ export const FixedMenuCommonList: FixedMenuProps[] = [
         desc: '보기 중 선택해서 답변하는 문항',
         label: '기본 문항',
         img: MenuSelectIcon,
-        type: 'common',
+        type: 'SELECT',
     },
 ];
 
@@ -49,7 +49,7 @@ export const IntvProList: FixedMenuProps[] = [
         desc: '통증 부위, 유형, 정도, 빈도, 기간을 작성할 수 있는 문항',
         label: '전문 문항',
         img: MenuDiagnosisIcon,
-        type: 'professional',
+        type: 'PAIN_INTV',
     },
 ];
 
@@ -60,7 +60,7 @@ export const TreatmentProList: FixedMenuProps[] = [
         desc: '회원 통증 정도를 선택하는 문항',
         label: '전문 문항',
         img: MenuPainIcon,
-        type: 'professional',
+        type: 'PAIN_HSTRY',
     },
     {
         id: 1,
@@ -68,14 +68,6 @@ export const TreatmentProList: FixedMenuProps[] = [
         desc: '회원 컨디션 정도를 선택하는 문항',
         label: '전문 문항',
         img: MenuConditionIcon,
-        type: 'professional',
-    },
-    {
-        id: 2,
-        title: '통증 문진',
-        desc: '통증 부위, 유형, 정도, 빈도, 기간을 작성할 수 있는 문항',
-        label: '전문 문항',
-        img: MenuDiagnosisIcon,
-        type: 'professional',
+        type: 'CONDITION',
     },
 ];

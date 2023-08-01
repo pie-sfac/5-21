@@ -51,8 +51,7 @@ const Modal = ({ setModal, type, btnType, headerTitle, contentTitle, contentDesc
                     ))}
                 </S.ModalContent>
                 <S.ModalFooter className={btnType}>
-                    <Button type={'secondary'} text={'취소'} onClick={handleCloseModal} />
-                    <Button type={'primary'} text={'계속 작성하기'} onClick={handleCloseModal} />
+                    <Button type={'primary'} text={'확인'} onClick={handleCloseModal} />
                 </S.ModalFooter>
             </S.Modal>
         </S.ModalWrapper>
