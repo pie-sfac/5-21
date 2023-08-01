@@ -32,12 +32,24 @@ export const TitleSection = styled.section`
   align-items: center;
 `;
 
+export const LinkTitleContent = styled.div`
+  width: 109px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const LinkTitle = styled.h2`
   font-size: 18px;
   font-weight: 500;
 `;
 
 //button
+export const SettingImg = styled.img`
+  width: 18px;
+  padding-bottom: 2px;
+`;
+
 export const CreateTemplateBtn = styled.button`
   height: 36px;
   padding: 0px 16px;

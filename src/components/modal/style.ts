@@ -8,7 +8,14 @@ export const AddLinkWrapper = styled.div`
   grid-template-rows: 48px 426px 64px;
   background: #fff;
   border-radius: 10px;
-  border: 1px solid #e7e7e7;
+  border: 1px solid #fff;
+  box-shadow: 0px 10px 30px 0px #e7e9f2;
+  transition: all ease-in-out 0.2s;
+  position: fixed;
+  top: 20%;
+  left: 40%;
+
+  /* transform: translate(50%, 50%); */
 `;
 //  AddLinkHeader
 export const AddLinkHeader = styled.section`
@@ -17,8 +24,7 @@ export const AddLinkHeader = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
-  padding-top: 26px;
+  padding: 20px 16px 8px 16px;
 `;
 
 export const LinkModalH2 = styled.h2`
@@ -191,10 +197,11 @@ export const AddLinUrlInput = styled.input`
 // AddLinMemo
 export const AddLinkMemoSection = styled.section`
   margin-bottom: 24px;
+  height: 222px;
 `;
 export const AddLinMemoInputDiv = styled.div`
   width: 536px;
-  height: 200px;
+  height: 140px;
   border-radius: 6px;
   border: 1px solid #e7e7e7;
   background: var(--white-100, #fff);

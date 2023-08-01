@@ -3,6 +3,7 @@ import React from 'react';
 import * as S from './style';
 import closeIcon from '../../assets/icon-close-btn.svg';
 import LinkImg from '../../assets/img-link.png';
+
 const CenterLinkModal = () => {
   return (
     <S.CenterLinkWrapper>

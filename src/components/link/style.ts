@@ -26,7 +26,7 @@ export const TabButton = styled.button`
 
 // ============= LinkItem =============
 export const LinkItemWrapper = styled.div`
-  width: 459px;
+  width: 100%;
   height: 336px;
   cursor: pointer;
   border-radius: 10px;
@@ -60,8 +60,8 @@ export const PlayBtnDiv = styled.div`
   border-radius: 100px;
   background: #fff;
   position: relative;
-  top: 145px;
-  left: 310px;
+  top: 70%;
+  left: 70%;
 `;
 export const PlayIcon = styled.img``;
 export const LinkImg = styled.img`
@@ -95,9 +95,9 @@ export const LinkCartegoryH2 = styled.h2`
 `;
 
 export const LinkExplain = styled.div`
-  width: 386px;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  width: 85%;
+  padding-top: 12px;
+  padding-bottom: 12px;
 `;
 
 export const LinkExplainP = styled.p`
@@ -157,16 +157,18 @@ export const SortSelect = styled.select`
   border-radius: 6px;
   border: 1px solid #e7e7e7;
   background: #fff;
-  margin-right: 8px;
+  padding-right: 8px;
 `;
 export const SeleteOption = styled.option``;
 
 export const CategoryContent = styled.div`
+  /* width: 354px; */
   width: 100%;
+  /* width: 1850px; */
   height: auto;
   &.grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     /* grid-template-rows: repeat(2, 1fr); */
     grid-gap: 20px;
   }
@@ -177,7 +179,7 @@ export const TabContentFooter = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 24px;
+  padding-top: 24px;
   position: relative;
 `;
 export const FooterItemCount = styled.p`
@@ -185,4 +187,5 @@ export const FooterItemCount = styled.p`
   left: 0px;
   top: 0;
   color: #999999;
+  padding-top: 12px;
 `;

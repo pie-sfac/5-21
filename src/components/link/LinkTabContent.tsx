@@ -1,11 +1,19 @@
-import React from 'react';
 import * as S from './style';
 import LinkItem from './LinkItem';
 import { LinkTabContentType } from '../../types/link/linkType';
+import { useLinkContextState } from '../../pages/LinkContxt';
 
 const LinkTabContent = (props: LinkTabContentType) => {
+  const state = useLinkContextState();
   const category = props.linkCategories.find((data) => {
     return data.id === props.isActiveTab;
+  });
+  const categoryData = state.links.filter((data) => {
+    // 전체보기
+    if (props.isActiveTab === -1) {
+      return state.links;
+    }
+    return data.category.id === props.isActiveTab;
   });
 
   return (
@@ -14,7 +22,7 @@ const LinkTabContent = (props: LinkTabContentType) => {
         <S.TabContentHeader>
           <S.TitleWrapper>
             <S.TabContentTitle>
-              {category ? category.title : '제목'}
+              {category ? category.title : '전체보기'}
             </S.TabContentTitle>
             <S.CountLabel>{category ? category.totalCount : 0}</S.CountLabel>
           </S.TitleWrapper>
@@ -24,10 +32,16 @@ const LinkTabContent = (props: LinkTabContentType) => {
           </S.SortSelect>
         </S.TabContentHeader>
         <S.CategoryContent className={'grid'}>
-          <LinkItem />
+          <LinkItem categoryData={categoryData} />
         </S.CategoryContent>
         <S.TabContentFooter>
-          <S.FooterItemCount>총 {category?.totalCount}개</S.FooterItemCount>
+          <S.FooterItemCount>
+            총{' '}
+            {props.isActiveTab == -1
+              ? state.links.length
+              : category?.totalCount}
+            개
+          </S.FooterItemCount>
           {/* <Pagination /> */}
         </S.TabContentFooter>
       </S.TabContent>

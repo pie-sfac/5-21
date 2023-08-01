@@ -5,10 +5,13 @@ import UiErrorFallback from './components/common/UiErrorFallback';
 import MyRouter from './MyRoutes';
 import GlobalStyle from './styles/globals';
 
+import { LinkProvider } from './pages/LinkContxt';
 function App() {
   return (
     <ErrorBoundary FallbackComponent={UiErrorFallback}>
-      <MyRouter />
+      <LinkProvider>
+        <MyRouter />
+      </LinkProvider>
       <GlobalStyle />
     </ErrorBoundary>
   );
