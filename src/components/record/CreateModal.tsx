@@ -5,8 +5,6 @@ import * as S from './style';
 import Button from '../Button';
 // img
 import closeIcon from '../../assets/icon-close-btn.svg';
-import diagnosisIcon from '../../assets/icon-modal-diagnosis.svg';
-import prescriptionIcon from '../../assets/icon-modal-prescription.svg';
 
 interface CreateModalProps {
     setModal: (value: boolean) => void;
@@ -15,8 +13,8 @@ interface CreateModalProps {
 const CreateModal = ({ setModal }: CreateModalProps) => {
     const navigate = useNavigate();
     const categoryArr = [
-        { id: 0, img: diagnosisIcon, title: '문진 템플릿', desc: '첫 방문 또는 회원 현재 상태를 체크 합니다.' },
-        { id: 1, img: prescriptionIcon, title: '처치 템플릿', desc: '수업 시, 작성합니다.' },
+        { id: 0, title: '문진 템플릿', desc: '첫 방문 또는 회원 현재 상태를 체크 합니다.' },
+        { id: 1, title: '처치 템플릿', desc: '수업 시, 작성합니다.' },
     ];
     const handleCloseModal = () => {
         setModal(false);
@@ -59,9 +57,7 @@ const CreateModal = ({ setModal }: CreateModalProps) => {
                     <S.CategoryWrapper>
                         {categoryArr.map((item) => (
                             <S.Category key={item.id} onClick={() => handleCategoryNav(item.id)}>
-                                <S.CategoryIconBox>
-                                    <S.CategoryIcon src={item.img} />
-                                </S.CategoryIconBox>
+                                <S.CategoryIconBox></S.CategoryIconBox>
                                 <S.CategoryTitleWrapper>
                                     <S.CategoryTitle>{item.title}</S.CategoryTitle>
                                     <S.CategoryDesc>{item.desc}</S.CategoryDesc>

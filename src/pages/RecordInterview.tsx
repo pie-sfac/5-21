@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as S from './Record.modules';
 // data
-import { FixedMenuCommonList, FixedMenuProList } from '../components/commonConst/FixedMenu';
+import { FixedMenuCommonList, IntvProList } from '../components/commonConst/FixedMenu';
 // Components
 import Nav from '../components/Nav/Navigation';
 import Header from '../components/Nav/header';
@@ -9,12 +9,17 @@ import TabMenu from '../components/TabMenu';
 import FixedMenu from '../components/record/FixedMenu';
 import TextTemplate from '../components/record/TemplateText';
 import MediaTemplate from '../components/record/TemplateMedia';
-import OptionalTemplate from '../components/record/TemplateOptional';
+import SelectTemplate from '../components/record/TemplateSelect';
+import PainIntvTemplate from '../components/record/TemplatePainIntv';
 // img
 import templateAddIcon from '../assets/icon-template-add.svg';
 
 const RecordInterviewNew = () => {
     const [isActiveTab, setIsActiveTab] = useState<number>(0);
+    const [isNavOpen, setIsNavOpen] = useState(true);
+    const toggleNav = () => {
+        setIsNavOpen(!isNavOpen);
+    };
 
     const TabArr = [
         { id: 0, value: '기본 문항' },
@@ -25,11 +30,19 @@ const RecordInterviewNew = () => {
         setIsActiveTab(idx);
     };
 
+    // const [templates, setTemplates] = useState([]);
+    // const handleCommonMenuClick = () => {
+    //     setTemplates((prevTemplates) => [...prevTemplates, <CommonTemplate key={prevTemplates.length} />]);
+    // };
+    // const handleProMeneClick = () => {
+    //     setTemplates((prevTemplates) => [...prevTemplates, <ProTemplate key={prevTemplates.length} />]);
+    // };
+
     return (
         <S.Wrapper>
             {/* <Nav /> */}
             <S.RecordWrapper>
-                <Header depth01={'기록 관리'} depth02={'문진 템플릿 생성'} depth03={''} />
+                <Header breadcrumbProps={{ depth01: '기록 관리', depth02: '문진 템플릿 생성', depth03: '' }} toggleNav={toggleNav} />
                 <S.interviewNewContent>
                     <S.TitleSection>
                         <S.RecordTitle>문진 템플릿 생성</S.RecordTitle>
@@ -48,7 +61,7 @@ const RecordInterviewNew = () => {
                                 </S.TemplateHeader>
                                 <S.TemplateContent>
                                     <S.InputWrapper>
-                                        <S.TemplateTitleLabel required>템플릿 제목 *</S.TemplateTitleLabel>
+                                        <S.TemplateTitleLabel>템플릿 제목 *</S.TemplateTitleLabel>
                                         <S.TemplateTitleInput type='text' placeholder='템플릿 제목을 적어주세요. (최대 40자)' />
                                     </S.InputWrapper>
                                     <S.InputWrapper>
@@ -57,9 +70,12 @@ const RecordInterviewNew = () => {
                                     </S.InputWrapper>
                                 </S.TemplateContent>
                             </S.TemplateForm>
-                            <TextTemplate />
-                            <MediaTemplate />
-                            <OptionalTemplate />
+
+                            {/* <ul>
+                                {templates.map((item)=>(
+                                    <li>{item}</li>
+                                ))}
+                            </ul> */}
                         </S.CreateTemplateSection>
 
                         {/* fixed menu */}
@@ -74,7 +90,7 @@ const RecordInterviewNew = () => {
                                 {isActiveTab ? (
                                     <S.TabContent>
                                         <S.FixedMenuUl>
-                                            {FixedMenuProList.map((item: any) => (
+                                            {IntvProList.map((item: any) => (
                                                 <S.FixedMenuLi key={item.id}>
                                                     <FixedMenu title={item.title} desc={item.desc} img={item.img} label={item.label} type={item.type} />
                                                 </S.FixedMenuLi>

@@ -20,6 +20,31 @@ export const Nav = styled.nav`
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: all linear 0.3s;
+    &.closed {
+        width: 80px;
+    }
+    &.closed li > span {
+        display: none;
+    }
+    &.closed li:hover::before {
+        display: none;
+    }
+    &.closed li:hover > div {
+        background-color: #f5f8ff;
+    }
+    &.closed li.active > div {
+        background-color: #f5f8ff;
+    }
+    &.closed li.active::before {
+        opacity: 0;
+    }
+    &.closed div:last-child span {
+        opacity: 0;
+    }
+    &.closed header {
+        padding-left: 13px;
+    }
 `;
 export const NavHeader = styled.header`
     width: 100%;
@@ -29,6 +54,7 @@ export const NavHeader = styled.header`
     display: flex;
     flex-direction: row;
     align-items: center;
+    transition: all linear 0.3s;
 
     &::after {
         content: '';
@@ -57,7 +83,7 @@ export const NavItem = styled.li`
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px 22px;
+    padding-left: 22px;
     position: relative;
 
     &:hover::before {

@@ -42,7 +42,18 @@ export const FixedMenuCommonList: FixedMenuProps[] = [
     },
 ];
 
-export const FixedMenuProList: FixedMenuProps[] = [
+export const IntvProList: FixedMenuProps[] = [
+    {
+        id: 0,
+        title: '통증 문진',
+        desc: '통증 부위, 유형, 정도, 빈도, 기간을 작성할 수 있는 문항',
+        label: '전문 문항',
+        img: MenuDiagnosisIcon,
+        type: 'professional',
+    },
+];
+
+export const TreatmentProList: FixedMenuProps[] = [
     {
         id: 0,
         title: '통증 정도',

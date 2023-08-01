@@ -3,16 +3,16 @@ import * as S from './style';
 import infoTooltip from '../../assets/icon-template-info.svg';
 import upIcon from '../../assets/icon-order-up.svg';
 import downIcon from '../../assets/icon-order-down.svg';
-import uploadIcon from '../../assets/icon-upload.svg';
 import closeIcon from '../../assets/icon-close-btn.svg';
+import ConditionIcon from '../../assets/icon-category-condition.svg';
 
-const MediaTemplate = () => {
+const ConditionTemplate = () => {
     return (
         <S.TemplateWrapper>
             <S.TemplateHeader>
                 <S.TemplateHeaderTitle>
-                    <S.Title>02 미디어</S.Title>
-                    <S.CategoryLabel>기본 문항</S.CategoryLabel>
+                    <S.Title>01 오늘의 컨디션</S.Title>
+                    <S.CategoryLabel className={'professional'}>전문 문항</S.CategoryLabel>
                     <S.infoTooltip src={infoTooltip} />
                 </S.TemplateHeaderTitle>
                 <S.CloseBtn>
@@ -24,28 +24,15 @@ const MediaTemplate = () => {
                 <S.OptionWrapper></S.OptionWrapper>
                 <S.SwitchLabel>
                     <S.SwitchName>필수</S.SwitchName>
-                    <S.Switch role='switch' type='checkbox' disabled></S.Switch>
+                    <S.Switch role='switch' type='checkbox'></S.Switch>
                 </S.SwitchLabel>
             </S.TemplateOption>
 
             <S.TemplateContent>
-                <S.InputWrapper>
-                    <S.TemplateTitleLabel>문항 제목</S.TemplateTitleLabel>
-                    <S.TemplateTitleInput type='text' placeholder='문항 제목을 적어주세요. (최대 50자)' />
-                </S.InputWrapper>
-                <S.InputWrapper>
-                    <S.TemplateTitleLabel>문항 설명</S.TemplateTitleLabel>
-                    <S.TemplateDescInput placeholder='문항 설명을 적어주세요. (생략 가능)' />
-                </S.InputWrapper>
-                <S.InputWrapper>
-                    <S.TemplateTitleLabel>답변자 미디어 첨부</S.TemplateTitleLabel>
-                    <S.UploadBox>
-                        <S.UploadTextBox>
-                            <S.UploadIcon src={uploadIcon} />
-                            <S.UploadDesc>Drag files to upload</S.UploadDesc>
-                        </S.UploadTextBox>
-                    </S.UploadBox>
-                </S.InputWrapper>
+                <S.CategoryInfoInner>
+                    <S.CategoryInfo>회원 컨디션 정도를 선택하는 문항</S.CategoryInfo>
+                    <S.CategoryIcon src={ConditionIcon} />
+                </S.CategoryInfoInner>
             </S.TemplateContent>
 
             <S.TemplateFooter>
@@ -62,4 +49,4 @@ const MediaTemplate = () => {
     );
 };
 
-export default MediaTemplate;
+export default ConditionTemplate;

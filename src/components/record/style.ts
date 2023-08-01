@@ -4,6 +4,8 @@ import interview from '../../assets/icon-item-interview.svg';
 import interviewHover from '../../assets/icon-item-interview-hover.svg';
 import treatment from '../../assets/icon-item-treatment.svg';
 import treatmentHover from '../../assets/icon-item-treatment-hover.svg';
+import interviewIcon from '../../assets/icon-modal-diagnosis.svg';
+import interviewIconHover from '../../assets/icon-modal-interview-hover.svg';
 
 // ============= RecordContent =============
 export const RecordContent = styled.main`
@@ -329,6 +331,7 @@ export const Category = styled.li`
     }
     &:hover > div:first-child {
         background-color: #275cf5;
+        background-image: url(${interviewIconHover});
     }
 `;
 export const CategoryIconBox = styled.div`
@@ -337,6 +340,10 @@ export const CategoryIconBox = styled.div`
     margin-right: 12px;
     border-radius: 6px;
     background-color: #ecefff;
+    background-image: url(${interviewIcon});
+    background-position: center;
+    background-repeat: no-repeat;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -470,10 +477,15 @@ export const CategoryLabel = styled.div`
     height: 24px;
     line-height: 24px;
     padding: 0px 8px;
-    border-radius: 100px;
+    border-radius: 120px;
     background: #ebf1ff;
     color: #6691ff;
     margin: 0px 4px 0px 8px;
+
+    &.professional {
+        background-color: #e6f9ea;
+        color: #1fb881;
+    }
 `;
 export const infoTooltip = styled.img`
     cursor: pointer;
@@ -657,6 +669,15 @@ export const AddBtnWrapper = styled.div`
 `;
 export const AddViewBtn = styled.button``;
 export const AddOtherBtn = styled.button``;
+
+// Category
+export const CategoryInfoInner = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+`;
+export const CategoryInfo = styled.p``;
 
 //footer
 export const TemplateFooter = styled.div`

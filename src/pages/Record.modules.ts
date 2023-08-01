@@ -12,6 +12,11 @@ export const Wrapper = styled.div`
 
 export const RecordWrapper = styled.div`
     width: calc(100% - 260px);
+    transition: all linear 0.3s;
+
+    &.closed {
+        width: calc(100% - 80px);
+    }
 `;
 
 // ============= Record Interview New =============
@@ -57,7 +62,7 @@ export const ContentSection = styled.section`
 // 1. CreateTemplateSection
 export const CreateTemplateSection = styled.div`
     width: calc(100% - 468px);
-    height: 200%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;

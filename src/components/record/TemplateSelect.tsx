@@ -3,15 +3,14 @@ import * as S from './style';
 import infoTooltip from '../../assets/icon-template-info.svg';
 import upIcon from '../../assets/icon-order-up.svg';
 import downIcon from '../../assets/icon-order-down.svg';
-import uploadIcon from '../../assets/icon-upload.svg';
 import closeIcon from '../../assets/icon-close-btn.svg';
 
-const MediaTemplate = () => {
+const SelectTemplate = () => {
     return (
         <S.TemplateWrapper>
             <S.TemplateHeader>
                 <S.TemplateHeaderTitle>
-                    <S.Title>02 미디어</S.Title>
+                    <S.Title>03 선택형 문항</S.Title>
                     <S.CategoryLabel>기본 문항</S.CategoryLabel>
                     <S.infoTooltip src={infoTooltip} />
                 </S.TemplateHeaderTitle>
@@ -24,7 +23,7 @@ const MediaTemplate = () => {
                 <S.OptionWrapper></S.OptionWrapper>
                 <S.SwitchLabel>
                     <S.SwitchName>필수</S.SwitchName>
-                    <S.Switch role='switch' type='checkbox' disabled></S.Switch>
+                    <S.Switch role='switch' type='checkbox'></S.Switch>
                 </S.SwitchLabel>
             </S.TemplateOption>
 
@@ -38,13 +37,14 @@ const MediaTemplate = () => {
                     <S.TemplateDescInput placeholder='문항 설명을 적어주세요. (생략 가능)' />
                 </S.InputWrapper>
                 <S.InputWrapper>
-                    <S.TemplateTitleLabel>답변자 미디어 첨부</S.TemplateTitleLabel>
-                    <S.UploadBox>
-                        <S.UploadTextBox>
-                            <S.UploadIcon src={uploadIcon} />
-                            <S.UploadDesc>Drag files to upload</S.UploadDesc>
-                        </S.UploadTextBox>
-                    </S.UploadBox>
+                    <S.TemplateTitleWrapper>
+                        <S.TemplateTitleLabel>보기</S.TemplateTitleLabel>
+                        <S.AddBtnWrapper>
+                            <S.AddViewBtn>보기 추가하기</S.AddViewBtn>
+                            <S.AddOtherBtn>기타 추가하기</S.AddOtherBtn>
+                        </S.AddBtnWrapper>
+                    </S.TemplateTitleWrapper>
+                    <S.TemplateTitleInput type='text' placeholder='옵션명을 적어주세요' />
                 </S.InputWrapper>
             </S.TemplateContent>
 
@@ -62,4 +62,4 @@ const MediaTemplate = () => {
     );
 };
 
-export default MediaTemplate;
+export default SelectTemplate;

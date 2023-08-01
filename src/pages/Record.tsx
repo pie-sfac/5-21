@@ -61,18 +61,25 @@ const RecordManagement = () => {
     const [apiData, setApiData] = useState<RecordItem[]>([]);
     const [data, dispatch] = useReducer(reducer, []);
 
+    const [isNavOpen, setIsNavOpen] = useState(true);
+    const toggleNav = () => {
+        setIsNavOpen(!isNavOpen);
+    };
+
     useEffect(() => {
         // API 호출
         const fetchData = async () => {
             const res = await getRecordTemplates();
-            const apiData: RecordItem[] = res.data.templates;
+            const apiData: RecordItem[] = res?.data.templates;
             setApiData(apiData);
         };
         fetchData();
     }, []);
 
     useEffect(() => {
-        dispatch({ type: 'INIT', data: apiData });
+        if (apiData.length > 0) {
+            dispatch({ type: 'INIT', data: apiData });
+        }
     }, [apiData]);
 
     const dataId = useRef<number>(0);
@@ -115,9 +122,9 @@ const RecordManagement = () => {
         <RecordStateContext.Provider value={data}>
             <RecordDispatchContext.Provider value={{ onCreate, onRemove, onEdit }}>
                 <S.Wrapper>
-                    <Nav />
-                    <S.RecordWrapper>
-                        <Header depth01={'기록 관리'} depth02={''} depth03={''} />
+                    <Nav isNavOpen={isNavOpen} />
+                    <S.RecordWrapper className={isNavOpen ? '' : 'closed'}>
+                        <Header breadcrumbProps={{ depth01: '기록 관리', depth02: '', depth03: '' }} toggleNav={toggleNav} />
                         <RecordContent />
                     </S.RecordWrapper>
                 </S.Wrapper>
