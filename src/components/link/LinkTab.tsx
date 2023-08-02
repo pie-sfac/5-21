@@ -1,6 +1,6 @@
 import * as S from './style';
 import { LinkTabPropsType } from '../../types/link/linkType';
-import { useLinkContextState, useLinkDispatch } from '../../pages/LinkContxt';
+import { useLinkContextState, useLinkDispatch } from '../../pages/LinkContext';
 
 export const LinkTab = (props: LinkTabPropsType) => {
   const { isActiveTab } = useLinkContextState();

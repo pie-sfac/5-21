@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLinkContextState, useLinkDispatch } from './LinkContxt';
+import { useLinkContextState, useLinkDispatch } from './LinkContext';
 import * as S from './Link.modules';
 
 //api

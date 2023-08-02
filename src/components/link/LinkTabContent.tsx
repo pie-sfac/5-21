@@ -1,7 +1,7 @@
 import * as S from './style';
 import LinkItem from './LinkItem';
 import { LinkTabContentType } from '../../types/link/linkType';
-import { useLinkContextState } from '../../pages/LinkContxt';
+import { useLinkContextState } from '../../pages/LinkContext';
 // import { useEffect } from 'react';
 
 const LinkTabContent = (props: LinkTabContentType) => {

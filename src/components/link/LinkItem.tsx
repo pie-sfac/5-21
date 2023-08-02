@@ -2,7 +2,7 @@ import * as S from './style';
 import RecordImg from '../../assets/recordImg.jpeg';
 import PlayArrow from '../../assets/icon-play_arrow.svg';
 import { getLinkDataType } from '../../types/link/linkType';
-import { useLinkContextState, useLinkDispatch } from '../../pages/LinkContxt';
+import { useLinkContextState, useLinkDispatch } from '../../pages/LinkContext';
 import { getLinkApi } from '../../apis/LinkService';
 
 interface LinkItemType {

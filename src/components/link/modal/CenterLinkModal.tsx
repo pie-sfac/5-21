@@ -6,7 +6,7 @@ import LinkImg from '../../../assets/img-link.png';
 import {
   useLinkContextState,
   useLinkDispatch,
-} from '../../../pages/LinkContxt';
+} from '../../../pages/LinkContext';
 import { deleteLinkApi, getLinkApi } from '../../../apis/LinkService';
 
 interface archiveLinkDetailType {
