@@ -2,7 +2,6 @@ import * as S from './style';
 import { LinkCartegoryType } from '../../types/link/linkType';
 
 import closeIcon from '../../assets/icon-close-btn.svg';
-import { useState } from 'react';
 
 interface AddLinkModalProps {
   isAddLinkModalOpen: boolean;

@@ -29,7 +29,7 @@ import AddLinkModal from '../components/modal/AddLinkModal';
 import CenterLinkModal from '../components/modal/CenterLinkModal';
 
 const Link = () => {
-  const { isActiveTab } = useLinkContextState();
+  const { isActiveTab, isCenterLinkModalOpen } = useLinkContextState();
   const dispatch = useLinkDispatch();
 
   const setIsActiveTab = (tabNumber: number) => {
@@ -39,7 +39,7 @@ const Link = () => {
   const [linkCategories, setLinkCategories] = useState<LinkCartegoryType[]>([]);
   const [allLinkData, setAllLinkData] = useState<getLinkDataType[]>([]);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
-  const [isCenterLinkModalOpen, setIsCenterLinkModalOpen] = useState(false);
+  // const [isCenterLinkModalOpen, setIsCenterLinkModalOpen] = useState(false);
 
   //addLink
   const [addLinkTitle, setAddLinkTitle] = useState<string>('');
@@ -48,8 +48,8 @@ const Link = () => {
 
   const openAddLinkModal = () => setIsAddLinkModalOpen(true);
   const closeAddLinkModal = () => setIsAddLinkModalOpen(false);
-  const openCenterLinkModal = () => setIsCenterLinkModalOpen(true);
-  const closeCenterLinkModal = () => setIsCenterLinkModalOpen(false);
+  // const openCenterLinkModal = () => setIsCenterLinkModalOpen(true);
+  // const closeCenterLinkModal = () => setIsCenterLinkModalOpen(false);
 
   const addLinkEvent = () => {
     const addLinkData: addLinkDataType = {
@@ -73,7 +73,6 @@ const Link = () => {
           (res) => res?.data.categories
         );
       setLinkCategories(cartegoryData);
-
       // 링크 전체 가져오기
       const getAllData: getLinkDataType[] = await getAllLinksApi()?.then(
         (res) => res?.data
@@ -109,7 +108,7 @@ const Link = () => {
                   }}
                   className={isActiveTab === -1 ? 'active' : ''}
                 >
-                  전체보기
+                  전체 보기
                 </S.TabButton>
                 {linkCategories.map((category) => {
                   return (
@@ -131,9 +130,12 @@ const Link = () => {
           </S.LinkContent>
         </S.LinkWrapper>
 
-        {/* {isAddLinkModalOpen ? <AddLinkModal /> : null}
-      {isCenterLinkModalOpen ?? <CenterLinkModal />} */}
+        {
+          //Modal
+          <CenterLinkModal />
+        }
       </S.Wrapper>
+
       {
         //Modal
         <AddLinkModal

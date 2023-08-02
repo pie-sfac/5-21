@@ -3,12 +3,13 @@ import { styled } from 'styled-components';
 // ============= LinkTab =============
 
 export const TabButton = styled.button`
-  width: 80px;
+  width: 100px;
   height: 40px;
   text-align: center;
   line-height: 40px;
   color: #999;
   position: relative;
+
   &.active {
     color: #2d62ea;
   }

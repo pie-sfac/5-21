@@ -2,6 +2,8 @@ import * as S from './style';
 import LinkItem from './LinkItem';
 import { LinkTabContentType } from '../../types/link/linkType';
 import { useLinkContextState } from '../../pages/LinkContxt';
+import { useEffect } from 'react';
+import { getCategoryLinkApi } from '../../apis/LinkService';
 
 const LinkTabContent = (props: LinkTabContentType) => {
   const state = useLinkContextState();
@@ -15,6 +17,16 @@ const LinkTabContent = (props: LinkTabContentType) => {
     }
     return data.category.id === props.isActiveTab;
   });
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const data = await getCategoryLinkApi(props.isActiveTab);
+
+  //     console.log(data);
+  //   };
+
+  //   fetchData();
+  // }, [props.isActiveTab]);
 
   return (
     <>

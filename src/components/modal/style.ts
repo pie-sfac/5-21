@@ -271,7 +271,12 @@ export const CenterLinkWrapper = styled.div`
   grid-template-rows: 48px 426px 64px;
   background: #fff;
   border-radius: 10px;
-  border: 1px solid #e7e7e7;
+  border: 1px solid #fff;
+  box-shadow: 0px 10px 30px 0px #e7e9f2;
+  transition: all ease-in-out 0.2s;
+  position: fixed;
+  top: 20%;
+  left: 40%;
 `;
 // header
 export const CenterLinkHeader = styled.div`
@@ -280,8 +285,7 @@ export const CenterLinkHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
-  padding-top: 26px;
+  padding: 20px 16px 8px 16px;
 `;
 // content
 export const CenterLinkContent = styled.div`

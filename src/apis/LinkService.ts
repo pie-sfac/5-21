@@ -20,6 +20,7 @@ export const addLinkApi = (data: addLinkDataType) => {
   }
 };
 
+//링크 전체 조회
 export const getAllLinksApi = () => {
   try {
     const res = Api.get('archive-links');
@@ -29,9 +30,20 @@ export const getAllLinksApi = () => {
   }
 };
 
-export const getLinkApi = (categoryId: number) => {
+// 카테고리 별 링크 조회
+export const getCategoryLinkApi = (categoryId: number) => {
   try {
-    const res = Api.get(`archive-links/:${categoryId}`);
+    const res = Api.get(`archive-links/${categoryId}`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// 링크 상세 조회
+export const getLinkApi = (archiveLinkId: number) => {
+  try {
+    const res = Api.get(`archive-links/${archiveLinkId}`);
     return res;
   } catch (error) {
     console.log(error);

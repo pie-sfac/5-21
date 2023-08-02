@@ -80,10 +80,11 @@ export const TabWrapperDiv = styled.div`
 export const TabSectionDiv = styled.div`
   display: flex;
   width: 75%;
-  padding: 0 24px;
+  /* padding: 0 24px; */
 `;
 export const TabButton = styled.button`
-  width: 80px;
+  margin-left: 14px;
+  width: 100px;
   height: 40px;
   text-align: center;
   line-height: 40px;
@@ -95,7 +96,7 @@ export const TabButton = styled.button`
   &.active::after {
     content: '';
     display: block;
-    width: 80px;
+    width: 55px;
     height: 2px;
     background-color: #2d62ea;
     position: absolute;
