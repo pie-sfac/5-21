@@ -452,7 +452,7 @@ export const ModalWrapper = styled.div`
   background: rgba(40, 40, 40, 0.6);
 `;
 
-export const AddLinkWrapper = styled.form`
+export const AddLinkWrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;

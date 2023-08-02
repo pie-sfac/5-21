@@ -97,6 +97,7 @@ const Link = () => {
     <>
       <S.Wrapper>
         <Nav isNavOpen={isNavOpen} />
+
         <S.LinkWrapper className={isNavOpen ? '' : 'closed'}>
           <Header
             breadcrumbProps={{

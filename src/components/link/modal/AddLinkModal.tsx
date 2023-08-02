@@ -25,7 +25,7 @@ const AddLinkModal = (props: AddLinkModalProps) => {
           <S.LinkModalH2>링크 추가</S.LinkModalH2>
           <S.CloseBtn
             onClick={() => {
-              props.closeAddLinkModal;
+              props.closeAddLinkModal();
             }}
           >
             <S.CloseImg src={closeIcon} />

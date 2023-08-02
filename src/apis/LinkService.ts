@@ -49,3 +49,13 @@ export const getLinkApi = (archiveLinkId: number) => {
     console.log(error);
   }
 };
+
+// 링크 삭제
+export const deleteLinkApi = (archiveLinkId: number) => {
+  try {
+    const res = Api.delete('archive-links', archiveLinkId);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};

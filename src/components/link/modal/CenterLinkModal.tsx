@@ -7,7 +7,7 @@ import {
   useLinkContextState,
   useLinkDispatch,
 } from '../../../pages/LinkContxt';
-import { getLinkApi } from '../../../apis/LinkService';
+import { deleteLinkApi, getLinkApi } from '../../../apis/LinkService';
 
 interface archiveLinkDetailType {
   id: number;
@@ -41,7 +41,7 @@ const CenterLinkModal = () => {
       data !== null || data !== undefined ? setLinkData(data) : null;
     };
     fetchData();
-  }, [selectedLinkId]);
+  }, [selectedLinkId, linkData]);
 
   return (
     <S.ModalWrapper
@@ -82,7 +82,15 @@ const CenterLinkModal = () => {
           {/* </S.CenterMemoSection> */}
         </S.CenterLinkContent>
         <S.CenterLinkBtn>
-          <S.DeleteButton>삭제</S.DeleteButton>
+          <S.DeleteButton
+            onClick={() => {
+              deleteLinkApi(selectedLinkId);
+              window.location.replace('/media');
+              setIsCenterLinkModalOpen(!isCenterLinkModalOpen);
+            }}
+          >
+            삭제
+          </S.DeleteButton>
           <S.EditButton>수정</S.EditButton>
         </S.CenterLinkBtn>
       </S.CenterLinkWrapper>
