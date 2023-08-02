@@ -50,7 +50,7 @@ const Header = ({ breadcrumbProps, toggleNav }: HeaderProps) => {
             />
           </S.breadcrumbItem>
           <S.breadcrumbItem>
-            <S.StyleLink to="/record">{depth02}</S.StyleLink>
+            <S.StyleLink to="/media">{depth02}</S.StyleLink>
           </S.breadcrumbItem>
           <S.breadcrumbItem>
             <S.breadcrumbArrow

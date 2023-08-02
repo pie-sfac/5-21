@@ -88,13 +88,24 @@ const Link = () => {
     fetchData();
   }, []);
 
+  const [isNavOpen, setIsNavOpen] = useState(true);
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
   return (
     <>
       <S.Wrapper>
-        <Nav />
-
-        <S.LinkWrapper>
-          <Header depth01={''} depth02={'미디어 관리'} depth03={''} />
+        <Nav isNavOpen={isNavOpen} />
+        <S.LinkWrapper className={isNavOpen ? '' : 'closed'}>
+          <Header
+            breadcrumbProps={{
+              depth01: '기록 관리',
+              depth02: '미디어 관리',
+              depth03: '',
+            }}
+            toggleNav={toggleNav}
+          />
           <S.LinkContent>
             <S.TitleSection>
               <S.LinkTitleContent>
