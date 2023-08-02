@@ -1,66 +1,106 @@
 import { styled } from 'styled-components';
 
-export const LinkWrapper = styled.div`
-  /* display: flex; */
+// ============= Common =============
+export const Wrapper = styled.div`
   width: 100%;
-  height: 975px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  background: #fff;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
-// ============= TabContent =============
-export const TabContent = styled.div`
-  width: 100%;
-  height: 848px;
-  /* height: calc(100vh - 186px); */
-  padding: 0 72px;
-  background-color: #f6f8ff;
+export const LinkWrapper = styled.div`
+  width: calc(100% - 260px);
 `;
-export const CategoryHeader = styled.div`
+
+// ============= LinkContent =============
+export const LinkContent = styled.div`
   width: 100%;
-  height: 60px;
+  height: calc(100% - 50px);
+  background: #fafbff;
+`;
+
+export const TitleSection = styled.section`
+  width: 100%;
+  height: 66px;
+  padding: 0px 40px;
+  background-color: #fafbff;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 `;
-export const CategoryTitleWrapper = styled.div`
+
+export const LinkTitleContent = styled.div`
+  width: 109px;
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-`;
-export const SubTitle = styled.h3`
-  font-size: 16px;
-  font-weight: 600;
-  margin-right: 8px;
-`;
-export const Count = styled.span`
-  font-size: 12px;
-  font-weight: 600;
-  color: #2d62ea;
-`;
-export const CategoryContent = styled.div`
-  width: 1660px;
-  height: 692px;
-  &.grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-gap: 20px;
-  }
+  justify-content: space-between;
+  align-items: center;
 `;
 
-// ============= CategoryFooter =============
-export const CategoryFooter = styled.div`
-  width: 100%;
-  height: 32px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 16px;
+export const LinkTitle = styled.h2`
+  font-size: 18px;
+  font-weight: 500;
 `;
-export const FooterItemCount = styled.span`
-  color: #999999;
+
+//button
+export const SettingImg = styled.img`
+  width: 18px;
+  padding-bottom: 2px;
+`;
+
+export const CreateTemplateBtn = styled.button`
+  height: 36px;
+  padding: 0px 16px;
+  color: #fff;
+  border-radius: 6px;
+  background: #2d62ea;
+  transition: all ease-in-out 0.2s;
+  &:hover {
+    background-color: #1850de;
+    box-shadow: 0px 6px 10px 0px rgba(45, 98, 234, 0.2);
+  }
+`;
+export const AddIcon = styled.img`
+  margin-right: 4px;
+  vertical-align: middle;
+`;
+
+// ============= Tab =============
+
+export const TabWrapperDiv = styled.div`
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const TabSectionDiv = styled.div`
+  display: flex;
+  width: 75%;
+  /* padding: 0 24px; */
+`;
+export const TabButton = styled.button`
+  margin-left: 14px;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #999;
+  position: relative;
+  &.active {
+    color: #2d62ea;
+  }
+  &.active::after {
+    content: '';
+    display: block;
+    width: 55px;
+    height: 2px;
+    background-color: #2d62ea;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;

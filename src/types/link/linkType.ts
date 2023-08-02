@@ -8,7 +8,34 @@ export interface LinkCartegoryType {
 
 // components/link
 export interface LinkTabPropsType {
-  setIsActiveTab: (num: number) => void;
   isActiveTab: number;
-  linkCategories?: LinkCartegoryType[];
+  category: LinkCartegoryType;
+}
+export interface LinkTabContentType {
+  isActiveTab: number;
+  linkCategories: LinkCartegoryType[];
+  allLinkData: getLinkDataType[];
+}
+
+export interface addLinkDataType {
+  categoryId: number;
+  url: string;
+  title: string;
+  description: string;
+}
+
+export interface getLinkDataType {
+  id: number;
+  centerId: number;
+  category: {
+    id: number;
+    title: string;
+    description: string;
+  };
+  site: string;
+  url: string;
+  title: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
 }

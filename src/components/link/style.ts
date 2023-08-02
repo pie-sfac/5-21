@@ -2,50 +2,33 @@ import { styled } from 'styled-components';
 
 // ============= LinkTab =============
 
-export const TabWrapperDiv = styled.div`
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-export const TabSectionDiv = styled.div`
-  display: flex;
-  width: 75%;
-  padding: 0 52px;
-`;
 export const TabButton = styled.button`
-  display: flex;
-  width: 90px;
+  width: 100px;
   height: 40px;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  color: #999999;
   text-align: center;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 100%; //14px
+  line-height: 40px;
+  color: #999;
+  position: relative;
+
   &.active {
     color: #2d62ea;
   }
   &.active::after {
     content: '';
     display: block;
-    width: 79px;
+    width: 80px;
     height: 2px;
     background-color: #2d62ea;
     position: absolute;
-    /* left: 50%; */
-    top: 12.6%;
-    /* transform: translateX(-50%); */
+    left: 50%;
+    transform: translateX(-50%);
   }
 `;
 
 // ============= LinkItem =============
 export const LinkItemWrapper = styled.div`
+  width: 100%;
+  height: 336px;
   cursor: pointer;
   border-radius: 10px;
   background: #fff;
@@ -78,15 +61,15 @@ export const PlayBtnDiv = styled.div`
   border-radius: 100px;
   background: #fff;
   position: relative;
-  top: 138px;
-  left: 272px;
+  top: 70%;
+  left: 70%;
 `;
 export const PlayIcon = styled.img``;
 export const LinkImg = styled.img`
   height: 178px;
   width: 100%;
   object-fit: cover;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px;
   position: absolute;
 `;
 export const LinklTitle = styled.h3`
@@ -113,14 +96,13 @@ export const LinkCartegoryH2 = styled.h2`
 `;
 
 export const LinkExplain = styled.div`
-  width: 388px;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  width: 85%;
+  padding-top: 12px;
+  padding-bottom: 12px;
 `;
 
 export const LinkExplainP = styled.p`
   color: #888;
-  width: 350px;
   font-size: 14px;
   font-style: normal;
   overflow: hidden;
@@ -135,4 +117,76 @@ export const LinkUploadDateSpan = styled.span`
   color: #aaa;
   font-size: 12px;
   font-style: normal;
+`;
+
+// ============= Tab-content =============
+export const TabContent = styled.div`
+  width: 100%;
+  height: calc(100% - 40px);
+  padding: 24px;
+  background-color: #f2f5ff;
+`;
+export const TabContentHeader = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 0px 20px 16px;
+`;
+export const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+export const TabContentTitle = styled.h3`
+  font-size: 15px;
+  font-weight: 500;
+`;
+export const CountLabel = styled.div`
+  color: #fff;
+  height: 22px;
+  padding: 0px 12px;
+  line-height: 24px;
+  border-radius: 6px;
+  background: #2d62ea;
+  margin-left: 8px;
+`;
+export const SortSelect = styled.select`
+  width: 116;
+  height: 34px;
+  padding: 0px 10px;
+  border-radius: 6px;
+  border: 1px solid #e7e7e7;
+  background: #fff;
+  padding-right: 8px;
+`;
+export const SeleteOption = styled.option``;
+
+export const CategoryContent = styled.div`
+  /* width: 354px; */
+  /* width: 100%; */
+  width: 1900px;
+  height: auto;
+  &.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* grid-template-rows: repeat(2, 1fr); */
+    grid-gap: 20px;
+  }
+`;
+export const TabContentFooter = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 24px;
+  position: relative;
+`;
+export const FooterItemCount = styled.p`
+  position: absolute;
+  left: 0px;
+  top: 0;
+  color: #999999;
+  padding-top: 12px;
 `;

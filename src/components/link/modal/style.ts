@@ -1,15 +1,30 @@
-import { styled } from 'styled-components';
+import { keyframes, styled } from 'styled-components';
+
+const ModalFade = keyframes`
+    0% {
+    transform: translate(-50%, -45%);
+  }
+    100% {
+  }
+`;
 
 // =============  AddLinkModal============
-export const AddLinkWrapper = styled.div`
-  height: 540px;
-  width: 584px;
-  display: grid;
-  grid-template-rows: 48px 426px 64px;
-  background: #fff;
-  border-radius: 10px;
-  border: 1px solid #e7e7e7;
-`;
+// export const AddLinkWrapper = styled.div`
+//   height: 540px;
+//   width: 584px;
+//   display: grid;
+//   grid-template-rows: 48px 426px 64px;
+//   background: #fff;
+//   border-radius: 10px;
+//   border: 1px solid #fff;
+//   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.4);
+//   transition: all ease-in-out 0.2s;
+//   position: fixed;
+//   top: 20%;
+//   left: 40%;
+
+//   /* transform: translate(50%, 50%); */
+// `;
 //  AddLinkHeader
 export const AddLinkHeader = styled.section`
   width: 100%;
@@ -17,8 +32,7 @@ export const AddLinkHeader = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
-  padding-top: 26px;
+  padding: 20px 16px 8px 16px;
 `;
 
 export const LinkModalH2 = styled.h2`
@@ -191,10 +205,11 @@ export const AddLinUrlInput = styled.input`
 // AddLinMemo
 export const AddLinkMemoSection = styled.section`
   margin-bottom: 24px;
+  height: 222px;
 `;
-export const AddLinMemoInputDiv = styled.div`
+export const AddLinMemoDiv = styled.div`
   width: 536px;
-  height: 200px;
+  height: 140px;
   border-radius: 6px;
   border: 1px solid #e7e7e7;
   background: var(--white-100, #fff);
@@ -207,10 +222,11 @@ export const AddLinMemoInputDiv = styled.div`
   }
 `;
 
-export const AddLinMemoInput = styled.input`
+export const AddLinMemoTextarea = styled.textarea`
   padding: 12px;
   border: none;
-  width: 400px;
+  width: 100%;
+  height: 100%;
   border-radius: 6px;
 
   &::placeholder {
@@ -259,12 +275,22 @@ export const CompleteButton = styled.button`
 // =============  CenterLinkModal ============
 
 export const CenterLinkWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 110;
+  /* height: 540px; */
   width: 698px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.4);
   display: grid;
   grid-template-rows: 48px 426px 64px;
-  background: #fff;
-  border-radius: 10px;
-  border: 1px solid #e7e7e7;
+
+  animation: ${ModalFade} 0.2s linear;
 `;
 // header
 export const CenterLinkHeader = styled.div`
@@ -273,8 +299,7 @@ export const CenterLinkHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
-  padding-top: 26px;
+  padding: 20px 16px 8px 16px;
 `;
 // content
 export const CenterLinkContent = styled.div`
@@ -353,6 +378,7 @@ export const LinkExplainP = styled.p`
 `;
 export const CenterMemoSection = styled.section``;
 export const CenterLinkMemoP = styled.p`
+  overflow-y: scroll;
   display: flex;
   width: 650px;
   height: 173px;
@@ -415,3 +441,34 @@ export const EditButton = styled.button`
   font-weight: 500;
   line-height: 100%; /* 14px */
 `;
+
+export const ModalWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(40, 40, 40, 0.6);
+`;
+
+export const AddLinkWrapper = styled.form`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 110;
+  height: 540px;
+  width: 584px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.4);
+  display: grid;
+  grid-template-rows: 48px 426px 64px;
+
+  animation: ${ModalFade} 0.2s linear;
+`;
+
+// =============  DeleteModal ============

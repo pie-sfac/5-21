@@ -40,10 +40,18 @@ const GlobalStyle = createGlobalStyle`
     color: black;
   }
 
- input {
+  input {
   outline-style: none;
   outline: none;
  }
+ textarea {
+  
+  border: none; 
+  outline: none;
+  resize: none;
+  font-size: 14px;
+ }
+ 
 `;
 
 export default GlobalStyle;
