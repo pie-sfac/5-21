@@ -27,10 +27,9 @@ import settingIcon from '../assets/icon-setting.svg';
 //Modal
 import AddLinkModal from '../components/link/modal/AddLinkModal';
 import CenterLinkModal from '../components/link/modal/CenterLinkModal';
-import { AddLinkCartegoryOption } from '../components/modal/style';
 
 const Link = () => {
-  const { isActiveTab, isCenterLinkModalOpen } = useLinkContextState();
+  const { isActiveTab, links } = useLinkContextState();
   const dispatch = useLinkDispatch();
 
   const setIsActiveTab = (tabNumber: number) => {
@@ -43,7 +42,9 @@ const Link = () => {
   // const [isCenterLinkModalOpen, setIsCenterLinkModalOpen] = useState(false);
 
   //addLink
-  const [AddLinkCartegory, setAddLinkCartegory] = useState<number>(-1);
+  const [AddLinkCartegory, setAddLinkCartegory] = useState<number>(
+    links[0].category.id
+  );
   const [addLinkTitle, setAddLinkTitle] = useState<string>('');
   const [addLink, setAddLink] = useState<string>('');
   const [addLinkMemo, setAddLinkMemo] = useState<string>('');

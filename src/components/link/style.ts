@@ -164,8 +164,8 @@ export const SeleteOption = styled.option``;
 
 export const CategoryContent = styled.div`
   /* width: 354px; */
-  width: 100%;
-  /* width: 1850px; */
+  /* width: 100%; */
+  width: 1900px;
   height: auto;
   &.grid {
     display: grid;

@@ -207,7 +207,7 @@ export const AddLinkMemoSection = styled.section`
   margin-bottom: 24px;
   height: 222px;
 `;
-export const AddLinMemoInputDiv = styled.div`
+export const AddLinMemoDiv = styled.div`
   width: 536px;
   height: 140px;
   border-radius: 6px;
@@ -222,10 +222,11 @@ export const AddLinMemoInputDiv = styled.div`
   }
 `;
 
-export const AddLinMemoInput = styled.input`
+export const AddLinMemoTextarea = styled.textarea`
   padding: 12px;
   border: none;
-  width: 400px;
+  width: 100%;
+  height: 100%;
   border-radius: 6px;
 
   &::placeholder {
@@ -377,6 +378,7 @@ export const LinkExplainP = styled.p`
 `;
 export const CenterMemoSection = styled.section``;
 export const CenterLinkMemoP = styled.p`
+  overflow-y: scroll;
   display: flex;
   width: 650px;
   height: 173px;

@@ -1,17 +1,11 @@
 import * as S from './style';
 import LinkItem from './LinkItem';
 import { LinkTabContentType } from '../../types/link/linkType';
-import { useLinkContextState, useLinkDispatch } from '../../pages/LinkContxt';
-import { useEffect } from 'react';
-import { getCategoryLinkApi } from '../../apis/LinkService';
+import { useLinkContextState } from '../../pages/LinkContxt';
+// import { useEffect } from 'react';
 
 const LinkTabContent = (props: LinkTabContentType) => {
   const { isActiveTab, links } = useLinkContextState();
-  const dispatch = useLinkDispatch();
-
-  const setIsCenterLinkModalOpen = (openStatus: boolean) => {
-    dispatch({ type: 'OPEN_CENTER_LINK_MODAL', payload: openStatus });
-  };
 
   const category = props.linkCategories.find((data) => {
     return data.id === isActiveTab;
@@ -24,15 +18,20 @@ const LinkTabContent = (props: LinkTabContentType) => {
     return data.category.id === isActiveTab;
   });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getCategoryLinkApi(isActiveTab);
+  // useEffect(() => {
+  //   try {
+  //     const fetchData = async () => {
+  //       const data = await getCategoryLinkApi(Number(isActiveTab))?.then(
+  //         (res) => res?.data
+  //       );
+  //       console.log(data);
+  //     };
 
-      console.log(data);
-    };
-
-    fetchData();
-  }, [isActiveTab]);
+  //     fetchData();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [isActiveTab]);
 
   return (
     <>

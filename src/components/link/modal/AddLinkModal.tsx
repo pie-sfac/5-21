@@ -89,15 +89,16 @@ const AddLinkModal = (props: AddLinkModalProps) => {
               메모
               <S.RequiredMark>*</S.RequiredMark>
             </S.LinkModalH3>
-            <S.AddLinMemoInputDiv>
-              <S.AddLinMemoInput
+            <S.AddLinMemoDiv>
+              <S.AddLinMemoTextarea
+                maxLength={500}
                 placeholder="링크를 식별하기 위한 간단한 메모를 작성해주세요.(500자 이내)"
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
                   e.preventDefault();
                   props.setAddLinkMemo(e.target.value);
                 }}
-              ></S.AddLinMemoInput>
-            </S.AddLinMemoInputDiv>
+              ></S.AddLinMemoTextarea>
+            </S.AddLinMemoDiv>
           </S.AddLinkMemoSection>
         </S.AddLinkContent>
         <S.AddLinkBtn>
