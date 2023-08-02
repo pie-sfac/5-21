@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import * as S from './Record.modules';
 // data
 import { FixedMenuCommonList, IntvProList } from '../components/commonConst/FixedMenu';
@@ -12,16 +12,36 @@ import { PainIntvTemplate, TextTemplate, MediaTemplate, SelectTemplate } from '.
 // img
 import templateAddIcon from '../assets/icon-template-add.svg';
 
+interface TemplateComponents {
+    [key: string]: React.ComponentType<any>;
+}
+
 const RecordInterviewNew = () => {
     const titleInput = useRef<HTMLInputElement>(null);
     const contentInput = useRef<HTMLInputElement>(null);
-    const [modal, setModal] = useState<boolean>(false);
 
+    const [modal, setModal] = useState<boolean>(false);
+    const [isNavOpen, setIsNavOpen] = useState(true);
+    const toggleNav = () => {
+        setIsNavOpen(!isNavOpen);
+    };
+
+    // tab - active
+    const [isActiveTab, setIsActiveTab] = useState<number>(0);
+    const TabArr = [
+        { id: 0, value: '기본 문항' },
+        { id: 1, value: '전문 문항' },
+    ];
+
+    const handleTab = (idx: number) => {
+        setIsActiveTab(idx);
+    };
+
+    // input - value
     const [state, setState] = useState({
         title: '',
         description: '',
     });
-
     const handleChangeState = (e: any) => {
         setState({
             ...state,
@@ -29,6 +49,35 @@ const RecordInterviewNew = () => {
         });
     };
 
+    // input - checked (checked 안 먹힘)
+    // const [inputState, setInputState] = useState<InputState>({
+    //     optionRadio: true,
+    //     optionSwitch: true,
+    // });
+
+    // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     const { name, type } = e.target;
+    //     setInputState((prevInputState) => ({
+    //         ...prevInputState,
+    //         [name]: type === 'checkbox' ? !prevInputState[name as keyof InputState] : e.target.checked,
+    //     }));
+    // };
+
+    // switch - toggle
+    const [required, setRequired] = useState(true);
+    const handleSwitchToggle = () => {
+        setRequired(!required);
+    };
+    console.log(required);
+
+    // template - remove
+    const handleRemoveTemplate = (index: number) => {
+        const updatedTemplate = [...template];
+        updatedTemplate.splice(index, 1);
+        setTemplate(updatedTemplate);
+    };
+
+    // save button - submit
     const handleSubmit = () => {
         if (state.title.length < 1) {
             if (titleInput.current) {
@@ -45,45 +94,29 @@ const RecordInterviewNew = () => {
         return setModal(true);
     };
 
-    const [isActiveTab, setIsActiveTab] = useState<number>(0);
-    const [isNavOpen, setIsNavOpen] = useState(true);
-    const toggleNav = () => {
-        setIsNavOpen(!isNavOpen);
-    };
-
-    const TabArr = [
-        { id: 0, value: '기본 문항' },
-        { id: 1, value: '전문 문항' },
-    ];
-
-    const handleTab = (idx: number) => {
-        setIsActiveTab(idx);
-    };
-
+    // template - create
     const [template, setTemplate] = useState<React.ReactNode[]>([]);
     const dataId = useRef<number>(0);
 
-    const onCreateTemplate = (type: any) => {
-        let newTemplate;
-        switch (type) {
-            case 'TEXT':
-                newTemplate = <TextTemplate key={dataId.current} />;
-                break;
-            case 'MEDIA':
-                newTemplate = <MediaTemplate key={dataId.current} />;
-                break;
-            case 'SELECT':
-                newTemplate = <SelectTemplate key={dataId.current} />;
-                break;
-            case 'PAIN_INTV':
-                newTemplate = <PainIntvTemplate key={dataId.current} />;
-                break;
-            default:
-                newTemplate = null;
-        }
+    const TemplateMapping: TemplateComponents = {
+        TEXT: TextTemplate,
+        MEDIA: MediaTemplate,
+        SELECT: SelectTemplate,
+        PAIN_INTV: PainIntvTemplate,
+    };
+
+    const onCreateTemplate = (type: string, required: boolean, handleSwitchToggle: () => void): React.ReactElement | undefined => {
+        const newTemplate = TemplateMapping[type];
         if (newTemplate) {
-            setTemplate([...template, newTemplate]);
+            const Template = React.createElement(newTemplate, {
+                key: dataId.current,
+                required,
+                handleSwitchToggle,
+                onCloseBtnClick: () => handleRemoveTemplate(dataId.current),
+            });
+            setTemplate([...template, Template]);
             dataId.current += 1;
+            return Template;
         }
     };
 
@@ -121,8 +154,8 @@ const RecordInterviewNew = () => {
                             </S.TemplateForm>
 
                             <ul>
-                                {template.map((item) => (
-                                    <li>{item}</li>
+                                {template.map((item, index: number) => (
+                                    <li key={index}>{React.cloneElement(item, { onCloseBtnClick: () => handleRemoveTemplate(index) })}</li>
                                 ))}
                             </ul>
                         </S.CreateTemplateSection>
@@ -140,7 +173,7 @@ const RecordInterviewNew = () => {
                                     <S.TabContent>
                                         <S.FixedMenuUl>
                                             {IntvProList.map((item: any) => (
-                                                <S.FixedMenuLi key={item.id} onClick={() => onCreateTemplate(item.type)}>
+                                                <S.FixedMenuLi key={item.id} onClick={() => onCreateTemplate(item.type, required, handleSwitchToggle)}>
                                                     <FixedMenu title={item.title} desc={item.desc} img={item.img} label={item.label} type={item.type} />
                                                 </S.FixedMenuLi>
                                             ))}
@@ -150,7 +183,7 @@ const RecordInterviewNew = () => {
                                     <S.TabContent>
                                         <S.FixedMenuUl>
                                             {FixedMenuCommonList.map((item: any) => (
-                                                <S.FixedMenuLi key={item.id} onClick={() => onCreateTemplate(item.type)}>
+                                                <S.FixedMenuLi key={item.id} onClick={() => onCreateTemplate(item.type, required, handleSwitchToggle)}>
                                                     <FixedMenu title={item.title} desc={item.desc} img={item.img} label={item.label} type={item.type} />
                                                 </S.FixedMenuLi>
                                             ))}

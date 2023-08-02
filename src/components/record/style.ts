@@ -531,6 +531,7 @@ export const SwitchLabel = styled.label`
 `;
 export const SwitchName = styled.span``;
 export const Switch = styled.input`
+    cursor: pointer;
     margin-left: 8px;
     & {
         appearance: none;

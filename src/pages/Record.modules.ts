@@ -48,14 +48,15 @@ export const ContentSection = styled.section`
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
-        width: 8px;
+        width: 10px;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: #ced9ff;
+        background-color: #6691ff;
         border-radius: 4px;
+        cursor: pointer;
     }
     &::-webkit-scrollbar-track {
-        background-color: #e8edff;
+        background-color: #ced9ff;
     }
 `;
 

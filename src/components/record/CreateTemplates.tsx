@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import * as S from './style';
 // img
 import infoTooltip from '../../assets/icon-template-info.svg';
@@ -9,8 +10,13 @@ import painIntvIcon from '../../assets/icon-category-pain_intv.svg';
 import painHstryIcon from '../../assets/icon-category-pain_hstry.svg';
 import ConditionIcon from '../../assets/icon-category-condition.svg';
 
+interface TemplateProps {
+    required: boolean;
+    handleSwitchToggle: () => void;
+    onCloseBtnClick: () => void;
+}
 // 기본문항(3) - 텍스트, 미디어, 선택형
-export const TextTemplate = () => {
+export const TextTemplate = ({ required, handleSwitchToggle, onCloseBtnClick }: TemplateProps) => {
     return (
         <S.TemplateWrapper>
             <S.TemplateHeader>
@@ -19,7 +25,7 @@ export const TextTemplate = () => {
                     <S.CategoryLabel>기본 문항</S.CategoryLabel>
                     <S.infoTooltip src={infoTooltip} />
                 </S.TemplateHeaderTitle>
-                <S.CloseBtn>
+                <S.CloseBtn onClick={onCloseBtnClick}>
                     <S.CloseImg src={closeIcon} />
                 </S.CloseBtn>
             </S.TemplateHeader>
@@ -37,7 +43,7 @@ export const TextTemplate = () => {
                 </S.OptionWrapper>
                 <S.SwitchLabel>
                     <S.SwitchName>필수</S.SwitchName>
-                    <S.Switch role='switch' type='checkbox'></S.Switch>
+                    <S.Switch checked={required} onChange={handleSwitchToggle} role='switch' type='checkbox' name='optionSwitch'></S.Switch>
                 </S.SwitchLabel>
             </S.TemplateOption>
 
@@ -66,7 +72,7 @@ export const TextTemplate = () => {
     );
 };
 
-export const MediaTemplate = () => {
+export const MediaTemplate = ({ required, handleSwitchToggle, onCloseBtnClick }: TemplateProps) => {
     return (
         <S.TemplateWrapper>
             <S.TemplateHeader>
@@ -75,7 +81,7 @@ export const MediaTemplate = () => {
                     <S.CategoryLabel>기본 문항</S.CategoryLabel>
                     <S.infoTooltip src={infoTooltip} />
                 </S.TemplateHeaderTitle>
-                <S.CloseBtn>
+                <S.CloseBtn onClick={onCloseBtnClick}>
                     <S.CloseImg src={closeIcon} />
                 </S.CloseBtn>
             </S.TemplateHeader>
@@ -84,7 +90,7 @@ export const MediaTemplate = () => {
                 <S.OptionWrapper></S.OptionWrapper>
                 <S.SwitchLabel>
                     <S.SwitchName>필수</S.SwitchName>
-                    <S.Switch role='switch' type='checkbox' disabled></S.Switch>
+                    <S.Switch checked={required} onChange={handleSwitchToggle} role='switch' type='checkbox'></S.Switch>
                 </S.SwitchLabel>
             </S.TemplateOption>
 
@@ -122,7 +128,7 @@ export const MediaTemplate = () => {
     );
 };
 
-export const SelectTemplate = () => {
+export const SelectTemplate = ({ required, handleSwitchToggle, onCloseBtnClick }: TemplateProps) => {
     return (
         <S.TemplateWrapper>
             <S.TemplateHeader>
@@ -131,7 +137,7 @@ export const SelectTemplate = () => {
                     <S.CategoryLabel>기본 문항</S.CategoryLabel>
                     <S.infoTooltip src={infoTooltip} />
                 </S.TemplateHeaderTitle>
-                <S.CloseBtn>
+                <S.CloseBtn onClick={onCloseBtnClick}>
                     <S.CloseImg src={closeIcon} />
                 </S.CloseBtn>
             </S.TemplateHeader>
@@ -140,7 +146,7 @@ export const SelectTemplate = () => {
                 <S.OptionWrapper></S.OptionWrapper>
                 <S.SwitchLabel>
                     <S.SwitchName>필수</S.SwitchName>
-                    <S.Switch role='switch' type='checkbox'></S.Switch>
+                    <S.Switch checked={required} onChange={handleSwitchToggle} role='switch' type='checkbox'></S.Switch>
                 </S.SwitchLabel>
             </S.TemplateOption>
 
@@ -180,7 +186,7 @@ export const SelectTemplate = () => {
 };
 
 // 전문 문항(3) - 통증문진(문진), 통증정도(처치), 오늘의컨디션(처치)
-export const PainIntvTemplate = () => {
+export const PainIntvTemplate = ({ required, handleSwitchToggle, onCloseBtnClick }: TemplateProps) => {
     return (
         <S.TemplateWrapper>
             <S.TemplateHeader>
@@ -189,7 +195,7 @@ export const PainIntvTemplate = () => {
                     <S.CategoryLabel className={'professional'}>전문 문항</S.CategoryLabel>
                     <S.infoTooltip src={infoTooltip} />
                 </S.TemplateHeaderTitle>
-                <S.CloseBtn>
+                <S.CloseBtn onClick={onCloseBtnClick}>
                     <S.CloseImg src={closeIcon} />
                 </S.CloseBtn>
             </S.TemplateHeader>
@@ -198,7 +204,7 @@ export const PainIntvTemplate = () => {
                 <S.OptionWrapper></S.OptionWrapper>
                 <S.SwitchLabel>
                     <S.SwitchName>필수</S.SwitchName>
-                    <S.Switch role='switch' type='checkbox'></S.Switch>
+                    <S.Switch checked={required} onChange={handleSwitchToggle} role='switch' type='checkbox'></S.Switch>
                 </S.SwitchLabel>
             </S.TemplateOption>
 
@@ -223,7 +229,7 @@ export const PainIntvTemplate = () => {
     );
 };
 
-export const PainHstryTemplate = () => {
+export const PainHstryTemplate = ({ required, handleSwitchToggle, onCloseBtnClick }: TemplateProps) => {
     return (
         <S.TemplateWrapper>
             <S.TemplateHeader>
@@ -232,7 +238,7 @@ export const PainHstryTemplate = () => {
                     <S.CategoryLabel className={'professional'}>전문 문항</S.CategoryLabel>
                     <S.infoTooltip src={infoTooltip} />
                 </S.TemplateHeaderTitle>
-                <S.CloseBtn>
+                <S.CloseBtn onClick={onCloseBtnClick}>
                     <S.CloseImg src={closeIcon} />
                 </S.CloseBtn>
             </S.TemplateHeader>
@@ -241,7 +247,7 @@ export const PainHstryTemplate = () => {
                 <S.OptionWrapper></S.OptionWrapper>
                 <S.SwitchLabel>
                     <S.SwitchName>필수</S.SwitchName>
-                    <S.Switch role='switch' type='checkbox'></S.Switch>
+                    <S.Switch checked={required} onChange={handleSwitchToggle} role='switch' type='checkbox'></S.Switch>
                 </S.SwitchLabel>
             </S.TemplateOption>
 
@@ -266,7 +272,7 @@ export const PainHstryTemplate = () => {
     );
 };
 
-export const ConditionTemplate = () => {
+export const ConditionTemplate = ({ required, handleSwitchToggle, onCloseBtnClick }: TemplateProps) => {
     return (
         <S.TemplateWrapper>
             <S.TemplateHeader>
@@ -275,7 +281,7 @@ export const ConditionTemplate = () => {
                     <S.CategoryLabel className={'professional'}>전문 문항</S.CategoryLabel>
                     <S.infoTooltip src={infoTooltip} />
                 </S.TemplateHeaderTitle>
-                <S.CloseBtn>
+                <S.CloseBtn onClick={onCloseBtnClick}>
                     <S.CloseImg src={closeIcon} />
                 </S.CloseBtn>
             </S.TemplateHeader>
@@ -284,7 +290,7 @@ export const ConditionTemplate = () => {
                 <S.OptionWrapper></S.OptionWrapper>
                 <S.SwitchLabel>
                     <S.SwitchName>필수</S.SwitchName>
-                    <S.Switch role='switch' type='checkbox'></S.Switch>
+                    <S.Switch checked={required} onChange={handleSwitchToggle} role='switch' type='checkbox'></S.Switch>
                 </S.SwitchLabel>
             </S.TemplateOption>
 
