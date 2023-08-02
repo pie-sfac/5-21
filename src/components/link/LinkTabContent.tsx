@@ -1,32 +1,38 @@
 import * as S from './style';
 import LinkItem from './LinkItem';
 import { LinkTabContentType } from '../../types/link/linkType';
-import { useLinkContextState } from '../../pages/LinkContxt';
+import { useLinkContextState, useLinkDispatch } from '../../pages/LinkContxt';
 import { useEffect } from 'react';
 import { getCategoryLinkApi } from '../../apis/LinkService';
 
 const LinkTabContent = (props: LinkTabContentType) => {
-  const state = useLinkContextState();
+  const { isActiveTab, links } = useLinkContextState();
+  const dispatch = useLinkDispatch();
+
+  const setIsCenterLinkModalOpen = (openStatus: boolean) => {
+    dispatch({ type: 'OPEN_CENTER_LINK_MODAL', payload: openStatus });
+  };
+
   const category = props.linkCategories.find((data) => {
-    return data.id === props.isActiveTab;
+    return data.id === isActiveTab;
   });
-  const categoryData = state.links.filter((data) => {
+  const categoryData = links.filter((data) => {
     // 전체보기
-    if (props.isActiveTab === -1) {
-      return state.links;
+    if (isActiveTab === -1) {
+      return links;
     }
-    return data.category.id === props.isActiveTab;
+    return data.category.id === isActiveTab;
   });
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const data = await getCategoryLinkApi(props.isActiveTab);
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getCategoryLinkApi(isActiveTab);
 
-  //     console.log(data);
-  //   };
+      console.log(data);
+    };
 
-  //   fetchData();
-  // }, [props.isActiveTab]);
+    fetchData();
+  }, [isActiveTab]);
 
   return (
     <>
@@ -36,7 +42,9 @@ const LinkTabContent = (props: LinkTabContentType) => {
             <S.TabContentTitle>
               {category ? category.title : '전체보기'}
             </S.TabContentTitle>
-            <S.CountLabel>{category ? category.totalCount : 0}</S.CountLabel>
+            <S.CountLabel>
+              {category ? category.totalCount : links.length}
+            </S.CountLabel>
           </S.TitleWrapper>
           <S.SortSelect>
             <S.SeleteOption>최신순</S.SeleteOption>
@@ -48,11 +56,7 @@ const LinkTabContent = (props: LinkTabContentType) => {
         </S.CategoryContent>
         <S.TabContentFooter>
           <S.FooterItemCount>
-            총{' '}
-            {props.isActiveTab == -1
-              ? state.links.length
-              : category?.totalCount}
-            개
+            총 {isActiveTab == -1 ? links.length : category?.totalCount}개
           </S.FooterItemCount>
           {/* <Pagination /> */}
         </S.TabContentFooter>

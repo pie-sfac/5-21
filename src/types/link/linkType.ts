@@ -18,6 +18,7 @@ export interface LinkTabContentType {
 }
 
 export interface addLinkDataType {
+  categoryId: number;
   url: string;
   title: string;
   description: string;

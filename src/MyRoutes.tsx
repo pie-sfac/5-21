@@ -5,6 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import Loading from './components/common/Loading';
+import { DeleteModal } from './components/link/modal/DleteModal';
 
 const Login = lazy(() => import('./pages/Login'));
 const LinkPage = lazy(() => import('./pages/Link'));
@@ -21,7 +22,7 @@ const MyRouter = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/media" element={<LinkPage />} />
-          <Route path="/employee" element={<div>직원 관리</div>} />
+          <Route path="/employee" element={<DeleteModal />} />
           <Route path="/ticket" element={<div>ticket</div>} />
           <Route path="/record" element={<Record />} />
           <Route path="/record/interview" element={<RecordInterviewNew />} />

@@ -1,22 +1,30 @@
-import { styled } from 'styled-components';
+import { keyframes, styled } from 'styled-components';
+
+const ModalFade = keyframes`
+    0% {
+    transform: translate(-50%, -45%);
+  }
+    100% {
+  }
+`;
 
 // =============  AddLinkModal============
-export const AddLinkWrapper = styled.div`
-  height: 540px;
-  width: 584px;
-  display: grid;
-  grid-template-rows: 48px 426px 64px;
-  background: #fff;
-  border-radius: 10px;
-  border: 1px solid #fff;
-  box-shadow: 0px 10px 30px 0px #e7e9f2;
-  transition: all ease-in-out 0.2s;
-  position: fixed;
-  top: 20%;
-  left: 40%;
+// export const AddLinkWrapper = styled.div`
+//   height: 540px;
+//   width: 584px;
+//   display: grid;
+//   grid-template-rows: 48px 426px 64px;
+//   background: #fff;
+//   border-radius: 10px;
+//   border: 1px solid #fff;
+//   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.4);
+//   transition: all ease-in-out 0.2s;
+//   position: fixed;
+//   top: 20%;
+//   left: 40%;
 
-  /* transform: translate(50%, 50%); */
-`;
+//   /* transform: translate(50%, 50%); */
+// `;
 //  AddLinkHeader
 export const AddLinkHeader = styled.section`
   width: 100%;
@@ -266,17 +274,22 @@ export const CompleteButton = styled.button`
 // =============  CenterLinkModal ============
 
 export const CenterLinkWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 110;
+  /* height: 540px; */
   width: 698px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.4);
   display: grid;
   grid-template-rows: 48px 426px 64px;
-  background: #fff;
-  border-radius: 10px;
-  border: 1px solid #fff;
-  box-shadow: 0px 10px 30px 0px #e7e9f2;
-  transition: all ease-in-out 0.2s;
-  position: fixed;
-  top: 20%;
-  left: 40%;
+
+  animation: ${ModalFade} 0.2s linear;
 `;
 // header
 export const CenterLinkHeader = styled.div`
@@ -426,3 +439,34 @@ export const EditButton = styled.button`
   font-weight: 500;
   line-height: 100%; /* 14px */
 `;
+
+export const ModalWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(40, 40, 40, 0.6);
+`;
+
+export const AddLinkWrapper = styled.form`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 110;
+  height: 540px;
+  width: 584px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.4);
+  display: grid;
+  grid-template-rows: 48px 426px 64px;
+
+  animation: ${ModalFade} 0.2s linear;
+`;
+
+// =============  DeleteModal ============

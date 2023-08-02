@@ -25,8 +25,9 @@ import addIcon from '../assets/icon-create-template.svg';
 import settingIcon from '../assets/icon-setting.svg';
 
 //Modal
-import AddLinkModal from '../components/modal/AddLinkModal';
-import CenterLinkModal from '../components/modal/CenterLinkModal';
+import AddLinkModal from '../components/link/modal/AddLinkModal';
+import CenterLinkModal from '../components/link/modal/CenterLinkModal';
+import { AddLinkCartegoryOption } from '../components/modal/style';
 
 const Link = () => {
   const { isActiveTab, isCenterLinkModalOpen } = useLinkContextState();
@@ -42,23 +43,27 @@ const Link = () => {
   // const [isCenterLinkModalOpen, setIsCenterLinkModalOpen] = useState(false);
 
   //addLink
+  const [AddLinkCartegory, setAddLinkCartegory] = useState<number>(-1);
   const [addLinkTitle, setAddLinkTitle] = useState<string>('');
   const [addLink, setAddLink] = useState<string>('');
   const [addLinkMemo, setAddLinkMemo] = useState<string>('');
 
   const openAddLinkModal = () => setIsAddLinkModalOpen(true);
   const closeAddLinkModal = () => setIsAddLinkModalOpen(false);
-  // const openCenterLinkModal = () => setIsCenterLinkModalOpen(true);
-  // const closeCenterLinkModal = () => setIsCenterLinkModalOpen(false);
 
-  const addLinkEvent = () => {
+  const addLinkEvent = async () => {
     const addLinkData: addLinkDataType = {
+      categoryId: AddLinkCartegory,
       url: addLink,
       title: addLinkTitle,
       description: addLinkMemo,
     };
-    addLinkApi(addLinkData);
+
+    await addLinkApi(addLinkData);
     closeAddLinkModal();
+    setAddLink('');
+    setAddLinkTitle('');
+    setAddLinkMemo('');
   };
 
   // const sortOption = [
@@ -147,6 +152,7 @@ const Link = () => {
           setAddLinkTitle={setAddLinkTitle}
           setAddLink={setAddLink}
           setAddLinkMemo={setAddLinkMemo}
+          setAddLinkCartegory={setAddLinkCartegory}
         />
       }
     </>
