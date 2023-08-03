@@ -287,8 +287,8 @@ export const CenterLinkWrapper = styled.div`
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.4);
-  display: grid;
-  grid-template-rows: 48px 426px 64px;
+  /* display: grid; */
+  /* grid-template-rows: 48px 426px 64px; */
 
   animation: ${ModalFade} 0.2s linear;
 `;
@@ -337,7 +337,7 @@ export const CenterLinkSection = styled.section`
   display: flex;
   flex-direction: column;
 `;
-export const LinkAnchor = styled.a`
+export const LinkIframe = styled.a`
   font-family: Noto Sans KR;
   font-size: 16px;
   font-style: normal;
@@ -452,21 +452,21 @@ export const ModalWrapper = styled.div`
   background: rgba(40, 40, 40, 0.6);
 `;
 
-export const AddLinkWrapper = styled.div`
+export const AddLinkWrapper = styled.form`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 110;
-  height: 540px;
-  width: 584px;
+  height: px;
+  /* width: 1000px; */
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.4);
-  display: grid;
-  grid-template-rows: 48px 426px 64px;
+  /* display: grid; */
+  /* grid-template-rows: 48px 800px 64px; */
 
   animation: ${ModalFade} 0.2s linear;
 `;

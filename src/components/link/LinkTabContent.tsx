@@ -1,37 +1,41 @@
 import * as S from './style';
 import LinkItem from './LinkItem';
-import { LinkTabContentType } from '../../types/link/linkType';
+import { LinkTabContentType, getLinkDataType } from '../../types/link/linkType';
 import { useLinkContextState } from '../../pages/LinkContext';
+import { useEffect, useState } from 'react';
 // import { useEffect } from 'react';
 
 const LinkTabContent = (props: LinkTabContentType) => {
   const { isActiveTab, links } = useLinkContextState();
 
+  // 선택한 카테고리 찾기
   const category = props.linkCategories.find((data) => {
     return data.id === isActiveTab;
   });
-  const categoryData = links.filter((data) => {
-    // 전체보기
-    if (isActiveTab === -1) {
-      return links;
-    }
-    return data.category.id === isActiveTab;
-  });
+  const [sortedData, setSortedData] = useState<getLinkDataType[] | null>(null);
 
-  // useEffect(() => {
-  //   try {
-  //     const fetchData = async () => {
-  //       const data = await getCategoryLinkApi(Number(isActiveTab))?.then(
-  //         (res) => res?.data
-  //       );
-  //       console.log(data);
-  //     };
-
-  //     fetchData();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [isActiveTab]);
+  useEffect(() => {
+    // 선택한 카테고리 데이터
+    const categoryData = links.filter((data) => {
+      // 전체보기
+      if (isActiveTab === -1) {
+        return links;
+      }
+      return data.category.id === isActiveTab;
+    });
+    setSortedData(categoryData);
+    //   try {
+    //     const fetchData = async () => {
+    //       const data = await getCategoryLinkApi(Number(isActiveTab))?.then(
+    //         (res) => res?.data
+    //       );
+    //       console.log(data);
+    //     };
+    //     fetchData();
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+  }, [isActiveTab]);
 
   return (
     <>
@@ -45,13 +49,44 @@ const LinkTabContent = (props: LinkTabContentType) => {
               {category ? category.totalCount : links.length}
             </S.CountLabel>
           </S.TitleWrapper>
-          <S.SortSelect>
-            <S.SeleteOption>최신순</S.SeleteOption>
-            <S.SeleteOption>오래된순</S.SeleteOption>
+          <S.SortSelect
+            onChange={(e) => {
+              const sortedLinks = sortedData;
+              if (e.target.value === 'ascending') {
+                sortedLinks?.sort((a, b) => {
+                  if (Date.parse(a.createdAt) < Date.parse(b.createdAt)) {
+                    return 1;
+                  } else if (
+                    Date.parse(a.createdAt) > Date.parse(b.createdAt)
+                  ) {
+                    return -1;
+                  } else {
+                    return 0;
+                  }
+                });
+              } else {
+                sortedLinks?.sort((a, b) => {
+                  if (Date.parse(a.createdAt) > Date.parse(b.createdAt)) {
+                    return 1;
+                  } else if (
+                    Date.parse(a.createdAt) < Date.parse(b.createdAt)
+                  ) {
+                    return -1;
+                  } else {
+                    return 0;
+                  }
+                });
+              }
+              setSortedData(sortedLinks);
+              console.log(sortedData);
+            }}
+          >
+            <S.SeleteOption value="ascending">최신순</S.SeleteOption>
+            <S.SeleteOption value="descending">오래된순</S.SeleteOption>
           </S.SortSelect>
         </S.TabContentHeader>
         <S.CategoryContent className={'grid'}>
-          <LinkItem categoryData={categoryData} />
+          <LinkItem sortedData={sortedData} />
         </S.CategoryContent>
         <S.TabContentFooter>
           <S.FooterItemCount>

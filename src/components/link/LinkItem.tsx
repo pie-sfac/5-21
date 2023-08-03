@@ -4,12 +4,17 @@ import PlayArrow from '../../assets/icon-play_arrow.svg';
 import { getLinkDataType } from '../../types/link/linkType';
 import { useLinkContextState, useLinkDispatch } from '../../pages/LinkContext';
 import { getLinkApi } from '../../apis/LinkService';
+import { useEffect } from 'react';
+import ReactPlayer from 'react-player';
 
 interface LinkItemType {
-  categoryData: getLinkDataType[];
+  // categoryData: getLinkDataType[];
+  sortedData: getLinkDataType[] | null;
 }
 
 const LinkItem = (props: LinkItemType) => {
+  useEffect(() => {}, []);
+
   const { isCenterLinkModalOpen } = useLinkContextState();
   const dispatch = useLinkDispatch();
 
@@ -27,14 +32,16 @@ const LinkItem = (props: LinkItemType) => {
 
   return (
     <>
-      {props.categoryData.map((data) => {
+      {props.sortedData?.map((data) => {
         return (
           <S.LinkItemWrapper key={data.id} onClick={() => openModal(data)}>
             <S.LinkItemImgContent>
-              <S.LinkImg src={RecordImg} alt="" />
-              <S.PlayBtnDiv>
+              <ReactPlayer url={data.url} width="100%" heigth="20%" />
+
+              {/* <S.LinkImg src={RecordImg} alt="" /> */}
+              {/* <S.PlayBtnDiv>
                 <S.PlayIcon src={PlayArrow} alt="playArrow" />
-              </S.PlayBtnDiv>
+              </S.PlayBtnDiv> */}
             </S.LinkItemImgContent>
             <S.LinkContentDiv>
               <S.LinkCartegoryH2>{data.category.title}</S.LinkCartegoryH2>

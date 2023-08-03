@@ -27,6 +27,7 @@ export const TabButton = styled.button`
 
 // ============= LinkItem =============
 export const LinkItemWrapper = styled.div`
+  overflow: hidden;
   width: 100%;
   height: 336px;
   cursor: pointer;
@@ -47,9 +48,14 @@ export const LinkItemWrapper = styled.div`
 `;
 
 export const LinkItemImgContent = styled.div`
-  height: 214px;
-  width: auto;
+  height: auto;
+  width: 100%;
   position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  & > div {
+    height: 100px;
+  }
 `;
 export const PlayBtnDiv = styled.div`
   display: flex;
@@ -77,7 +83,8 @@ export const LinklTitle = styled.h3`
   font-size: 18px;
 `;
 export const LinkContentDiv = styled.div`
-  height: 80px;
+  height: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   font-size: 16px;
@@ -86,6 +93,7 @@ export const LinkContentDiv = styled.div`
   padding-left: 20px;
   left: 0px;
   top: 190px;
+  background-color: #fff;
 `;
 
 export const LinkCartegoryH2 = styled.h2`

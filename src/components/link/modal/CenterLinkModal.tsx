@@ -1,5 +1,6 @@
 // @flow
 import React, { useEffect, useState } from 'react';
+import ReactPlayer from 'react-player';
 import * as S from './style';
 import closeIcon from '../../../assets/icon-close-btn.svg';
 import LinkImg from '../../../assets/img-link.png';
@@ -67,14 +68,15 @@ const CenterLinkModal = () => {
           {/* </S.CenterLinkTitleSection> */}
           <S.CenterLinkSection>
             <S.LinkModalH3>영상 링크</S.LinkModalH3>
-            <S.LinkAnchor href={linkData?.url}>{linkData?.url}</S.LinkAnchor>
-            <S.LinkBox>
+            <ReactPlayer url={linkData?.url} />
+            {/* <S.LinkIframe href={linkData?.url}>{linkData?.url}</S.LinkIframe> */}
+            {/* <S.LinkBox>
               <S.LinkImg src={LinkImg} alt="LinkImg" />
               <S.LinkExplainP>
                 링크 설명이 들어가는 자리입니다. 해당 내용은 관리자가 직접
                 작성합니다.
               </S.LinkExplainP>
-            </S.LinkBox>
+            </S.LinkBox> */}
           </S.CenterLinkSection>
           {/* <S.CenterMemoSection> */}
           <S.LinkModalH3>영상 메모</S.LinkModalH3>
